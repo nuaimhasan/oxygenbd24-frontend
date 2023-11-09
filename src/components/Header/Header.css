@@ -18,7 +18,8 @@
   position: relative;
 }
 
-.menu_wrap ul li a {
+.menu_wrap ul li a,
+.menu_wrap ul li button {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -28,7 +29,8 @@
   transition: all 0.2s ease;
 }
 
-.menu_wrap ul li a:hover {
+.menu_wrap ul li a:hover,
+.menu_wrap ul li button:hover {
   color: #045cac;
 }
 
@@ -78,7 +80,8 @@
     transform: translateX(0%);
   }
 
-  .menu_wrap ul li a {
+  .menu_wrap ul li a,
+  .menu_wrap ul li button {
     padding: 10px 15px;
   }
 

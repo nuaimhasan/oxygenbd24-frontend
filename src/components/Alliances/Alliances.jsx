@@ -37,35 +37,35 @@ export default function Alliances() {
         >
           <SwiperSlide>
             <img
-              src="/public/images/alliances/1.png"
+              src="/images/alliances/1.png"
               alt=""
               className="h-16 mx-auto"
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
-              src="/public/images/alliances/2.png"
+              src="/images/alliances/2.png"
               alt=""
               className="h-16 mx-auto"
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
-              src="/public/images/alliances/3.png"
+              src="/images/alliances/3.png"
               alt=""
               className="h-16 mx-auto"
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
-              src="/public/images/alliances/4.png"
+              src="/images/alliances/4.png"
               alt=""
               className="h-16 mx-auto"
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
-              src="/public/images/alliances/5.png"
+              src="/images/alliances/5.png"
               alt=""
               className="h-16 mx-auto"
             />

@@ -1,5 +1,5 @@
 import "./Header.css";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { MdArrowDropDown } from "react-icons/md";
 import { BiSearch } from "react-icons/bi";
 import { AiOutlineMenu } from "react-icons/ai";
@@ -22,10 +22,10 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="py-2 sticky top-0 bg-[#ffffffcc] backdrop-blur-[30px] z-50">
+    <header className="py-2 sticky top-0 bg-[#ffffffcc] backdrop-blur-[30px] z-50 shadow">
       <div className="container">
         <div className="header">
-          <Link to="">
+          <Link to="/">
             <img
               src="/images/logo/logo.png"
               alt="rahaimafroz solar logo"
@@ -43,55 +43,55 @@ export default function Header() {
 
             <ul className={`${mobileMenu && "show"}`}>
               <li>
-                <Link to="/solar-and-cleantech-solutions">
+                <NavLink to="/solar-and-cleantech-solutions">
                   Solar and Cleantech Solutions
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to="">DRE and Off Grid</Link>
+                <NavLink to="/dre-solutions">DRE and Off Grid</NavLink>
               </li>
               <li>
-                <Link to="">On Grid : Rooftop & ESS</Link>
+                <NavLink to="/rooftop-and-ess">On Grid : Rooftop & ESS</NavLink>
               </li>
               <li>
-                <Link
+                <button
                   className="incubator"
                   onClick={() => setIncubator(!incubator)}
                 >
                   Incubator Projects <MdArrowDropDown className="text-lg" />
-                </Link>
+                </button>
 
                 <ol className={`dropdown ${incubator && "dropdown_show"}`}>
                   <li>
-                    <Link to="">Uddom</Link>
+                    <NavLink to="/uddom">Uddom</NavLink>
                   </li>
                   <li>
-                    <Link to="">Emobility</Link>
+                    <NavLink to="/e-mobility">Emobility</NavLink>
                   </li>
                 </ol>
               </li>
               <li>
-                <Link className="more" onClick={() => setMoreMenu(!moreMenu)}>
+                <button className="more" onClick={() => setMoreMenu(!moreMenu)}>
                   More <MdArrowDropDown className="text-lg" />
-                </Link>
+                </button>
 
                 <ol className={`dropdown ${moreMenu && "dropdown_show"}`}>
                   <li>
-                    <Link to="">Factory</Link>
+                    <NavLink to="our-factory">Our Factory</NavLink>
                   </li>
                   <li>
-                    <Link to="">Contact Us</Link>
+                    <NavLink to="/contact-us">Contact Us</NavLink>
                   </li>
                   <li>
-                    <Link to="">About Us</Link>
+                    <NavLink to="/about-us">About Us</NavLink>
                   </li>
                 </ol>
               </li>
 
               <li>
-                <Link>
+                <button>
                   <BiSearch className="text-xl" />
-                </Link>
+                </button>
               </li>
             </ul>
 
