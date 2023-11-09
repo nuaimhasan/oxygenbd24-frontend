@@ -8,6 +8,7 @@ import {
 } from "react-icons/md";
 
 export default function Contact() {
+  window.scroll(0, 0);
   return (
     <section className="">
       <div>

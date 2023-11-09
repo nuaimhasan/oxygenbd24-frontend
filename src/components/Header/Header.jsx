@@ -18,6 +18,9 @@ export default function Header() {
       if (!e.target.closest(".incubator")) {
         setIncubator(false);
       }
+      if (e.target.closest(".menu_wrap ul li a")) {
+        setmobileMenu(false);
+      }
     });
   }, []);
 

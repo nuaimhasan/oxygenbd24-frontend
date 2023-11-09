@@ -1,4 +1,5 @@
 export default function Uddom() {
+  window.scroll(0, 0);
   return (
     <section>
       <div className="relative">
