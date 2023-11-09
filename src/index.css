@@ -23,7 +23,7 @@ h2 {
 
 @media only screen and (min-width: 1250px) {
   .container {
-    max-width: 1200px !important;
+    max-width: 1180px !important;
   }
 }
 
@@ -79,4 +79,11 @@ h2 {
 .overlay_show {
   opacity: 1;
   visibility: visible;
+}
+
+.alliances span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: #f4951e !important;
+}
+.alliances span.swiper-pagination-bullet {
+  background: #045cac;
 }

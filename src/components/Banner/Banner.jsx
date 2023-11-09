@@ -11,10 +11,10 @@ export default function Banner() {
       <Swiper
         loop={true}
         pagination={true}
-        // autoplay={{
-        //   delay: 5000,
-        //   disableOnInteraction: false,
-        // }}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
         modules={[Pagination, Autoplay]}
       >
         <SwiperSlide>
