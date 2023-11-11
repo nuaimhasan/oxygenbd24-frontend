@@ -25,13 +25,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/about-us" className="hover:underline">
+                <Link to="/contact-us" className="hover:underline">
                   Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/about-us" className="hover:underline">
-                  Privacy & Policy
                 </Link>
               </li>
             </ul>
@@ -77,21 +72,21 @@ export default function Footer() {
 
             <div className="flex gap-3 items-center">
               <Link
-                to=""
+                to="https://www.facebook.com/RahimafroozsolarRA"
                 target="_blank"
                 className="w-7 h-7 rounded-full bg-primary/50 flex justify-center items-center text-base-100 hover:-mt-1 duration-200"
               >
                 <BiLogoFacebook className="text-xl" />
               </Link>
               <Link
-                to=""
+                to="https://twitter.com/"
                 target="_blank"
                 className="w-7 h-7 rounded-full bg-primary/50 flex justify-center items-center text-base-100 hover:-mt-1 duration-200"
               >
                 <AiOutlineTwitter className="text-xl" />
               </Link>
               <Link
-                to=""
+                to="https://www.linkedin.com/company/rahimafrooz-renewable-energy-ltd-rrel/"
                 target="_blank"
                 className="w-7 h-7 rounded-full bg-primary/50 flex justify-center items-center text-base-100 hover:-mt-1 duration-200"
               >
