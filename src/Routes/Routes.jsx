@@ -8,6 +8,7 @@ import Emobility from "../pages/Emobility/Emobility";
 import DRESolutions from "../pages/DRESolutions/DRESolutions";
 import AboutUs from "../pages/AboutUs/AboutUs";
 import RooftopESS from "../pages/RooftopESS/RooftopESS";
+import SolarCleantechSolutions from "../pages/SolarCleantechSolutions/SolarCleantechSolutions";
 
 export const routes = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ export const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/solar-and-cleantech-solutions",
+        element: <SolarCleantechSolutions />,
       },
       {
         path: "/dre-solutions",

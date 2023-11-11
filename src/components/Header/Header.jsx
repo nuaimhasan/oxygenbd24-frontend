@@ -1,7 +1,7 @@
 import "./Header.css";
 import { NavLink, Link } from "react-router-dom";
 import { MdArrowDropDown } from "react-icons/md";
-import { BiSearch } from "react-icons/bi";
+// import { BiSearch } from "react-icons/bi";
 import { AiOutlineMenu } from "react-icons/ai";
 import { useEffect, useState } from "react";
 
@@ -91,11 +91,11 @@ export default function Header() {
                 </ol>
               </li>
 
-              <li>
+              {/* <li>
                 <button>
                   <BiSearch className="text-xl" />
                 </button>
-              </li>
+              </li> */}
             </ul>
 
             <button

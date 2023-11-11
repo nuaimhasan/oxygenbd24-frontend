@@ -5,7 +5,7 @@ import { Pagination, Autoplay } from "swiper/modules";
 
 export default function Team() {
   return (
-    <section className="py-10 bg-gray-50">
+    <section className="py-10 bg-gray-100">
       <div className="container">
         <h2 className="text-4xl text-center w-max mx-auto border-b-2 border-primary text-priamry pb-2 font-semibold text-neutral">
           Our Team
