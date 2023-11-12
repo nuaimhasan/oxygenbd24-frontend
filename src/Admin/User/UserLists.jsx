@@ -10,7 +10,7 @@ export default function UserLists() {
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: () =>
-      fetch(`${import.meta.env.VITE_BACKEND_URL}/user/allUsers`, {
+      fetch(`http://rahimafroz-server.nuaimhasan.xyz/user/allUsers`, {
         headers: {
           authorization: `bearer ${localStorage.getItem(
             "rahimafrox-solar-jwt"
@@ -22,7 +22,7 @@ export default function UserLists() {
   const handleDelete = (id) => {
     const confirm = window.confirm(`Are you sure delete this ${id}`);
     if (confirm) {
-      fetch(`${import.meta.env.VITE_BACKEND_URL}/user/delete/${id}`, {
+      fetch(`http://rahimafroz-server.nuaimhasan.xyz/user/delete/${id}`, {
         method: "DELETE",
         headers: {
           authorization: `bearer ${localStorage.getItem(

@@ -9,16 +9,16 @@ export default function AlliancesLists() {
   const { data: alliances = [], refetch } = useQuery({
     queryKey: ["alliances"],
     queryFn: () =>
-      fetch(`${import.meta.env.VITE_BACKEND_URL}/alliance/allAlliances`).then(
-        (res) => res.json()
-      ),
+      fetch(
+        `http://rahimafroz-server.nuaimhasan.xyz/alliance/allAlliances`
+      ).then((res) => res.json()),
   });
 
   const handleDelete = (id) => {
     const confirm = window.confirm(`Are you sure delete this ${id}`);
     if (confirm) {
       fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/alliance/deleteAlliance/${id}`,
+        `http://rahimafroz-server.nuaimhasan.xyz/alliance/deleteAlliance/${id}`,
         {
           method: "DELETE",
           headers: {

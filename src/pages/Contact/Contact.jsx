@@ -31,7 +31,7 @@ export default function Contact() {
                   Phone
                 </h2>
                 <div className="mt-3 text-neutral-content">
-                  <p>+880-2-41080223, +880-2-41080224, +880-2-41080225</p>
+                  <p>+88-02-58314326-29, +8801766673800, +8801971112223</p>
                 </div>
               </div>
 
@@ -45,8 +45,7 @@ export default function Contact() {
                 </h2>
                 <div className="mt-3 text-neutral-content">
                   <p>
-                    13 Bir Uttam AK Khandakar Road Mohakhali C/A, ARZED Chamber
-                    (4th floor) Dhaka-1212
+                    80/4 Kakrail Vip Road Ground Floor Dhaka 1000 Bangladesh.
                   </p>
                 </div>
               </div>
@@ -58,7 +57,7 @@ export default function Contact() {
 
                 <h2 className="text-xl font-semibold mt-4 text-neutral">Fax</h2>
                 <div className="mt-3 text-neutral-content">
-                  <p>+880-2-41080226</p>
+                  <p>+88-02-58314330</p>
                 </div>
               </div>
 
@@ -71,7 +70,7 @@ export default function Contact() {
                   Email
                 </h2>
                 <div className="mt-3 text-neutral-content">
-                  <p>solar@rahimafrooz.com</p>
+                  <p>info@skrp.com.bd</p>
                 </div>
               </div>
             </div>
@@ -81,9 +80,10 @@ export default function Contact() {
 
       <div className="mt-10">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12280.516880558542!2d90.40123164460823!3d23.78231948775977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c76ddb9c81ef%3A0x1d5275b0e51dc479!2sRahimafrooz%20Solar!5e0!3m2!1sen!2sus!4v1699536178942!5m2!1sen!2sus"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.281912091146!2d90.40488907487178!3d23.737324389279056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8f361109429%3A0xb184f50614bc5943!2sSKRP%20GROUP!5e0!3m2!1sen!2sbd!4v1699758760482!5m2!1sen!2sbd"
           width="100%"
           height="450"
+          allowfullscreen=""
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>

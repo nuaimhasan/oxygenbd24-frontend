@@ -1,20 +1,20 @@
-import Alliances from "../../components/Alliances/Alliances";
+import About from "../../components/About/About";
 import Banner from "../../components/Banner/Banner";
+import Clients from "../../components/Clients/Clients";
 import Impact from "../../components/Impact/Impact";
-import Milestone from "../../components/Milestone/Milestone";
-import Slogan from "../../components/Slogan/Slogan";
 import Team from "../../components/Team/Team";
+import WhySKRP from "../../components/WhySKRP/WhySKRP";
 
 export default function Home() {
   window.scroll(0, 0);
   return (
     <>
       <Banner />
-      <Slogan />
-      <Milestone />
+      <About />
       <Impact />
+      <WhySKRP />
       <Team />
-      <Alliances />
+      <Clients />
     </>
   );
 }

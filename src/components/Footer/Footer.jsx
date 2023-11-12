@@ -10,11 +10,7 @@ export default function Footer() {
       <div className="container">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 pb-14">
           <div>
-            <img
-              src="/images/logo/footer-logo.png"
-              alt=""
-              className="w-52 opacity-90"
-            />
+            <img src="/images/logo/logo.png" alt="" className="w-60" />
           </div>
           <div>
             <h2 className="text-gray-300 text-xl font-medium">Quick Link</h2>
@@ -37,7 +33,7 @@ export default function Footer() {
               <li>
                 <Link to="" className="hover:underline flex items-center gap-1">
                   <BsTelephone />
-                  +880-2-41080223
+                  +88-02-58314326-29
                 </Link>
               </li>
               <li>
@@ -46,7 +42,7 @@ export default function Footer() {
                   className="hover:underline flex items-center gap-1"
                 >
                   <MdOutlineMail />
-                  solar@rahimafrooz.com
+                  info@skrp.com.bd
                 </Link>
               </li>
               <li>
@@ -55,8 +51,7 @@ export default function Footer() {
                     <MdOutlineLocationOn />
                   </p>
                   <p>
-                    13 Bir Uttam AK Khandakar Road Mohakhali C/A, ARZED Chamber
-                    (4th floor) Dhaka-1212
+                    80/4 Kakrail Vip Road Ground Floor Dhaka 1000 Bangladesh.
                   </p>
                 </div>
               </li>
@@ -72,7 +67,7 @@ export default function Footer() {
 
             <div className="flex gap-3 items-center">
               <Link
-                to="https://www.facebook.com/RahimafroozsolarRA"
+                to=""
                 target="_blank"
                 className="w-7 h-7 rounded-full bg-primary/50 flex justify-center items-center text-base-100 hover:-mt-1 duration-200"
               >
@@ -86,7 +81,7 @@ export default function Footer() {
                 <AiOutlineTwitter className="text-xl" />
               </Link>
               <Link
-                to="https://www.linkedin.com/company/rahimafrooz-renewable-energy-ltd-rrel/"
+                to=""
                 target="_blank"
                 className="w-7 h-7 rounded-full bg-primary/50 flex justify-center items-center text-base-100 hover:-mt-1 duration-200"
               >

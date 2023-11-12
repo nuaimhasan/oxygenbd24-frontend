@@ -2,14 +2,11 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout";
 import Home from "../pages/Home/Home";
 import Contact from "../pages/Contact/Contact";
-import Factory from "../pages/Factory/Factory";
-import Uddom from "../pages/Uddom/Uddom";
-import Emobility from "../pages/Emobility/Emobility";
-import DRESolutions from "../pages/DRESolutions/DRESolutions";
 import AboutUs from "../pages/AboutUs/AboutUs";
-import RooftopESS from "../pages/RooftopESS/RooftopESS";
-import SolarCleantechSolutions from "../pages/SolarCleantechSolutions/SolarCleantechSolutions";
+import SolarSolutions from "../pages/SolarSolutions/SolarSolutions";
 import Login from "../pages/Login/Login";
+import OffGridSolutions from "../pages/OffGridSolutions/OffGridSolutions";
+import OnGridSolutions from "../pages/OnGridSolutions/OnGridSolutions";
 
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import DashboardLayout from "../Layout/DashboardLAyout";
@@ -19,6 +16,8 @@ import EditUser from "../Admin/User/EditUser";
 import TeamLists from "../Admin/Team/TeamLists";
 import EditTeam from "../Admin/Team/EditTeam";
 import AlliancesLists from "../Admin/Alliances/AlliancesLists";
+import BannerLists from "../Admin/Banner/BannerLists";
+import EditBanner from "../Admin/Banner/EditBanner";
 
 export const routes = createBrowserRouter([
   {
@@ -30,16 +29,16 @@ export const routes = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/solar-and-cleantech-solutions",
-        element: <SolarCleantechSolutions />,
+        path: "/solar-solutions",
+        element: <SolarSolutions />,
       },
       {
-        path: "/dre-solutions",
-        element: <DRESolutions />,
+        path: "/off-grid-solutions",
+        element: <OffGridSolutions />,
       },
       {
-        path: "/rooftop-and-ess",
-        element: <RooftopESS />,
+        path: "/on-grid-solutions",
+        element: <OnGridSolutions />,
       },
       {
         path: "/contact-us",
@@ -48,18 +47,6 @@ export const routes = createBrowserRouter([
       {
         path: "/about-us",
         element: <AboutUs />,
-      },
-      {
-        path: "/our-factory",
-        element: <Factory />,
-      },
-      {
-        path: "/uddom",
-        element: <Uddom />,
-      },
-      {
-        path: "/e-mobility",
-        element: <Emobility />,
       },
     ],
   },
@@ -98,6 +85,14 @@ export const routes = createBrowserRouter([
       {
         path: "/admin/alliances/alliances-lists",
         element: <AlliancesLists />,
+      },
+      {
+        path: "/admin/banner/banner-lists",
+        element: <BannerLists />,
+      },
+      {
+        path: "/admin/banner/edit-banner/:id",
+        element: <EditBanner />,
       },
     ],
   },

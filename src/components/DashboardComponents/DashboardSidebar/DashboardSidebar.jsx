@@ -36,11 +36,13 @@ export default function DashboardSidebar() {
                 Alliances
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/admin/banner/banner-lists">
+                <FiUsers className="text-lg" />
+                Banners
+              </NavLink>
+            </li>
           </ul>
-        </div>
-
-        <div className="mt-2">
-          <ul></ul>
         </div>
       </nav>
     </div>

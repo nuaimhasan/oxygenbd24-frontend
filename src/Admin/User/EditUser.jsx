@@ -11,7 +11,7 @@ export default function EditUser() {
   const { data: user = {}, refetch } = useQuery({
     queryKey: ["user"],
     queryFn: () =>
-      fetch(`${import.meta.env.VITE_BACKEND_URL}/user/${id}`, {
+      fetch(`http://rahimafroz-server.nuaimhasan.xyz/user/${id}`, {
         headers: {
           authorization: `bearer ${localStorage.getItem(
             "rahimafrox-solar-jwt"
@@ -40,7 +40,7 @@ export default function EditUser() {
 
     setLoading(true);
 
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/user/update/${id}`, {
+    fetch(`http://rahimafroz-server.nuaimhasan.xyz/user/update/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

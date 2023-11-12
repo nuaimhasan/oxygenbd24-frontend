@@ -23,7 +23,7 @@ export default function AddUserModal({ addModal, setAddModal }) {
 
     setLoading(true);
 
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/user/register`, {
+    fetch(`http://rahimafroz-server.nuaimhasan.xyz/user/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,6 +42,7 @@ export default function AddUserModal({ addModal, setAddModal }) {
             showConfirmButton: false,
             timer: 1000,
           });
+          setAddModal(false);
           setTimeout(() => {
             location.reload();
           }, 1000);

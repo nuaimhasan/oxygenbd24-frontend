@@ -20,7 +20,7 @@ export default function AddAlliance({ addModal, setAddModal }) {
 
     setLoading(true);
 
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/alliance/addAlliance`, {
+    fetch(`http://rahimafroz-server.nuaimhasan.xyz/alliance/addAlliance`, {
       method: "POST",
       headers: {
         authorization: `bearer ${localStorage.getItem("rahimafrox-solar-jwt")}`,
@@ -38,6 +38,7 @@ export default function AddAlliance({ addModal, setAddModal }) {
             showConfirmButton: false,
             timer: 1000,
           });
+          setAddModal(false);
           setTimeout(() => {
             location.reload();
           }, 1000);

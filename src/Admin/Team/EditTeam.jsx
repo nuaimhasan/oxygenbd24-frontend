@@ -14,7 +14,7 @@ export default function EditTeam() {
   const { data: team = {}, refetch } = useQuery({
     queryKey: ["team"],
     queryFn: () =>
-      fetch(`${import.meta.env.VITE_BACKEND_URL}/team/${id}`, {
+      fetch(`http://rahimafroz-server.nuaimhasan.xyz/team/${id}`, {
         headers: {
           authorization: `bearer ${localStorage.getItem(
             "rahimafrox-solar-jwt"
@@ -40,13 +40,18 @@ export default function EditTeam() {
 
     setLoading(true);
 
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/team/updateTeamMember/${id}`, {
-      method: "PUT",
-      headers: {
-        authorization: `bearer ${localStorage.getItem("rahimafrox-solar-jwt")}`,
-      },
-      body: formData,
-    })
+    fetch(
+      `http://rahimafroz-server.nuaimhasan.xyz/team/updateTeamMember/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          authorization: `bearer ${localStorage.getItem(
+            "rahimafrox-solar-jwt"
+          )}`,
+        },
+        body: formData,
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data?.success) {
@@ -99,9 +104,7 @@ export default function EditTeam() {
 
                 {images?.length <= 0 && team?.data?.image && (
                   <img
-                    src={`${import.meta.env.VITE_BACKEND_URL}/images/teams/${
-                      team?.data?.image
-                    }`}
+                    src={`http://rahimafroz-server.nuaimhasan.xyz/images/teams/${team?.data?.image}`}
                     alt=""
                     className="w-32 mt-4"
                   />

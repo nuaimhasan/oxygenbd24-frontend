@@ -12,7 +12,7 @@ const ContextProvider = ({ children }) => {
   const login = (loginInfo) => {
     setLoading(true);
 
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/user/login`, {
+    fetch(`http://rahimafroz-server.nuaimhasan.xyz/user/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +47,7 @@ const ContextProvider = ({ children }) => {
 
   // Get Logged user
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/user/me`, {
+    fetch(`http://rahimafroz-server.nuaimhasan.xyz/user/me`, {
       headers: {
         authorization: `bearer ${localStorage.getItem("rahimafrox-solar-jwt")}`,
       },
