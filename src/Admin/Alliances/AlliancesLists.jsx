@@ -9,22 +9,20 @@ export default function AlliancesLists() {
   const { data: alliances = [], refetch } = useQuery({
     queryKey: ["alliances"],
     queryFn: () =>
-      fetch(
-        `http://rahimafroz-server.nuaimhasan.xyz/alliance/allAlliances`
-      ).then((res) => res.json()),
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/alliance/allAlliances`).then(
+        (res) => res.json()
+      ),
   });
 
   const handleDelete = (id) => {
     const confirm = window.confirm(`Are you sure delete this ${id}`);
     if (confirm) {
       fetch(
-        `http://rahimafroz-server.nuaimhasan.xyz/alliance/deleteAlliance/${id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/alliance/deleteAlliance/${id}`,
         {
           method: "DELETE",
           headers: {
-            authorization: `bearer ${localStorage.getItem(
-              "rahimafrox-solar-jwt"
-            )}`,
+            authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
           },
         }
       )

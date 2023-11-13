@@ -18,6 +18,7 @@ import EditTeam from "../Admin/Team/EditTeam";
 import AlliancesLists from "../Admin/Alliances/AlliancesLists";
 import BannerLists from "../Admin/Banner/BannerLists";
 import EditBanner from "../Admin/Banner/EditBanner";
+import ProductLists from "../Admin/Products/ProductLists";
 
 export const routes = createBrowserRouter([
   {
@@ -93,6 +94,10 @@ export const routes = createBrowserRouter([
       {
         path: "/admin/banner/edit-banner/:id",
         element: <EditBanner />,
+      },
+      {
+        path: "/admin/product/product-lists",
+        element: <ProductLists />,
       },
     ],
   },

@@ -2,13 +2,20 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
+import Spinner from "../Spinner/Spinner";
+import { useGetClientsQuery } from "../../Redux/clients/clientsApi";
 
 export default function Clients() {
+  const { data, isLoading } = useGetClientsQuery();
+  if (isLoading) {
+    return <Spinner />;
+  }
+
   return (
     <section className="py-10">
       <div className="container">
         <h2 className="text-3xl text-center w-max mx-auto border-b-2 border-primary text-priamry pb-2 font-semibold text-neutral">
-          Claients
+          Clients
         </h2>
 
         <Swiper
@@ -35,9 +42,17 @@ export default function Clients() {
           }}
           className="py-10 alliances"
         >
-          <SwiperSlide>
-            <img src="" alt="" className="h-16 mx-auto" />
-          </SwiperSlide>
+          {data?.data?.map((client) => (
+            <SwiperSlide key={client?.uuid}>
+              <img
+                src={`${import.meta.env.VITE_BACKEND_URL}/images/alliances/${
+                  client.image
+                }`}
+                alt=""
+                className="h-16 mx-auto"
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </section>

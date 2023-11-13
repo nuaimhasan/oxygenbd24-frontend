@@ -6,75 +6,74 @@ export default function AboutUs() {
         <div>
           <div className="w-max border-b-2 border-primary">
             <h2 className="text-3xl font-semibold text-neutral">
-              Rahimafroz solar
+              About SKRP Renewable Energy Ltd.
             </h2>
           </div>
 
           <div className="mt-4 text-neutral-content text-[15px]">
             <p>
-              Rahimafrooz Renewable Energy Ltd. (RREL), is one of the foremost
-              and pioneering solar companies, with more than 25 years of
-              experience of Solarizing Bangladesh.
+              SKRP Renewable Energy Ltd is a pioneering solar energy company
+              based in Bangladesh, committed to revolutionizing the
+              nation&apos;s energy landscape through sustainable and
+              eco-friendly solutions. With a vision to harness the immense
+              potential of solar power, we have emerged as a leading player in
+              the renewable energy sector, driving a cleaner and greener future
+              for Bangladesh.
             </p>
             <p>
-              As a company we specialize as a systems integrator & installer of
-              solar solutions, manufacturer of key solar components, and
-              one-stop service provider for carbon project development.
+              Established in 2013, our journey began with a profound commitment
+              to address the energy challenges faced by our nation. Bangladesh,
+              with its rapidly growing population and expanding economy,
+              requires a reliable and sustainable source of energy. This is
+              where SKRP Renewable Energy Ltd steps in, dedicated to harnessing
+              the power of the sun to meet our energy needs.
             </p>
             <p>
-              At RREL, we have established our own fully automated PV module
-              manufacturing plant with a capacity of 18MW, which not only caters
-              to captive requirements, but also supplies to other similar
-              organizations and exports abroad.
+              At SKRP Renewable Energy Ltd, we are powered by innovation and a
+              deep sense of responsibility towards the environment. Our team of
+              experts comprises passionate professionals who bring together
+              diverse skills and experience in solar technology, engineering,
+              and project management. This expertise enables us to deliver
+              cutting-edge solar solutions tailored to the unique requirements
+              of our clients.
             </p>
             <p>
-              As of date RREL has so far installed more than 25MWp of solar
-              system in forms of Solar Home System (SHS), solar pumping
-              solutions, telecom solutions, and on-grid roof-top solutions and
-              decentralized solar community electrification projects etc.
+              We specialize in the design, installation, and maintenance of
+              solar power systems for residential, commercial, and industrial
+              applications. Our portfolio includes a wide range of solar
+              products, such as solar panels, inverters, and battery storage
+              solutions, all of which are known for their quality, durability,
+              and efficiency. We take pride in providing our clients with
+              cost-effective and sustainable energy solutions that reduce their
+              carbon footprint and energy costs.
             </p>
-            <div>
-              <p>Key areas of our companyâ€™s operation are:</p>
-              <ul className="list-inside list-disc">
-                <li>Solar Home System (SHS)</li>
-                <li>Rooftop Solar Power System</li>
-                <li>Solar Telecom Solutions</li>
-                <li>Solar Powered Pumps</li>
-                <li>EPC and Projects</li>
-              </ul>
-            </div>
-            <div>
-              <p>Major works done by RREL:</p>
-              <ul className="list-inside list-disc">
-                <li>
-                  Installation of more than 0.4million Solar Home Systems in
-                  different rural off-grid areas of Bangladesh under IDCOL
-                  managed worldâ€™s largest micro financing based SHS program.
-                </li>
-                <li>
-                  Installation of more than 120 solar irrigation pumps, so far
-                  the maximum in the country.
-                </li>
-                <li>
-                  Installation of the largest on-grid power project of 50.4KWp
-                  at Independent University, Dhaka.
-                </li>
-                <li>
-                  Rooftop projects at key government installations like
-                  Bangladesh bank, Rural Electrification Board (REB), WAPDA,
-                  BPDB amongst others.
-                </li>
-                <li>
-                  Working with international agencies like UNDP, UNHCR and
-                  others to provide solar solutions and systems.
-                </li>
-                <li>
-                  Providing street-light in refugee camps in Africa to ensure
-                  movability and security. For further queries, do drop an
-                  e-mail at solar@rahimafrooz.com
-                </li>
-              </ul>
-            </div>
+            <p>
+              One of our key strengths is our commitment to quality and customer
+              satisfaction. We adhere to the highest industry standards in every
+              aspect of our operations, from product selection to installation
+              and ongoing support. Our projects are a testament to our
+              dedication, as we have successfully completed numerous
+              installations across Bangladesh, empowering businesses and
+              households to embrace clean and renewable energy sources
+            </p>
+            <p>
+              As a socially responsible organization, SKRP Renewable Energy Ltd
+              is also actively involved in community development and
+              environmental initiatives. We believe in giving back to society
+              and are engaged in various programs aimed at creating awareness
+              about the benefits of renewable energy and promoting sustainable
+              practices.
+            </p>
+            <p>
+              In conclusion, SKRP Renewable Energy Ltd is more than just a solar
+              energy company; we are a catalyst for change in Bangladesh&apos;s
+              energy sector. With our unwavering commitment to innovation,
+              quality, and sustainability, we are driving the transition towards
+              a brighter, cleaner, and more energy-efficient future for our
+              nation. Join us in our mission to make Bangladesh a leader in
+              renewable energy adoption, one solar panel at a time. Together, we
+              can create a greener and more prosperous tomorrow.
+            </p>
           </div>
         </div>
       </div>

@@ -31,7 +31,7 @@ export default function Contact() {
                   Phone
                 </h2>
                 <div className="mt-3 text-neutral-content">
-                  <p>+88-02-58314326-29, +8801766673800, +8801971112223</p>
+                  <p>01701-290000, +8801766673800, +8801971112223</p>
                 </div>
               </div>
 
@@ -45,7 +45,8 @@ export default function Contact() {
                 </h2>
                 <div className="mt-3 text-neutral-content">
                   <p>
-                    80/4 Kakrail Vip Road Ground Floor Dhaka 1000 Bangladesh.
+                    80, Rupayan Karim Tower, <br /> Kakrail, Dhaka-1000, Dhaka,
+                    Bangladesh
                   </p>
                 </div>
               </div>
@@ -70,7 +71,7 @@ export default function Contact() {
                   Email
                 </h2>
                 <div className="mt-3 text-neutral-content">
-                  <p>info@skrp.com.bd</p>
+                  <p>info@skrpsolar.com</p>
                 </div>
               </div>
             </div>

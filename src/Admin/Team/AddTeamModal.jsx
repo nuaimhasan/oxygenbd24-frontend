@@ -25,10 +25,10 @@ export default function AddTeamModal({ addModal, setAddModal }) {
 
     setLoading(true);
 
-    fetch(`http://rahimafroz-server.nuaimhasan.xyz/team/addTeamMember`, {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/team/addTeamMember`, {
       method: "POST",
       headers: {
-        authorization: `bearer ${localStorage.getItem("rahimafrox-solar-jwt")}`,
+        authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
       },
       body: formData,
     })

@@ -1,17 +1,17 @@
 import { Navigate, useLocation } from "react-router-dom";
 import Spinner from "../components/Spinner/Spinner";
-import { UseContext } from "../ContextAPI/ContextAPI";
+import { useSelector } from "react-redux";
 
 const PrivateRoute = ({ children }) => {
-  const { loggedUser } = UseContext();
+  const { loggedUser } = useSelector((store) => store.user);
   const location = useLocation();
-  const token = localStorage.getItem("rahimafrox-solar-jwt");
+  const token = localStorage.getItem("skrp_jwt");
 
-  if (!loggedUser?.uuid && !token) {
+  if (!loggedUser?.success && !token) {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
-  if (loggedUser?.uuid && token) {
+  if (loggedUser?.success && token) {
     return children;
   }
 

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { BiLogoFacebook, BiLogoLinkedin } from "react-icons/bi";
-import { AiOutlineTwitter } from "react-icons/ai";
 import { BsTelephone } from "react-icons/bs";
 import { MdOutlineMail, MdOutlineLocationOn } from "react-icons/md";
 
@@ -31,19 +30,16 @@ export default function Footer() {
             <h2 className="text-gray-300 text-xl font-medium">Contact</h2>
             <ul className="text-gray-400 font-light pl-2 mt-2 flex flex-col gap-1.5 text-[15px]">
               <li>
-                <Link to="" className="hover:underline flex items-center gap-1">
+                <p className="flex items-center gap-1.5">
                   <BsTelephone />
-                  +88-02-58314326-29
-                </Link>
+                  01701-290000
+                </p>
               </li>
               <li>
-                <Link
-                  to="/about-us"
-                  className="hover:underline flex items-center gap-1"
-                >
+                <p className="flex items-center gap-1.5">
                   <MdOutlineMail />
-                  info@skrp.com.bd
-                </Link>
+                  info@skrpsolar.com
+                </p>
               </li>
               <li>
                 <div className="flex gap-1">
@@ -51,7 +47,8 @@ export default function Footer() {
                     <MdOutlineLocationOn />
                   </p>
                   <p>
-                    80/4 Kakrail Vip Road Ground Floor Dhaka 1000 Bangladesh.
+                    80, Rupayan Karim Tower, Kakrail, Dhaka-1000, Dhaka,
+                    Bangladesh
                   </p>
                 </div>
               </li>
@@ -62,23 +59,23 @@ export default function Footer() {
         <div className="border-t pt-5">
           <div className="flex justify-between items-center">
             <p className="text-gray-400 text-sm font-light">
-              Copyright © 2020 Rahimafrooz. All rights reserved.
+              Copyright © 2020 SKRP. All rights reserved. Powered by{" "}
+              <Link
+                to="https://emanagerbd.xyz/"
+                target="_blank"
+                className="underline"
+              >
+                eManager
+              </Link>
             </p>
 
             <div className="flex gap-3 items-center">
               <Link
-                to=""
+                to="https://www.facebook.com/skrprenewableenergy?mibextid=ZbWKwL"
                 target="_blank"
                 className="w-7 h-7 rounded-full bg-primary/50 flex justify-center items-center text-base-100 hover:-mt-1 duration-200"
               >
                 <BiLogoFacebook className="text-xl" />
-              </Link>
-              <Link
-                to="https://twitter.com/"
-                target="_blank"
-                className="w-7 h-7 rounded-full bg-primary/50 flex justify-center items-center text-base-100 hover:-mt-1 duration-200"
-              >
-                <AiOutlineTwitter className="text-xl" />
               </Link>
               <Link
                 to=""

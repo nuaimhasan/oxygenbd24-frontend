@@ -1,125 +1,127 @@
-import { Link } from "react-router-dom";
-
 export default function OnGridSolutions() {
   window.scroll(0, 0);
   return (
     <section className="py-10">
       <div className="container">
-        <div className="text-center">
-          <h2 className="text-3xl text-neutral font-semibold">
-            Rooftop and ESS
-          </h2>
-          <p className="mt-3 text-[15px] sm:w-2/3 mx-auto text-neutral-content">
-            Energy is harnessed via isolated devices and systems for power
-            generation at the household level as well as for heating, cooking
-            and productive uses. Rahimafrooz Solar has designed and implemented
-            many such applications in rural Bangladesh till date.
-          </p>
+        <div>
+          <div>
+            <h2 className="text-center text-2xl sm:text-3xl text-neutral font-semibold">
+              Electricity cost from rooftop system is at least 40% less than
+              grid electricity
+            </h2>
+          </div>
+
+          <div className="md:w-2/3 mx-auto mt-10 flex flex-col gap-6 text-[15px] sm:text-base">
+            <div className="flex gap-6 items-center">
+              <img
+                src="/images/why-skrp/One-stop-solutions.png"
+                alt=""
+                className="w-14 h-14 rounded-full"
+              />
+              <p className="text-neutral-content">
+                One stop solutions with strong capabilities across the chain;
+                with precision in Designing, Engineering, Construction, O&M and
+                Financing
+              </p>
+            </div>
+            <div className="flex gap-6 items-center">
+              <img
+                src="/images/why-skrp/Project-Execution.png"
+                alt=""
+                className="w-14 h-14 rounded-full"
+              />
+              <p className="text-neutral-content">
+                Project Execution Certainty with seamless experience with
+                quality and expertise in design, construction, timeliness and
+                costs
+              </p>
+            </div>
+            <div className="flex gap-6 items-center">
+              <img
+                src="/images/why-skrp/Focused-OnM.png"
+                alt=""
+                className="w-14 h-14 rounded-full"
+              />
+              <p className="text-neutral-content">
+                Focused O&M by the most dedicated maintenance and operations
+                team to ensure maximum generation and plant up on time
+              </p>
+            </div>
+            <div className="flex gap-6 items-center">
+              <img
+                src="/images/why-skrp/Broad-portfolio.png"
+                alt=""
+                className="w-14 h-14 rounded-full"
+              />
+              <p className="text-neutral-content">
+                Broad portfolio with the best products and solutions from
+                globally renowned brands with more choice and better fit for
+                your needs
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div className="mt-10 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          <div className="shadow rounded bg-base-100">
-            <img
-              src="/images/solar-solutions/tv.jpg"
-              alt=""
-              className="rounded-t h-40 w-full"
-            />
-            <div className="px-4 py-2">
-              <h2 className="text-neutral font-semibold text-xl">
-                Powerview TV
+        <div className="pt-16 pb-10">
+          <div className="shadow p-4 grid md:grid-cols-3 gap-6">
+            <div>
+              <img
+                src="/images/rooftop3-300x197.png"
+                alt=""
+                className="w-full h-full rounded"
+              />
+            </div>
+            <div className="md:col-span-2">
+              <h2 className="text-lg font-semibold text-neutral">
+                Why Rooftop Solar?
               </h2>
-              <p className="text-neutral-content text-sm mt-1">
-                For rural Bangladesh, Solar Home Systems (or more popularly
-                known as SHS) is the most convenient way for households and
-                small enterprise owners to have access...
-              </p>
-
-              <div className="mt-4 pb-4">
-                <Link
-                  to=""
-                  className="bg-primary text-base-100 text-sm rounded-md px-4 py-2"
-                >
-                  View Details
-                </Link>
-              </div>
+              <ul className="mt-2 text-neutral-content text-[15px] list-disc list-inside">
+                <li>Utilization of unused rooftop space</li>
+                <li>
+                  Balance usage of electricity using reliable and uninterrupted
+                  power
+                </li>
+                <li>
+                  Reduction of electricity bill with cheaper electricity than
+                  that of g
+                </li>
+                <li>Attractive payback period</li>
+                <li>Reduction of carbon footprint</li>
+                <li>Minimum maintenance required</li>
+                <li>Tier 1 products in your facility</li>
+                <li>
+                  Demonstrate alignment of your company with SDG goals to
+                  stakeholders
+                </li>
+                <li>Sale of unused electricity to the national grid</li>
+              </ul>
             </div>
           </div>
-          <div className="shadow rounded bg-base-100">
-            <img
-              src="/images/solar-solutions/tv.jpg"
-              alt=""
-              className="rounded-t h-40 w-full"
-            />
-            <div className="px-4 py-2">
-              <h2 className="text-neutral font-semibold text-xl">
-                Powerview TV
-              </h2>
-              <p className="text-neutral-content text-sm mt-1">
-                For rural Bangladesh, Solar Home Systems (or more popularly
-                known as SHS) is the most convenient way for households and
-                small enterprise owners to have access...
-              </p>
 
-              <div className="mt-4 pb-4">
-                <Link
-                  to=""
-                  className="bg-primary text-base-100 text-sm rounded-md px-4 py-2"
-                >
-                  View Details
-                </Link>
-              </div>
+          <div className="mt-7 shadow p-4 grid md:grid-cols-3 gap-6">
+            <div className="md:col-span-2">
+              <h2 className="text-lg font-semibold text-neutral">
+                Energy Storage System (ESS)
+              </h2>
+              <p className="mt-2 text-neutral-content text-[15px]">
+                Energy Storage System (ESS) provides cost-effective and
+                sustainable power generated from the sun around the clock.
+                Electricity generated from the PV array is used to optimize
+                self-consumption and the excess energy charges the Li-ion based
+                storage to supply power the loads at night. It reduces the
+                dependency on conventional power and ensures reliability. It
+                also has wide range of application in improving grid power
+                quality like peak shaving, frequency regulation, voltage support
+                etc.
+              </p>
             </div>
-          </div>
-          <div className="shadow rounded bg-base-100">
-            <img
-              src="/images/solar-solutions/tv.jpg"
-              alt=""
-              className="rounded-t h-40 w-full"
-            />
-            <div className="px-4 py-2">
-              <h2 className="text-neutral font-semibold text-xl">
-                Powerview TV
-              </h2>
-              <p className="text-neutral-content text-sm mt-1">
-                For rural Bangladesh, Solar Home Systems (or more popularly
-                known as SHS) is the most convenient way for households and
-                small enterprise owners to have access...
-              </p>
 
-              <div className="mt-4 pb-4">
-                <Link
-                  to=""
-                  className="bg-primary text-base-100 text-sm rounded-md px-4 py-2"
-                >
-                  View Details
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div className="shadow rounded bg-base-100">
-            <img
-              src="/images/solar-solutions/tv.jpg"
-              alt=""
-              className="rounded-t h-40 w-full"
-            />
-            <div className="px-4 py-2">
-              <h2 className="text-neutral font-semibold text-xl">
-                Powerview TV
-              </h2>
-              <p className="text-neutral-content text-sm mt-1">
-                For rural Bangladesh, Solar Home Systems (or more popularly
-                known as SHS) is the most convenient way for households and
-                small enterprise owners to have access...
-              </p>
-
-              <div className="mt-4 pb-4">
-                <Link
-                  to=""
-                  className="bg-primary text-base-100 text-sm rounded-md px-4 py-2"
-                >
-                  View Details
-                </Link>
-              </div>
+            <div>
+              <img
+                src="/images/ESS-Image.jpg"
+                alt=""
+                className="w-full h-56 rounded"
+              />
             </div>
           </div>
         </div>

@@ -11,7 +11,7 @@ export default function BannerLists() {
   const { data: banners = [], refetch } = useQuery({
     queryKey: ["banners"],
     queryFn: () =>
-      fetch(`http://rahimafroz-server.nuaimhasan.xyz/banner/allBanners`).then(
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/banner/allBanners`).then(
         (res) => res.json()
       ),
   });
@@ -19,17 +19,12 @@ export default function BannerLists() {
   const handleDelete = (id) => {
     const confirm = window.confirm(`Are you sure delete this ${id}`);
     if (confirm) {
-      fetch(
-        `http://rahimafroz-server.nuaimhasan.xyz/banner/deleteBanner/${id}`,
-        {
-          method: "DELETE",
-          headers: {
-            authorization: `bearer ${localStorage.getItem(
-              "rahimafrox-solar-jwt"
-            )}`,
-          },
-        }
-      )
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/banner/deleteBanner/${id}`, {
+        method: "DELETE",
+        headers: {
+          authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
+        },
+      })
         .then((res) => res.json())
         .then((data) => {
           if (data.success) {
@@ -56,8 +51,6 @@ export default function BannerLists() {
           <thead>
             <tr>
               <th>Image</th>
-              <th>Name</th>
-              <th>Designation</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -66,16 +59,12 @@ export default function BannerLists() {
               <tr key={banner.uuid}>
                 <td>
                   <img
-                    src={`http://rahimafroz-server.nuaimhasan.xyz/images/banners/${banner.image}`}
+                    src={`${import.meta.env.VITE_BACKEND_URL}/images/banners/${
+                      banner.image
+                    }`}
                     alt=""
-                    className="w-14 h-10"
+                    className="w-20 h-10"
                   />
-                </td>
-                <td>{banner?.title}</td>
-                <td>
-                  {banner?.description?.length > 40
-                    ? banner?.description.slice(0, 40) + "..."
-                    : banner?.description}
                 </td>
                 <td>
                   <div className="flex items-center gap-2 text-xl">

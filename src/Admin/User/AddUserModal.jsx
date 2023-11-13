@@ -23,11 +23,11 @@ export default function AddUserModal({ addModal, setAddModal }) {
 
     setLoading(true);
 
-    fetch(`http://rahimafroz-server.nuaimhasan.xyz/user/register`, {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/user/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        authorization: `bearer ${localStorage.getItem("rahimafrox-solar-jwt")}`,
+        authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
       },
       body: JSON.stringify(info),
     })

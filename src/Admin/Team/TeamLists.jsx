@@ -11,7 +11,7 @@ export default function TeamLists() {
   const { data: teams = [], refetch } = useQuery({
     queryKey: ["teams"],
     queryFn: () =>
-      fetch(`http://rahimafroz-server.nuaimhasan.xyz/team/allTeamMembers`).then(
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/team/allTeamMembers`).then(
         (res) => res.json()
       ),
   });
@@ -19,17 +19,12 @@ export default function TeamLists() {
   const handleDelete = (id) => {
     const confirm = window.confirm(`Are you sure delete this ${id}`);
     if (confirm) {
-      fetch(
-        `http://rahimafroz-server.nuaimhasan.xyz/team/deleteTeamMember/${id}`,
-        {
-          method: "DELETE",
-          headers: {
-            authorization: `bearer ${localStorage.getItem(
-              "rahimafrox-solar-jwt"
-            )}`,
-          },
-        }
-      )
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/team/deleteTeamMember/${id}`, {
+        method: "DELETE",
+        headers: {
+          authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
+        },
+      })
         .then((res) => res.json())
         .then((data) => {
           if (data.success) {
@@ -66,7 +61,9 @@ export default function TeamLists() {
               <tr key={team.uuid}>
                 <td>
                   <img
-                    src={`http://rahimafroz-server.nuaimhasan.xyz/images/teams/${team.image}`}
+                    src={`${import.meta.env.VITE_BACKEND_URL}/images/teams/${
+                      team.image
+                    }`}
                     alt=""
                     className="w-10 h-10 rounded-full"
                   />

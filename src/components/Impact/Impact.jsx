@@ -8,12 +8,12 @@ export default function Impact() {
               Out Impact
             </h2>
             <p className="mt-5 text-[15px] font-light">
-              Rahimafrooz Renewable Energy Ltd. (RREL), is one of the foremost
-              and pioneering solar companies in Bangladesh, with more than 25
-              years of experience of Solarizing Bangladesh.As a company we
-              specialize as a systems integrator & installer of solar solutions,
-              manufacturer of key solar components, and one-stop service
-              provider for carbon project development.
+              SKRP Renewable Energy Ltd., is one of the foremost and pioneering
+              solar companies in Bangladesh, with more than 10 years of
+              experience of Solarizing Bangladesh.As a company we specialize as
+              a systems integrator & installer of solar solutions, manufacturer
+              of key solar components, and one-stop service provider for carbon
+              project development.
             </p>
           </div>
 

@@ -12,8 +12,8 @@ export default function OffGridSolutions() {
           <p className="mt-3 text-[15px] sm:w-2/3 mx-auto text-neutral-content">
             Energy is harnessed via isolated devices and systems for power
             generation at the household level as well as for heating, cooking
-            and productive uses. Rahimafrooz Solar has designed and implemented
-            many such applications in rural Bangladesh till date.
+            and productive uses. SKRP Solar has designed and implemented many
+            such applications in rural Bangladesh till date.
           </p>
         </div>
 

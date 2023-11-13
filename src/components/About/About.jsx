@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function About() {
   return (
     <section className="py-16">
@@ -6,13 +8,15 @@ export default function About() {
           <div>
             <h2 className="text-2xl font-semibold text-neutral">About SKRP</h2>
 
-            <div className="text-sm text-neutral-content mt-3">
+            <div className="text-[15px] text-neutral-content mt-3 flex flex-col gap-2">
               <p>
-                We, the people of SKRP are accelerating our business through the
-                strength of our customers’ satisfaction. We are a responsible
-                company to our employees and our customers. We are determined to
-                offer quality products at acceptable prices. Loyalty to our
-                customers and clients is our strength.
+                SKRP Renewable Energy Ltd is a pioneering solar energy company
+                based in Bangladesh, committed to revolutionizing the
+                nation&apos;s energy landscape through sustainable and
+                eco-friendly solutions. With a vision to harness the immense
+                potential of solar power, we have emerged as a leading player in
+                the renewable energy sector, driving a cleaner and greener
+                future for Bangladesh.
               </p>
               <p>
                 We do not believe in concentrating only on the socially
@@ -22,29 +26,27 @@ export default function About() {
                 customers to keep continue the customers’ satisfaction.
               </p>
               <p>
-                We entered into a very competitive market in a short time, and
-                succeeded to win customers, who are very satisfied with our
-                progress because we have some unique characteristics as a
-                business enterprise.
+                Established in 2013, our journey began with a profound
+                commitment to address the energy challenges faced by our nation.
+                Bangladesh, with its rapidly growing population and expanding
+                economy, requires a reliable and sustainable source of energy.
+                This is where SKRP Renewable Energy Ltd steps in, dedicated to
+                harnessing the power of the sun to meet our energy needs.
               </p>
 
-              <p>We-</p>
-              <ul className="list-inside list-disc">
-                <li>Act with honesty and integrity</li>
-                <li>Treat people with respect</li>
-                <li>Conduct all business lawfully</li>
-                <li>Accept individual and corporate responsibility</li>
-                <li>Strive for customer satisfaction</li>
-                <li>Improve and innovate continuously</li>
-                <li>Always work effectively and efficiently</li>
-              </ul>
+              <Link
+                to="/about-us"
+                className="bg-primary text-base-100 px-4 py-2 rounded w-max"
+              >
+                See More
+              </Link>
             </div>
           </div>
           <div>
             <img
               src="/images/about.jpg"
               alt=""
-              className="w-full h-80 rounded"
+              className="w-full h-96 rounded"
             />
           </div>
         </div>

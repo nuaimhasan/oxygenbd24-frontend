@@ -1,13 +1,15 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { UseContext } from "../../ContextAPI/ContextAPI";
+import { useSelector } from "react-redux";
+import { useLoginMutation } from "../../Redux/user/userApi";
 
 export default function Login() {
-  const { loggedUser, login, loginError, loading } = UseContext();
+  const { loggedUser } = useSelector((store) => store.user);
+  const [login, { isLoading, isError, error }] = useLoginMutation();
 
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
-  if (loggedUser?.uuid) {
+  const from = location.state?.from?.pathname || "/admin/dashboard";
+  if (loggedUser?.success) {
     navigate(from, { replace: true });
   }
 
@@ -50,14 +52,14 @@ export default function Login() {
               required
             />
           </div>
-          {loginError && <p className="text-sm text-red-500">{loginError}</p>}
+          {isError && <p className="text-sm text-red-500">{error}</p>}
 
           <div className="mt-4">
             <button
               className="w-full text-base-100 bg-primary px-4 py-2 rounded"
-              disabled={loading && "disabled"}
+              disabled={isLoading && "disabled"}
             >
-              {loading ? "Loading..." : "Login"}
+              {isLoading ? "Loading..." : "Login"}
             </button>
           </div>
         </form>

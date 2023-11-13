@@ -11,11 +11,9 @@ export default function EditUser() {
   const { data: user = {}, refetch } = useQuery({
     queryKey: ["user"],
     queryFn: () =>
-      fetch(`http://rahimafroz-server.nuaimhasan.xyz/user/${id}`, {
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/user/${id}`, {
         headers: {
-          authorization: `bearer ${localStorage.getItem(
-            "rahimafrox-solar-jwt"
-          )}`,
+          authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
         },
       }).then((res) => res.json()),
   });
@@ -40,11 +38,11 @@ export default function EditUser() {
 
     setLoading(true);
 
-    fetch(`http://rahimafroz-server.nuaimhasan.xyz/user/update/${id}`, {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/user/update/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        authorization: `bearer ${localStorage.getItem("rahimafrox-solar-jwt")}`,
+        authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
       },
       body: JSON.stringify(info),
     })

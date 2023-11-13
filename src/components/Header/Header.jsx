@@ -1,19 +1,13 @@
 import "./Header.css";
 import { NavLink, Link } from "react-router-dom";
-import { MdArrowDropDown } from "react-icons/md";
 import { AiOutlineMenu } from "react-icons/ai";
 import { useEffect, useState } from "react";
 
 export default function Header() {
-  const [moreMenu, setMoreMenu] = useState(false);
   const [mobileMenu, setmobileMenu] = useState(false);
 
   useEffect(() => {
     window.addEventListener("click", (e) => {
-      if (!e.target.closest(".more")) {
-        setMoreMenu(false);
-      }
-
       if (e.target.closest(".menu_wrap ul li a")) {
         setmobileMenu(false);
       }
@@ -28,7 +22,7 @@ export default function Header() {
             <img
               src="/images/logo/logo.png"
               alt="rahaimafroz solar logo"
-              className="w-36 sm:w-44 xl:w-56"
+              className="w-36 sm:w-44 xl:w-56 h-9 sm:h-10"
             />
           </Link>
 
@@ -42,10 +36,16 @@ export default function Header() {
 
             <ul className={`${mobileMenu && "show"}`}>
               <li>
+                <NavLink to="/">Home</NavLink>
+              </li>
+              <li>
+                <NavLink to="/about-us">About Us</NavLink>
+              </li>
+              <li>
                 <NavLink to="/solar-solutions">Solar Solutions</NavLink>
               </li>
               <li>
-                <NavLink to="/off-grid-solutions">DRE and Off Grid</NavLink>
+                <NavLink to="/off-grid-solutions">Off Grid</NavLink>
               </li>
               <li>
                 <NavLink to="/on-grid-solutions">
@@ -53,18 +53,7 @@ export default function Header() {
                 </NavLink>
               </li>
               <li>
-                <button className="more" onClick={() => setMoreMenu(!moreMenu)}>
-                  More <MdArrowDropDown className="text-lg" />
-                </button>
-
-                <ol className={`dropdown ${moreMenu && "dropdown_show"}`}>
-                  <li>
-                    <NavLink to="/contact-us">Contact Us</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/about-us">About Us</NavLink>
-                  </li>
-                </ol>
+                <NavLink to="/contact-us">Contact Us</NavLink>
               </li>
               <li>
                 <NavLink to="/shop">Shop</NavLink>

@@ -10,11 +10,9 @@ export default function UserLists() {
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: () =>
-      fetch(`http://rahimafroz-server.nuaimhasan.xyz/user/allUsers`, {
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/user/allUsers`, {
         headers: {
-          authorization: `bearer ${localStorage.getItem(
-            "rahimafrox-solar-jwt"
-          )}`,
+          authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
         },
       }).then((res) => res.json()),
   });
@@ -22,12 +20,10 @@ export default function UserLists() {
   const handleDelete = (id) => {
     const confirm = window.confirm(`Are you sure delete this ${id}`);
     if (confirm) {
-      fetch(`http://rahimafroz-server.nuaimhasan.xyz/user/delete/${id}`, {
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/user/delete/${id}`, {
         method: "DELETE",
         headers: {
-          authorization: `bearer ${localStorage.getItem(
-            "rahimafrox-solar-jwt"
-          )}`,
+          authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
         },
       })
         .then((res) => res.json())

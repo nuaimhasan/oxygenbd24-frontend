@@ -10,32 +10,28 @@ export default function AddBanner({ addModal, setAddModal }) {
   const handleAddTeam = (e) => {
     e.preventDefault();
 
-    const form = e.target;
-    const title = form.title.value;
-    const description = form.description.value;
     let image = images[0]?.file;
     if (!image) {
       return alert("image is required");
     }
 
     const formData = new FormData();
-    formData.append("title", title);
-    formData.append("description", description);
+    formData.append("title", "null");
+    formData.append("description", "null");
     formData.append("image", image);
 
     setLoading(true);
 
-    fetch(`http://rahimafroz-server.nuaimhasan.xyz/banner/addBanner`, {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/banner/addBanner`, {
       method: "POST",
       headers: {
-        authorization: `bearer ${localStorage.getItem("rahimafrox-solar-jwt")}`,
+        authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
       },
       body: formData,
     })
       .then((res) => res.json())
       .then((data) => {
         if (data?.success) {
-          form.reset();
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -105,16 +101,6 @@ export default function AddBanner({ addModal, setAddModal }) {
                 </div>
               )}
             </ImageUploading>
-          </div>
-
-          <div className="mt-4">
-            <p className="text-[15px]">Title *</p>
-            <input type="text" name="title" required />
-          </div>
-
-          <div className="mt-4">
-            <p className="text-[15px]">Description *</p>
-            <textarea name="description" required id="" rows="5"></textarea>
           </div>
 
           <div className="mt-4">

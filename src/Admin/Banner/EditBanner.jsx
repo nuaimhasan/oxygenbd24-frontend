@@ -14,11 +14,9 @@ export default function EditBanner() {
   const { data: banner = {}, refetch } = useQuery({
     queryKey: ["banner"],
     queryFn: () =>
-      fetch(`http://rahimafroz-server.nuaimhasan.xyz/banner/${id}`, {
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/banner/${id}`, {
         headers: {
-          authorization: `bearer ${localStorage.getItem(
-            "rahimafrox-solar-jwt"
-          )}`,
+          authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
         },
       }).then((res) => res.json()),
   });
@@ -27,23 +25,22 @@ export default function EditBanner() {
     e.preventDefault();
 
     const form = e.target;
-    const title = form.title.value;
-    const description = form.description.value;
     let image = images[0]?.file;
+    if (!image) {
+      return alert("image is required");
+    }
 
     const formData = new FormData();
-    formData.append("title", title);
-    formData.append("description", description);
     if (images?.length > 0) {
       formData.append("image", image);
     }
 
     setLoading(true);
 
-    fetch(`http://rahimafroz-server.nuaimhasan.xyz/banner/updateBanner/${id}`, {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/banner/updateBanner/${id}`, {
       method: "PUT",
       headers: {
-        authorization: `bearer ${localStorage.getItem("rahimafrox-solar-jwt")}`,
+        authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
       },
       body: formData,
     })
@@ -99,7 +96,9 @@ export default function EditBanner() {
 
                 {images?.length <= 0 && banner?.data?.image && (
                   <img
-                    src={`http://rahimafroz-server.nuaimhasan.xyz/images/banners/${banner?.data?.image}`}
+                    src={`${import.meta.env.VITE_BACKEND_URL}/images/banners/${
+                      banner?.data?.image
+                    }`}
                     alt=""
                     className="w-32 mt-4"
                   />
@@ -121,25 +120,6 @@ export default function EditBanner() {
               </div>
             )}
           </ImageUploading>
-        </div>
-
-        <div className="mt-4">
-          <p className="text-[15px]">Full Name *</p>
-          <input
-            type="text"
-            name="title"
-            defaultValue={banner?.data?.title}
-            required
-          />
-        </div>
-
-        <div className="mt-4">
-          <p className="text-[15px]">Description *</p>
-          <textarea
-            name="description"
-            defaultValue={banner?.data?.description}
-            rows="5"
-          ></textarea>
         </div>
 
         <div className="mt-4">
