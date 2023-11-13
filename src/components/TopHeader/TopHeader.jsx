@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function TopHeader() {
   return (
     <section className="hidden sm:block py-1 bg-primary text-base-100">
-      <div className="container">
+      <div className="w-[90%] xl:w-[1250px] mx-auto">
         <div className="flex justify-between items-center">
           <ul className="flex items-center">
             <li>

@@ -1,22 +1,41 @@
 import "./Header.css";
+import { useEffect, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { AiOutlineMenu } from "react-icons/ai";
-import { useEffect, useState } from "react";
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { BsSearch } from "react-icons/bs";
+import ProductDropdown from "./ProductDropdown";
+import BusinessunitDropdown from "./BusinessunitDropdown";
 
 export default function Header() {
   const [mobileMenu, setmobileMenu] = useState(false);
+  const [businessDropdown, setBusinessDropdown] = useState(false);
+  const [productsDropdown, setProductsDropdown] = useState(false);
+  const [searchDropdown, setSearchDropdown] = useState(false);
 
   useEffect(() => {
     window.addEventListener("click", (e) => {
       if (e.target.closest(".menu_wrap ul li a")) {
         setmobileMenu(false);
       }
+
+      if (!e.target.closest(".business_btn")) {
+        setBusinessDropdown(false);
+      }
+
+      if (!e.target.closest(".products_btn")) {
+        setProductsDropdown(false);
+      }
+
+      if (!e.target.closest(".search_btn") && !e.target.closest(".search")) {
+        setSearchDropdown(false);
+      }
     });
   }, []);
 
   return (
-    <header className="py-2 sticky top-0 bg-[#ffffffcc] backdrop-blur-[30px] z-50 shadow">
-      <div className="container">
+    <header className="py-2 2xl:py-0 sticky top-0 bg-[#ffffffcc] backdrop-blur-[30px] z-50 shadow">
+      <div className="w-[90%] xl:w-[1250px] mx-auto relative">
         <div className="header">
           <Link to="/">
             <img
@@ -29,9 +48,7 @@ export default function Header() {
           <nav className="menu_wrap flex items-center gap-2">
             <button
               onClick={() => setmobileMenu(false)}
-              className={`overlay min-[1150px]:hidden ${
-                mobileMenu && "overlay_show"
-              }`}
+              className={`overlay 2xl:hidden ${mobileMenu && "overlay_show"}`}
             ></button>
 
             <ul className={`${mobileMenu && "show"}`}>
@@ -42,15 +59,36 @@ export default function Header() {
                 <NavLink to="/about-us">About Us</NavLink>
               </li>
               <li>
-                <NavLink to="/solar-solutions">Solar Solutions</NavLink>
+                <button
+                  className="business_btn"
+                  onClick={() => setBusinessDropdown(!businessDropdown)}
+                >
+                  Business Units <MdKeyboardArrowDown />
+                </button>
+
+                <BusinessunitDropdown businessDropdown={businessDropdown} />
               </li>
               <li>
-                <NavLink to="/off-grid-solutions">Off Grid</NavLink>
+                <button
+                  className="products_btn"
+                  onClick={() => setProductsDropdown(!productsDropdown)}
+                >
+                  Products <MdKeyboardArrowDown />
+                </button>
+
+                <ProductDropdown productsDropdown={productsDropdown} />
               </li>
               <li>
-                <NavLink to="/on-grid-solutions">
-                  On Grid : Rooftop & ESS
-                </NavLink>
+                <NavLink to="/news-events">News & Events</NavLink>
+              </li>
+              <li>
+                <NavLink to="/partners">Partners</NavLink>
+              </li>
+              <li>
+                <NavLink to="/clients">Clients</NavLink>
+              </li>
+              <li>
+                <NavLink to="/career">Career</NavLink>
               </li>
               <li>
                 <NavLink to="/contact-us">Contact Us</NavLink>
@@ -60,12 +98,35 @@ export default function Header() {
               </li>
             </ul>
 
-            <button
-              onClick={() => setmobileMenu(true)}
-              className="min-[1150px]:hidden"
-            >
-              <AiOutlineMenu className="text-xl" />
-            </button>
+            <div className="flex gap-3 items-center ">
+              <div className="relative">
+                <button
+                  className="mt-1 search_btn ml-px hover:text-primary duration-200"
+                  onClick={() => setSearchDropdown(!searchDropdown)}
+                >
+                  <BsSearch className="text-lg xl:text-base" />
+                </button>
+              </div>
+
+              {searchDropdown && (
+                <div className="search w-full md:w-[500px] absolute top-[120%] right-0 bg-base-100 p-4 shadow">
+                  <div className="relative">
+                    <input
+                      type="text"
+                      placeholder="search"
+                      className="border rounded px-4 py-1.5 outline-none w-full"
+                    />
+                    <div className="cursor-pointer px-3 bg-secondary text-base-100 absolute right-0 top-0 h-full flex justify-center items-center">
+                      <BsSearch className="text-base" />
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <button onClick={() => setmobileMenu(true)} className="xl:hidden">
+                <AiOutlineMenu className="text-2xl" />
+              </button>
+            </div>
           </nav>
         </div>
       </div>

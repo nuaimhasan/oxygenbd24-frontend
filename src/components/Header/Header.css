@@ -10,6 +10,7 @@
   justify-content: center;
   gap: 10px;
   font-size: 15px;
+  color: #404145;
   font-weight: 500;
   z-index: 9999;
 }
@@ -23,7 +24,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 5px;
+  padding: 24px 5px;
+  width: 100%;
 
   gap: 5px;
   transition: all 0.2s ease;
@@ -36,21 +38,30 @@
 
 .menu_wrap ul li .dropdown {
   position: absolute;
-  right: 0;
+  left: 0;
   top: 100%;
-  min-width: 160px;
+  min-width: 200px;
   max-width: max-content;
   box-shadow: 0 8px 26px -4px hsla(0, 0%, 8%, 0.15),
     0 8px 9px -5px hsla(0, 0%, 8%, 0.06);
   background: #fff;
 
-  max-height: 0px;
-  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform-origin: 50% 0;
+  transform: perspective(999px) rotateX(-10deg) translateZ(0)
+    translate3d(0, 0px, 0) !important;
+  will-change: transform, box-shadow;
+
   transition: all 0.3s ease;
 }
 
-.dropdown_show {
-  max-height: max-content !important;
+.dropdown::-webkit-scrollbar {
+  width: 3px;
+}
+
+.dropdown::-webkit-scrollbar-thumb {
+  background: #969696;
 }
 
 .dropdown li a {
@@ -59,14 +70,40 @@
 }
 
 .dropdown li a:hover {
-  background: #dddddd61;
+  background: #dddddd8d;
 }
 
-@media only screen and (max-width: 1150px) {
+.sub_dropdown {
+  position: absolute;
+  width: 180px;
+  background: #fff;
+  left: 100%;
+  top: 0;
+  box-shadow: 0 8px 26px -4px hsla(0, 0%, 8%, 0.15),
+    0 8px 9px -5px hsla(0, 0%, 8%, 0.06);
+
+  display: none;
+  transition: all 0.3s;
+}
+
+@media only screen and (min-width: 1280px) {
+  .dropdown li:hover .sub_dropdown {
+    display: block;
+  }
+
+  .menu_wrap ul li:hover .dropdown {
+    opacity: 1;
+    pointer-events: auto;
+    transform: perspective(999px) rotateX(0deg) translateZ(0)
+      translate3d(0, 0px, 0) !important;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
   .menu_wrap ul {
     display: block;
     position: fixed;
-    top: 0;
+    top: -36px;
     left: 0;
     width: 300px;
     height: 100vh;
@@ -90,6 +127,23 @@
     max-width: 100%;
     box-shadow: none;
     padding-left: 15px;
+    max-height: 0px;
+    overflow: hidden;
+
+    opacity: 1;
+    pointer-events: auto;
+    transform: perspective(999px) rotateX(0deg) translateZ(0)
+      translate3d(0, 0px, 0) !important;
+  }
+
+  .menu_wrap ul li .dropdown_show {
+    max-height: max-content;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .menu_wrap ul {
+    top: 0;
   }
 }
 

@@ -1,12 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout";
 import Home from "../pages/Home/Home";
-import Contact from "../pages/Contact/Contact";
 import AboutUs from "../pages/AboutUs/AboutUs";
-import SolarSolutions from "../pages/SolarSolutions/SolarSolutions";
+import OffGrid from "../pages/BusinessUnits/OffGrid/OffGrid";
+import OnGrid from "../pages/BusinessUnits/OnGrid/OnGrid";
+import Products from "../pages/Products/Products";
+import Contact from "../pages/Contact/Contact";
 import Login from "../pages/Login/Login";
-import OffGridSolutions from "../pages/OffGridSolutions/OffGridSolutions";
-import OnGridSolutions from "../pages/OnGridSolutions/OnGridSolutions";
 
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import DashboardLayout from "../Layout/DashboardLAyout";
@@ -19,6 +19,11 @@ import AlliancesLists from "../Admin/Alliances/AlliancesLists";
 import BannerLists from "../Admin/Banner/BannerLists";
 import EditBanner from "../Admin/Banner/EditBanner";
 import ProductLists from "../Admin/Products/ProductLists";
+import Hybrid from "../pages/BusinessUnits/Hybrid/Hybrid";
+import Clients from "../pages/Clients/Clients";
+import Partners from "../pages/Clients/Partners/Partners";
+import Career from "../pages/Career/Career";
+import NewsEvents from "../pages/NewsEvents/NewsEvents";
 
 export const routes = createBrowserRouter([
   {
@@ -30,16 +35,44 @@ export const routes = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/solar-solutions",
-        element: <SolarSolutions />,
+        path: "/products",
+        element: <Products />,
       },
       {
-        path: "/off-grid-solutions",
-        element: <OffGridSolutions />,
+        path: "/products/:category",
+        element: <Products />,
       },
       {
-        path: "/on-grid-solutions",
-        element: <OnGridSolutions />,
+        path: "/products/:category/:subCategory",
+        element: <Products />,
+      },
+      {
+        path: "/business-units/off-grid",
+        element: <OffGrid />,
+      },
+      {
+        path: "/business-units/on-grid",
+        element: <OnGrid />,
+      },
+      {
+        path: "/business-units/hybrid",
+        element: <Hybrid />,
+      },
+      {
+        path: "/partners",
+        element: <Partners />,
+      },
+      {
+        path: "/clients",
+        element: <Clients />,
+      },
+      {
+        path: "/career",
+        element: <Career />,
+      },
+      {
+        path: "/news-events",
+        element: <NewsEvents />,
       },
       {
         path: "/contact-us",
@@ -53,6 +86,10 @@ export const routes = createBrowserRouter([
   },
   {
     path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/admin",
     element: <Login />,
   },
   {
