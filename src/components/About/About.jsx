@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function About() {
   return (
-    <section className="py-16">
+    <section className="py-7 sm:py-16">
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>
@@ -34,10 +34,7 @@ export default function About() {
                 harnessing the power of the sun to meet our energy needs.
               </p>
 
-              <Link
-                to="/about-us"
-                className="bg-primary text-base-100 px-4 py-2 rounded w-max"
-              >
+              <Link to="/about-us" className="secondary_btn w-max mt-2">
                 See More
               </Link>
             </div>

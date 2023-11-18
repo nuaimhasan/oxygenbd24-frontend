@@ -6,17 +6,26 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { BsSearch } from "react-icons/bs";
 import ProductDropdown from "./ProductDropdown";
 import BusinessunitDropdown from "./BusinessunitDropdown";
+import AboutDropdown from "./AboutDropdown";
 
 export default function Header() {
   const [mobileMenu, setmobileMenu] = useState(false);
+  const [aboutDropdown, setAboutDropdown] = useState(false);
   const [businessDropdown, setBusinessDropdown] = useState(false);
   const [productsDropdown, setProductsDropdown] = useState(false);
   const [searchDropdown, setSearchDropdown] = useState(false);
 
   useEffect(() => {
     window.addEventListener("click", (e) => {
-      if (e.target.closest(".menu_wrap ul li a")) {
+      if (
+        e.target.closest(".menu_wrap ul li a") &&
+        !e.target.closest(".menu_wrap ul li a svg")
+      ) {
         setmobileMenu(false);
+      }
+
+      if (!e.target.closest(".about_btn")) {
+        setAboutDropdown(false);
       }
 
       if (!e.target.closest(".business_btn")) {
@@ -41,7 +50,7 @@ export default function Header() {
             <img
               src="/images/logo/logo.png"
               alt="rahaimafroz solar logo"
-              className="w-36 sm:w-44 xl:w-56 h-9 sm:h-10"
+              className="w-36 sm:w-44 xl:w-52 h-9"
             />
           </Link>
 
@@ -56,7 +65,14 @@ export default function Header() {
                 <NavLink to="/">Home</NavLink>
               </li>
               <li>
-                <NavLink to="/about-us">About Us</NavLink>
+                <NavLink
+                  to="/about-us"
+                  className="about_btn"
+                  onClick={() => setAboutDropdown(!aboutDropdown)}
+                >
+                  <span>About Us</span> <MdKeyboardArrowDown />
+                </NavLink>
+                <AboutDropdown aboutDropdown={aboutDropdown} />
               </li>
               <li>
                 <button
@@ -79,10 +95,7 @@ export default function Header() {
                 <ProductDropdown productsDropdown={productsDropdown} />
               </li>
               <li>
-                <NavLink to="/news-events">News & Events</NavLink>
-              </li>
-              <li>
-                <NavLink to="/partners">Partners</NavLink>
+                <NavLink to="/news-events/advertisement">News & Events</NavLink>
               </li>
               <li>
                 <NavLink to="/clients">Clients</NavLink>

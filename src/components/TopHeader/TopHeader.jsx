@@ -5,26 +5,26 @@ import { Link } from "react-router-dom";
 
 export default function TopHeader() {
   return (
-    <section className="hidden sm:block py-1 bg-primary text-base-100">
+    <section className="hidden sm:block py-1 bg-secondary text-base-100">
       <div className="w-[90%] xl:w-[1250px] mx-auto">
         <div className="flex justify-between items-center">
-          <ul className="flex items-center">
+          <ul className="flex items-center gap-1">
             <li>
               <Link
                 to="https://www.facebook.com/skrprenewableenergy?mibextid=ZbWKwL"
                 target="_blank"
-                className="hover:text-secondary duration-200"
+                className="hover:text-primary duration-300"
               >
-                <BiLogoFacebook className="text-xl" />
+                <BiLogoFacebook className="text-lg" />
               </Link>
             </li>
             <li>
               <Link
                 to=""
                 target="_blank"
-                className="w-7 h-7 rounded-full bg-primary/50 flex justify-center items-center text-base-100 hover:text-secondary duration-200"
+                className="hover:text-primary duration-300"
               >
-                <BiLogoLinkedin className="text-xl" />
+                <BiLogoLinkedin className="text-lg" />
               </Link>
             </li>
           </ul>

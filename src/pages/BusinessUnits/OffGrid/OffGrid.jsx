@@ -6,7 +6,7 @@ export default function OffGrid() {
         <img
           src="/images/business-units/off-grid/off-grid.webp"
           alt=""
-          className="w-full h-96"
+          className="w-full sm:h-80"
         />
       </div>
 

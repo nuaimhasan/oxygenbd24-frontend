@@ -6,7 +6,7 @@ export default function Career() {
         <img
           src="/images/career-banner.jpg"
           alt=""
-          className="w-full h-48 sm:h-96"
+          className="w-full md:h-80"
         />
       </div>
 

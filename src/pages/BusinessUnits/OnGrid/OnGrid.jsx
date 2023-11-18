@@ -6,7 +6,7 @@ export default function OnGrid() {
         <img
           src="/images/business-units/on-grid/ongrid-banner.webp"
           alt=""
-          className="w-full h-96"
+          className="w-full sm:h-80"
         />
       </div>
       <div className="container py-10">

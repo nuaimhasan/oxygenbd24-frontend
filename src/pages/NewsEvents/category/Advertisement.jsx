@@ -1,9 +1,9 @@
-import "./NewsEvents.css";
+import "../NewsEvents.css";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function NewsEvents() {
+export default function Advertisement() {
   const [sidebar, setSidebar] = useState(false);
   useEffect(() => {
     window.addEventListener("click", (e) => {
@@ -46,7 +46,7 @@ export default function NewsEvents() {
                 </li>
                 <li>
                   <Link
-                    to="/news-events"
+                    to="/news-events/corporate-news"
                     className="hover:text-secondary duration-200"
                   >
                     Corporate News
@@ -54,7 +54,7 @@ export default function NewsEvents() {
                 </li>
                 <li>
                   <Link
-                    to="/news-events"
+                    to="/news-events/csr"
                     className="hover:text-secondary duration-200"
                   >
                     CSR
@@ -62,7 +62,7 @@ export default function NewsEvents() {
                 </li>
                 <li>
                   <Link
-                    to="/news-events"
+                    to="/news-events/events"
                     className="hover:text-secondary duration-200"
                   >
                     Events
@@ -77,7 +77,7 @@ export default function NewsEvents() {
               <div className="news_card">
                 <div>
                   <img
-                    src="/images/news/news.jpg"
+                    src="/images/news/advertisement1.jpg"
                     alt=""
                     className="w-full h-60 rounded"
                   />
@@ -92,7 +92,7 @@ export default function NewsEvents() {
               <div className="news_card">
                 <div>
                   <img
-                    src="/images/news/news2.jpg"
+                    src="/images/news/advertisement2.jpg"
                     alt=""
                     className="w-full h-60 rounded"
                   />

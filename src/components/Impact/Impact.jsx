@@ -18,42 +18,42 @@ export default function Impact() {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-4">
-            <div className="bg-base-100 p-4 rounded text-primary md:h-max">
+            <div className="bg-base-100 p-4 rounded text-primary ">
               <p className="text-4xl font-light mb-4 border-b w-max border-primary">
                 12
               </p>
               <p>WEDO groups</p>
             </div>
 
-            <div className="bg-base-100 p-4 rounded text-secondary md:h-max">
+            <div className="bg-base-100 p-4 rounded text-secondary ">
               <p className="text-4xl font-light mb-4 border-b w-max border-secondary">
                 200
               </p>
               <p>Management & Field members</p>
             </div>
 
-            <div className="bg-base-100 p-4 rounded text-primary md:h-max">
+            <div className="bg-base-100 p-4 rounded text-primary ">
               <p className="text-4xl font-light mb-4 border-b w-max border-primary">
                 3400
               </p>
               <p>Rural resellers linked with 50 distributors</p>
             </div>
 
-            <div className="bg-base-100 p-4 rounded text-primary md:h-max">
+            <div className="bg-base-100 p-4 rounded text-primary ">
               <p className="text-4xl font-light mb-4 border-b w-max border-primary">
                 800K
               </p>
               <p>Registered Customers</p>
             </div>
 
-            <div className="bg-base-100 p-4 rounded text-primary md:h-max">
+            <div className="bg-base-100 p-4 rounded text-primary ">
               <p className="text-4xl font-light mb-4 border-b w-max border-primary">
                 40
               </p>
               <p>Nation wise Distribution & service point</p>
             </div>
 
-            <div className="bg-base-100 p-4 rounded text-primary md:h-max">
+            <div className="bg-base-100 p-4 rounded text-primary ">
               <p className="text-4xl font-light mb-4 border-b w-max border-primary">
                 50
               </p>

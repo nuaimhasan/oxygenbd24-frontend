@@ -5,7 +5,7 @@ export default function Hybrid() {
         <img
           src="/images/business-units/hybrid/hybrid.jpg"
           alt=""
-          className="w-full h-96"
+          className="w-full sm:h-80"
         />
       </div>
     </section>

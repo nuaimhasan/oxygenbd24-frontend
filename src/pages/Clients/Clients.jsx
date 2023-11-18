@@ -5,12 +5,12 @@ export default function Clients() {
         <img
           src="/images/clients/client-banner.png"
           alt=""
-          className="w-full h-96"
+          className="w-full md:h-80"
         />
       </div>
 
       <div className="container">
-        <div className="mt-10 grid grid-cols-5 gap-6">
+        <div className="mt-10 grid grid-cols-3 md:grid-cols-5 gap-6">
           <img src="/images/clients/1.jpg" alt="" />
           <img src="/images/clients/2.jpg" alt="" />
           <img src="/images/clients/3.jpg" alt="" />

@@ -34,3 +34,9 @@
     transform: translateX(0%);
   }
 }
+
+@media only screen and (max-width: 350px) {
+  .news_sidebar {
+    width: 90%;
+  }
+}

@@ -4,7 +4,7 @@ export default function AboutUs() {
     <section className="py-10">
       <div className="container">
         <div>
-          <div className="w-max border-b-2 border-primary">
+          <div className="sm:w-max border-b-2 border-primary">
             <h2 className="text-3xl font-semibold text-neutral">
               About SKRP Renewable Energy Ltd.
             </h2>

@@ -2,8 +2,17 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout";
 import Home from "../pages/Home/Home";
 import AboutUs from "../pages/AboutUs/AboutUs";
+import CompanyProfile from "../pages/AboutUs/CompanyProfile";
+import MissionVision from "../pages/AboutUs/MissionVision";
+import PurposeService from "../pages/AboutUs/PurposeService";
+import Testimonials from "../pages/AboutUs/Testimonials";
+import Manpower from "../pages/AboutUs/Manpower";
+import AreaOperation from "../pages/AboutUs/AreaOperation";
+
 import OffGrid from "../pages/BusinessUnits/OffGrid/OffGrid";
 import OnGrid from "../pages/BusinessUnits/OnGrid/OnGrid";
+import Hybrid from "../pages/BusinessUnits/Hybrid/Hybrid";
+
 import Products from "../pages/Products/Products";
 import Contact from "../pages/Contact/Contact";
 import Login from "../pages/Login/Login";
@@ -19,11 +28,14 @@ import AlliancesLists from "../Admin/Alliances/AlliancesLists";
 import BannerLists from "../Admin/Banner/BannerLists";
 import EditBanner from "../Admin/Banner/EditBanner";
 import ProductLists from "../Admin/Products/ProductLists";
-import Hybrid from "../pages/BusinessUnits/Hybrid/Hybrid";
+
 import Clients from "../pages/Clients/Clients";
-import Partners from "../pages/Clients/Partners/Partners";
 import Career from "../pages/Career/Career";
-import NewsEvents from "../pages/NewsEvents/NewsEvents";
+import OurTeam from "../pages/AboutUs/OurTeam";
+import Advertisement from "../pages/NewsEvents/category/Advertisement";
+import CorporateNews from "../pages/NewsEvents/category/CorporateNews";
+import CSR from "../pages/NewsEvents/category/CSR";
+import Events from "../pages/NewsEvents/category/Events";
 
 export const routes = createBrowserRouter([
   {
@@ -59,10 +71,6 @@ export const routes = createBrowserRouter([
         element: <Hybrid />,
       },
       {
-        path: "/partners",
-        element: <Partners />,
-      },
-      {
         path: "/clients",
         element: <Clients />,
       },
@@ -71,8 +79,20 @@ export const routes = createBrowserRouter([
         element: <Career />,
       },
       {
-        path: "/news-events",
-        element: <NewsEvents />,
+        path: "/news-events/advertisement",
+        element: <Advertisement />,
+      },
+      {
+        path: "/news-events/corporate-news",
+        element: <CorporateNews />,
+      },
+      {
+        path: "/news-events/csr",
+        element: <CSR />,
+      },
+      {
+        path: "/news-events/events",
+        element: <Events />,
       },
       {
         path: "/contact-us",
@@ -81,6 +101,34 @@ export const routes = createBrowserRouter([
       {
         path: "/about-us",
         element: <AboutUs />,
+      },
+      {
+        path: "/about-us/company-profile",
+        element: <CompanyProfile />,
+      },
+      {
+        path: "/about-us/mission-vision",
+        element: <MissionVision />,
+      },
+      {
+        path: "/about-us/purpose-service",
+        element: <PurposeService />,
+      },
+      {
+        path: "/about-us/testimonials",
+        element: <Testimonials />,
+      },
+      {
+        path: "/about-us/manpower",
+        element: <Manpower />,
+      },
+      {
+        path: "/about-us/area-operation",
+        element: <AreaOperation />,
+      },
+      {
+        path: "/about-us/our-team",
+        element: <OurTeam />,
       },
     ],
   },
