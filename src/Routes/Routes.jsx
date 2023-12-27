@@ -9,10 +9,6 @@ import Testimonials from "../pages/AboutUs/Testimonials";
 import Manpower from "../pages/AboutUs/Manpower";
 import AreaOperation from "../pages/AboutUs/AreaOperation";
 
-import OffGrid from "../pages/BusinessUnits/OffGrid/OffGrid";
-import OnGrid from "../pages/BusinessUnits/OnGrid/OnGrid";
-import Hybrid from "../pages/BusinessUnits/Hybrid/Hybrid";
-
 import Products from "../pages/Products/Products";
 import Contact from "../pages/Contact/Contact";
 import Login from "../pages/Login/Login";
@@ -59,16 +55,8 @@ export const routes = createBrowserRouter([
         element: <Products />,
       },
       {
-        path: "/business-units/off-grid",
-        element: <OffGrid />,
-      },
-      {
-        path: "/business-units/on-grid",
-        element: <OnGrid />,
-      },
-      {
-        path: "/business-units/hybrid",
-        element: <Hybrid />,
+        path: "/products/:category/:subCategory/:subSubCategory",
+        element: <Products />,
       },
       {
         path: "/clients",
@@ -142,11 +130,7 @@ export const routes = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: (
-      <PrivateRoute>
-        <DashboardLayout />
-      </PrivateRoute>
-    ),
+    element: <DashboardLayout />,
     children: [
       {
         path: "/admin/dashboard",

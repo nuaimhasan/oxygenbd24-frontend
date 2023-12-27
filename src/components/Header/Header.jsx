@@ -5,13 +5,11 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { BsSearch } from "react-icons/bs";
 import ProductDropdown from "./ProductDropdown";
-import BusinessunitDropdown from "./BusinessunitDropdown";
 import AboutDropdown from "./AboutDropdown";
 
 export default function Header() {
   const [mobileMenu, setmobileMenu] = useState(false);
   const [aboutDropdown, setAboutDropdown] = useState(false);
-  const [businessDropdown, setBusinessDropdown] = useState(false);
   const [productsDropdown, setProductsDropdown] = useState(false);
   const [searchDropdown, setSearchDropdown] = useState(false);
 
@@ -26,10 +24,6 @@ export default function Header() {
 
       if (!e.target.closest(".about_btn")) {
         setAboutDropdown(false);
-      }
-
-      if (!e.target.closest(".business_btn")) {
-        setBusinessDropdown(false);
       }
 
       if (!e.target.closest(".products_btn")) {
@@ -76,16 +70,6 @@ export default function Header() {
               </li>
               <li>
                 <button
-                  className="business_btn"
-                  onClick={() => setBusinessDropdown(!businessDropdown)}
-                >
-                  Business Units <MdKeyboardArrowDown />
-                </button>
-
-                <BusinessunitDropdown businessDropdown={businessDropdown} />
-              </li>
-              <li>
-                <button
                   className="products_btn"
                   onClick={() => setProductsDropdown(!productsDropdown)}
                 >
@@ -106,15 +90,12 @@ export default function Header() {
               <li>
                 <NavLink to="/contact-us">Contact Us</NavLink>
               </li>
-              <li>
-                <NavLink to="/shop">Shop</NavLink>
-              </li>
             </ul>
 
             <div className="flex gap-3 items-center ">
               <div className="relative">
                 <button
-                  className="mt-1 search_btn ml-px hover:text-primary duration-200"
+                  className="mt-1 search_btn ml-px hover:text-secondary duration-200"
                   onClick={() => setSearchDropdown(!searchDropdown)}
                 >
                   <BsSearch className="text-lg xl:text-base" />

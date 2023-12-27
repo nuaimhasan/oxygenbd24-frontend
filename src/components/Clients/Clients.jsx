@@ -36,22 +36,22 @@ export default function Clients() {
           className="py-10 alliances"
         >
           <SwiperSlide>
-            <img src="/images/clients/1.jpg" alt="" className="h-20 mx-auto" />
+            <img src="/images/clients/1.png" alt="" className="h-14 mx-auto" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/images/clients/2.jpg" alt="" className="h-20 mx-auto" />
+            <img src="/images/clients/2.png" alt="" className="h-14 mx-auto" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/images/clients/3.jpg" alt="" className="h-20 mx-auto" />
+            <img src="/images/clients/3.png" alt="" className="h-20 mx-auto" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/images/clients/4.jpg" alt="" className="h-20 mx-auto" />
+            <img src="/images/clients/4.png" alt="" className="h-14 mx-auto" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/images/clients/5.jpg" alt="" className="h-20 mx-auto" />
+            <img src="/images/clients/5.png" alt="" className="h-14 mx-auto" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/images/clients/6.jpg" alt="" className="h-20 mx-auto" />
+            <img src="/images/clients/6.png" alt="" className="h-14 mx-auto" />
           </SwiperSlide>
         </Swiper>
       </div>

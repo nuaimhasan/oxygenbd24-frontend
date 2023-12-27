@@ -9,19 +9,58 @@ export default function Clients() {
         />
       </div>
 
-      <div className="container">
-        <div className="mt-10 grid grid-cols-3 md:grid-cols-5 gap-6">
-          <img src="/images/clients/1.jpg" alt="" />
-          <img src="/images/clients/2.jpg" alt="" />
-          <img src="/images/clients/3.jpg" alt="" />
-          <img src="/images/clients/4.jpg" alt="" />
-          <img src="/images/clients/5.jpg" alt="" />
-          <img src="/images/clients/6.jpg" alt="" />
-          <img src="/images/clients/7.jpg" alt="" />
-          <img src="/images/clients/8.jpg" alt="" />
-          <img src="/images/clients/9.jpg" alt="" />
-          <img src="/images/clients/10.jpg" alt="" />
-          <img src="/images/clients/11.jpg" alt="" />
+      <div className="container py-10">
+        <div className="mt-10 grid grid-cols-3 md:grid-cols-5 gap-10">
+          <img
+            src="/images/clients/1.png"
+            alt=""
+            className="h-20 w-[90%] mx-auto"
+          />
+          <img
+            src="/images/clients/2.png"
+            alt=""
+            className="h-20 w-[90%] mx-auto"
+          />
+          <img
+            src="/images/clients/3.png"
+            alt=""
+            className="h-20 w-[90%] mx-auto"
+          />
+          <img
+            src="/images/clients/4.png"
+            alt=""
+            className="h-20 w-[90%] mx-auto"
+          />
+          <img
+            src="/images/clients/5.png"
+            alt=""
+            className="h-20 w-[90%] mx-auto"
+          />
+          <img
+            src="/images/clients/6.png"
+            alt=""
+            className="h-20 w-[90%] mx-auto"
+          />
+          <img
+            src="/images/clients/7.png"
+            alt=""
+            className="h-20 w-[90%] mx-auto"
+          />
+          <img
+            src="/images/clients/8.png"
+            alt=""
+            className="h-20 w-[90%] mx-auto"
+          />
+          <img
+            src="/images/clients/9.png"
+            alt=""
+            className="h-20 w-[90%] mx-auto"
+          />
+          <img
+            src="/images/clients/10.png"
+            alt=""
+            className="h-20 w-[90%] mx-auto"
+          />
         </div>
       </div>
     </section>
