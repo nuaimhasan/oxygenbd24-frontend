@@ -29,7 +29,7 @@ export const apiSlice = createApi({
     "company-profile",
     "our-mission",
     "our-vision",
-    "our-team",
+    "team",
     "category",
     "sub-category",
     "sub-sub-category",
