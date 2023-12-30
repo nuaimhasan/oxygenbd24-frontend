@@ -5,7 +5,7 @@ export default function DashboardHeader({ setSidebar }) {
   const { pathname } = useLocation();
 
   return (
-    <header className="px-3 py-2 rounded bg-primary text-base-100">
+    <header className="py-3 px-6 bg-base-100 text-neutral shadow">
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-2">
           <button

@@ -10,27 +10,22 @@ export default function DashboardLayout() {
   useEffect(() => {
     window.addEventListener("click", (e) => {
       if (
-        (!e.target.closest(".dashboard_siderbar_wrap") &&
-          !e.target.closest(".dashboard_sidebar_btn")) ||
-        e.target.closest(".dashboard_siderbar ul li a")
+        (!e.target.closest(".admin_sidebar") &&
+          !e.target.closest(".admin_sidebar_btn")) ||
+        e.target.closest(".admin_siderbar ul li a")
       ) {
         setSidebar(false);
       }
     });
   }, []);
-
   return (
-    <section className="flex gap-5">
-      <aside
-        className={`dashboard_siderbar_wrap ${
-          sidebar && "dashboard_sidebar_show"
-        }`}
-      >
+    <section className="flex">
+      <aside className={`admin_sidebar ${sidebar && "admin_sidebar_show"}`}>
         <DashboardSidebar />
       </aside>
-      <div className="dashboard_content">
+      <div className="admin_content">
         <DashboardHeader setSidebar={setSidebar} />
-        <main className="py-5">
+        <main className="sm:p-5 py-5">
           <Outlet />
         </main>
       </div>
