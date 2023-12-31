@@ -1,33 +1,36 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout";
-import Home from "../pages/Home/Home";
 import AboutUs from "../pages/AboutUs/AboutUs";
+import AreaOperation from "../pages/AboutUs/AreaOperation";
 import CompanyProfile from "../pages/AboutUs/CompanyProfile";
+import Manpower from "../pages/AboutUs/Manpower";
 import MissionVision from "../pages/AboutUs/MissionVision";
 import PurposeService from "../pages/AboutUs/PurposeService";
 import Testimonials from "../pages/AboutUs/Testimonials";
-import Manpower from "../pages/AboutUs/Manpower";
-import AreaOperation from "../pages/AboutUs/AreaOperation";
+import Home from "../pages/Home/Home";
 
-import Products from "../pages/Products/Products";
 import Contact from "../pages/Contact/Contact";
 import Login from "../pages/Login/Login";
+import Products from "../pages/Products/Products";
 
-import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import DashboardLayout from "../Layout/DashboardLAyout";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Dashboard from "../admin/Dashboard/Dashboard";
 
-import Clients from "../pages/Clients/Clients";
-import Career from "../pages/Career/Career";
 import OurTeam from "../pages/AboutUs/OurTeam";
-import Advertisement from "../pages/NewsEvents/category/Advertisement";
-import CorporateNews from "../pages/NewsEvents/category/CorporateNews";
-import CSR from "../pages/NewsEvents/category/CSR";
-import Events from "../pages/NewsEvents/category/Events";
+import Career from "../pages/Career/Career";
+import Clients from "../pages/Clients/Clients";
 import About from "../pages/Dashboard/AboutUs/AboutUs";
-import Banners from "../pages/Dashboard/Banner/Banner";
 import AddBanner from "../pages/Dashboard/Banner/AddBanner";
+import Banners from "../pages/Dashboard/Banner/Banner";
 import CareerBanner from "../pages/Dashboard/Career/CareerBanner/CareerBanner";
+import AddCategories from "../pages/Dashboard/Categories/AddCategories";
+import Categories from "../pages/Dashboard/Categories/Categories";
+import EditCategories from "../pages/Dashboard/Categories/EditCategories";
+import Advertisement from "../pages/NewsEvents/category/Advertisement";
+import CSR from "../pages/NewsEvents/category/CSR";
+import CorporateNews from "../pages/NewsEvents/category/CorporateNews";
+import Events from "../pages/NewsEvents/category/Events";
 
 export const routes = createBrowserRouter([
   {
@@ -135,6 +138,18 @@ export const routes = createBrowserRouter([
       {
         path: "/admin/career/banner",
         element: <CareerBanner />,
+      },
+      {
+        path: "/admin/categories/all-categories",
+        element: <Categories />,
+      },
+      {
+        path: "/admin/categories/add-category",
+        element: <AddCategories />,
+      },
+      {
+        path: "/admin/categories/edit-category/:id",
+        element: <EditCategories />,
       },
       {
         path: "/admin/front-end/about-us",

@@ -6,7 +6,6 @@ import {
   MdOutlineDashboard,
 } from "react-icons/md";
 import { RiAdminFill, RiTeamFill } from "react-icons/ri";
-import { TbBrandDaysCounter } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import SidebarItems from "./SidebarItems";
 
@@ -18,23 +17,33 @@ const adminSidebarItems = [
   },
   {
     icon: <BsCart4 />,
-    title: "Services",
+    title: "Products",
     subMenu: [
       {
         title: "Add Service",
         path: "/admin/services/add-service",
       },
+    ],
+  },
+  {
+    icon: <BsCart4 />,
+    title: "Categories",
+    subMenu: [
       {
-        title: "All Services",
-        path: "/admin/services/all-services",
+        title: "All Categories",
+        path: "/admin/categories/all-categories",
       },
       {
-        title: "Service Banner Setting",
-        path: "/admin/services/banner",
+        title: "Add Category",
+        path: "/admin/categories/add-category",
       },
       {
-        title: "Service Section Setting",
-        path: "/admin/services/section-setting",
+        title: "Add Sub Category",
+        path: "/admin/categories/add-sub-category",
+      },
+      {
+        title: "Add Sub Sub Category",
+        path: "/admin/categories/add-sub-sub-category",
       },
     ],
   },
@@ -63,26 +72,12 @@ const adminSidebarItems = [
     ],
   },
   {
-    icon: <TbBrandDaysCounter />,
-    title: "Counter Area",
-    subMenu: [
-      {
-        title: "Counter Area Lists",
-        path: "/admin/counter",
-      },
-    ],
-  },
-  {
     icon: <MdHomeRepairService />,
     title: "Career",
     subMenu: [
       {
         title: "Career Banner Setting",
         path: "/admin/career/banner",
-      },
-      {
-        title: "Applicants List",
-        path: "/admin/career/all-applicants",
       },
     ],
   },
