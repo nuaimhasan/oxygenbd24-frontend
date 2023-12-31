@@ -31,6 +31,9 @@ import Advertisement from "../pages/NewsEvents/category/Advertisement";
 import CSR from "../pages/NewsEvents/category/CSR";
 import CorporateNews from "../pages/NewsEvents/category/CorporateNews";
 import Events from "../pages/NewsEvents/category/Events";
+import AddSubCategories from "../pages/Dashboard/SubCategories/AddSubCategories";
+import SubCategories from "../pages/Dashboard/SubCategories/SubCategories";
+import EditSubCategories from "../pages/Dashboard/SubCategories/EditSubCategories";
 
 export const routes = createBrowserRouter([
   {
@@ -150,6 +153,18 @@ export const routes = createBrowserRouter([
       {
         path: "/admin/categories/edit-category/:id",
         element: <EditCategories />,
+      },
+      {
+        path: "/admin/categories/all-sub-categories",
+        element: <SubCategories />,
+      },
+      {
+        path: "/admin/categories/add-sub-category",
+        element: <AddSubCategories />,
+      },
+      {
+        path: "/admin/categories/edit-sub-category/:id",
+        element: <EditSubCategories />,
       },
       {
         path: "/admin/front-end/about-us",

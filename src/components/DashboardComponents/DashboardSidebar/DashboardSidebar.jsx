@@ -34,6 +34,14 @@ const adminSidebarItems = [
         path: "/admin/categories/all-categories",
       },
       {
+        title: "All Sub Categories",
+        path: "/admin/categories/all-sub-categories",
+      },
+      {
+        title: "All Sub Sub Categories",
+        path: "/admin/categories/all-sub-sub-categories",
+      },
+      {
         title: "Add Category",
         path: "/admin/categories/add-category",
       },
