@@ -21,15 +21,12 @@ export default function About() {
 
   const [image, setImage] = useState([]);
   const [title, setTitle] = useState("");
-  const [tagline, setTagline] = useState("");
   const [description, setDescription] = useState("");
-  const [profile, setProfile] = useState("");
 
   useEffect(() => {
     if (data && !isLoading) {
       const aboutUs = data.data[0];
       setTitle(aboutUs?.title);
-      setTagline(aboutUs?.tagline);
       setDescription(aboutUs?.description);
     }
   }, [data, isLoading]);
@@ -45,16 +42,8 @@ export default function About() {
 
     const formData = new FormData();
     formData.append("title", title);
-    formData.append("tagline", tagline);
     formData.append("description", description);
 
-    if (!id) {
-      if (!profile || !img) {
-        return Swal.fire("", "Please upload profile and image", "error");
-      }
-    }
-
-    if (profile) formData.append("profileDoc", profile);
     if (img) formData.append("image", img);
 
     if (id) {
@@ -62,7 +51,6 @@ export default function About() {
         const res = await updateAboutUs({ id, formData }).unwrap();
         if (res?.success) {
           setImage([]);
-          setProfile("");
           Swal.fire("", "update success", "success");
         }
       } catch (error) {
@@ -73,7 +61,6 @@ export default function About() {
         const res = await createAboutUs(formData).unwrap();
         if (res?.success) {
           setImage([]);
-          setProfile("");
           Swal.fire("", "About add success", "success");
         }
       } catch (error) {
@@ -99,33 +86,6 @@ export default function About() {
                 defaultValue={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
-            </div>
-
-            <div>
-              <p className="mb-1">Tagline</p>
-              <input
-                type="text"
-                name="tagline"
-                defaultValue={tagline}
-                onChange={(e) => setTagline(e.target.value)}
-              />
-            </div>
-
-            <div>
-              <p className="mb-1">
-                Profile - <small>(only pdf)</small>
-              </p>
-              <input
-                type="file"
-                name="profile"
-                accept="application/pdf"
-                onChange={(e) => setProfile(e.target.files[0])}
-              />
-              {data?.data[0]?.profileDoc && (
-                <p className="text-neutral-content">
-                  {data?.data[0]?.profileDoc}
-                </p>
-              )}
             </div>
 
             <div>
@@ -211,7 +171,11 @@ export default function About() {
             className="primary_btn"
             onClick={updateAboutUsHandler}
           >
-            {updateLoading || createLoading ? "Loading.." : "Update About"}
+            {updateLoading || createLoading
+              ? "Loading.."
+              : id
+              ? "Update"
+              : "Add"}
           </button>
         </div>
       </form>
