@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 
 import { AiFillDelete } from "react-icons/ai";
 import ImageUploading from "react-images-uploading";
+import { useNavigate } from "react-router-dom";
 import swal from "sweetalert2";
 import { useAddBannerMutation } from "../../../Redux/banner/bannerApi";
 
 export default function AddBanner() {
   const [images, setImages] = useState([]);
+  const navigate = useNavigate();
 
   const [
     addBanner,
@@ -21,15 +23,10 @@ export default function AddBanner() {
   const handleAddBanner = async (e) => {
     e.preventDefault();
 
-    const title = e.target.title.value;
-    const description = e.target.description.value;
+    const formData = new FormData();
+    formData.append("image", images[0]?.file);
 
-    const banner = {
-      title,
-      description,
-    };
-
-    await addBanner(banner);
+    await addBanner(formData);
   };
 
   useEffect(() => {
@@ -43,16 +40,12 @@ export default function AddBanner() {
     }
 
     if (addSuccess) {
+      setImages([]);
       swal.fire("", "Banner updated successfully", "success");
+      navigate("/admin/front-end/banner");
       return;
     }
-  }, [addIsError, addError, addSuccess]);
-
-  //   if (!isLoading && !isError && data?.success) {
-  //     content = (
-
-  //     );
-  //   }
+  }, [addIsError, addError, addSuccess, navigate]);
 
   return (
     <section className="bg-base-100 shadow rounded">

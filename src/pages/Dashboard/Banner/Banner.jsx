@@ -5,21 +5,21 @@ import { useDeleteBannerMutation, useGetBannersQuery } from "../../../Redux/bann
 
 export default function Banners() {
   const { data, isLoading } = useGetBannersQuery();
-  const [deleteClient] = useDeleteBannerMutation();
+  const [deleteBanner] = useDeleteBannerMutation();
 
   if (isLoading) return <div>Loading...</div>;
 
-  const clients = data?.data;
+  const banners = data?.data;
 
   const deleteClientHandler = async (id) => {
     const isConfirm = window.confirm("Are you sure delete this client?");
     if (isConfirm) {
       try {
-        const res = await deleteClient(id).unwrap();
+        const res = await deleteBanner(id).unwrap();
         if (res?.success) {
           Swal.fire({
-            title: "Success!",
-            text: "Client Deleted Successfully",
+            title: "",
+            text: "Banner Deleted Successfully",
             icon: "success",
           });
         }
@@ -49,25 +49,25 @@ export default function Banners() {
           <thead>
             <tr>
               <th>Sl</th>
-              <th>Logo</th>
+              <th>Image</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            {clients?.map((client, index) => (
-              <tr key={client?._id}>
+            {banners?.map((banner, index) => (
+              <tr key={banner?._id}>
                 <td>{index + 1}</td>
                 <td>
                   <img
-                    src={`${import.meta.env.VITE_BACKEND_URL}/clients/${
-                      client?.image
+                    src={`${import.meta.env.VITE_BACKEND_URL}/banner/${
+                      banner?.image
                     }`}
-                    alt={client?.logo}
-                    className="w-20"
+                    alt={banner?.logo}
+                    className="w-28"
                   />
                 </td>
                 <td>
-                  <button onClick={() => deleteClientHandler(client?._id)}>
+                  <button onClick={() => deleteClientHandler(banner?._id)}>
                     <AiOutlineDelete className="text-lg hover:text-red-500" />
                   </button>
                 </td>
