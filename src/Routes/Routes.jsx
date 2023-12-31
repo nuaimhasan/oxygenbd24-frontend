@@ -27,6 +27,7 @@ import Events from "../pages/NewsEvents/category/Events";
 import About from "../pages/Dashboard/AboutUs/AboutUs";
 import Banners from "../pages/Dashboard/Banner/Banner";
 import AddBanner from "../pages/Dashboard/Banner/AddBanner";
+import CareerBanner from "../pages/Dashboard/Career/CareerBanner/CareerBanner";
 
 export const routes = createBrowserRouter([
   {
@@ -130,6 +131,10 @@ export const routes = createBrowserRouter([
       {
         path: "/admin/dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "/admin/career/banner",
+        element: <CareerBanner />,
       },
       {
         path: "/admin/front-end/about-us",
