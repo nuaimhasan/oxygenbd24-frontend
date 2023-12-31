@@ -16,14 +16,6 @@ import Login from "../pages/Login/Login";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import DashboardLayout from "../Layout/DashboardLAyout";
 import Dashboard from "../admin/Dashboard/Dashboard";
-import UserLists from "../Admin/User/UserLists";
-import EditUser from "../Admin/User/EditUser";
-import TeamLists from "../Admin/Team/TeamLists";
-import EditTeam from "../Admin/Team/EditTeam";
-import AlliancesLists from "../Admin/Alliances/AlliancesLists";
-import BannerLists from "../Admin/Banner/BannerLists";
-import EditBanner from "../Admin/Banner/EditBanner";
-import ProductLists from "../Admin/Products/ProductLists";
 
 import Clients from "../pages/Clients/Clients";
 import Career from "../pages/Career/Career";
@@ -32,6 +24,9 @@ import Advertisement from "../pages/NewsEvents/category/Advertisement";
 import CorporateNews from "../pages/NewsEvents/category/CorporateNews";
 import CSR from "../pages/NewsEvents/category/CSR";
 import Events from "../pages/NewsEvents/category/Events";
+import About from "../pages/Dashboard/AboutUs/AboutUs";
+import Banners from "../pages/Dashboard/Banner/Banner";
+import AddBanner from "../pages/Dashboard/Banner/AddBanner";
 
 export const routes = createBrowserRouter([
   {
@@ -137,36 +132,16 @@ export const routes = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: "/admin/user/user-lists",
-        element: <UserLists />,
+        path: "/admin/front-end/about-us",
+        element: <About />,
       },
       {
-        path: "/admin/user/edit-user/:id",
-        element: <EditUser />,
+        path: "/admin/front-end/banner",
+        element: <Banners />,
       },
       {
-        path: "/admin/team/team-lists",
-        element: <TeamLists />,
-      },
-      {
-        path: "/admin/team/edit-team/:id",
-        element: <EditTeam />,
-      },
-      {
-        path: "/admin/alliances/alliances-lists",
-        element: <AlliancesLists />,
-      },
-      {
-        path: "/admin/banner/banner-lists",
-        element: <BannerLists />,
-      },
-      {
-        path: "/admin/banner/edit-banner/:id",
-        element: <EditBanner />,
-      },
-      {
-        path: "/admin/product/product-lists",
-        element: <ProductLists />,
+        path: "/admin/front-end/banner/add-banner",
+        element: <AddBanner />,
       },
     ],
   },

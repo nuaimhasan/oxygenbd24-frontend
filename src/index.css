@@ -50,6 +50,8 @@ h2 {
 
 .primary_btn:hover {
   background: transparent;
+  color: #045cac;
+  font-weight: 600;
 }
 
 .secondary_btn {
@@ -150,3 +152,39 @@ form select {
   outline: none;
   color: #3a3a3a;
 }
+
+
+
+table {
+  width: 100%;
+  font-size: 15px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+table thead th {
+  background: #dddddd5c;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #404145e6;
+  text-transform: uppercase;
+  text-align: start;
+  white-space: nowrap;
+}
+
+table tbody td {
+  padding: 10px;
+  text-align: start;
+  border-bottom: 1px solid #dddddd94;
+}
+
+.jodit-workplace {
+  height: 300px !important;
+}
+
+.jodit-status-bar {
+  display: none !important;
+}
+
+
