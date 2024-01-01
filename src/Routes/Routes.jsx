@@ -39,6 +39,7 @@ import CorporateNews from "../pages/NewsEvents/category/CorporateNews";
 import Events from "../pages/NewsEvents/category/Events";
 import EditClient from "../pages/Dashboard/Clients/EditClient";
 import ContactUs from "../pages/Dashboard/ContactUs/ContactUs";
+import CompanyProfileSetting from "../pages/Dashboard/AboutUs/CompanyProfileSetting";
 
 export const routes = createBrowserRouter([
   {
@@ -188,8 +189,12 @@ export const routes = createBrowserRouter([
         element: <ClientBanner />,
       },
       {
-        path: "/admin/front-end/about-us",
+        path: "/admin/about-us",
         element: <About />,
+      },
+      {
+        path: "/admin/about-us/company-profile",
+        element: <CompanyProfileSetting />,
       },
       {
         path: "/admin/front-end/contact-us",

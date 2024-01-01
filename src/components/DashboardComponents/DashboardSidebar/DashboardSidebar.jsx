@@ -128,6 +128,20 @@ const adminSidebarItems = [
     title: "Front-End Setting",
     subMenu: [
       {
+        title: "About Us",
+        path: "/admin/about-us",
+      },
+      {
+        title: "Company Profile",
+        path: "/admin/about-us/company-profile",
+      },
+    ],
+  },
+  {
+    icon: <MdMonitor />,
+    title: "Front-End Setting",
+    subMenu: [
+      {
         title: "Logo",
         path: "/admin/front-end/logo",
       },
@@ -138,10 +152,6 @@ const adminSidebarItems = [
       {
         title: "Banner",
         path: "/admin/front-end/banner",
-      },
-      {
-        title: "About Us",
-        path: "/admin/front-end/about-us",
       },
       {
         title: "Contact Us",
