@@ -4,15 +4,15 @@ export const clientsApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     allClients: builder.query({
       query: () => ({
-        url: "/clients",
+        url: "/clients/all",
       }),
       providesTags: ["client"],
     }),
     updateClient: builder.mutation({
-      query: ({ id, data }) => ({
-        url: `/clients/${id}`,
+      query: ({ id, formData }) => ({
+        url: `/clients/update/${id}`,
         method: "PATCH",
-        body: data,
+        body: formData,
       }),
       invalidatesTags: ["client"],
     }),

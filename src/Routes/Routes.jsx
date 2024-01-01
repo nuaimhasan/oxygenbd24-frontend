@@ -27,14 +27,17 @@ import CareerBanner from "../pages/Dashboard/Career/CareerBanner/CareerBanner";
 import AddCategories from "../pages/Dashboard/Categories/AddCategories";
 import Categories from "../pages/Dashboard/Categories/Categories";
 import EditCategories from "../pages/Dashboard/Categories/EditCategories";
+import AddClient from "../pages/Dashboard/Clients/AddClients";
+import AllClients from "../pages/Dashboard/Clients/AllClients";
+import ClientBanner from "../pages/Dashboard/Clients/ClientBanner";
+import AddSubCategories from "../pages/Dashboard/SubCategories/AddSubCategories";
+import EditSubCategories from "../pages/Dashboard/SubCategories/EditSubCategories";
+import SubCategories from "../pages/Dashboard/SubCategories/SubCategories";
 import Advertisement from "../pages/NewsEvents/category/Advertisement";
 import CSR from "../pages/NewsEvents/category/CSR";
 import CorporateNews from "../pages/NewsEvents/category/CorporateNews";
 import Events from "../pages/NewsEvents/category/Events";
-import AddSubCategories from "../pages/Dashboard/SubCategories/AddSubCategories";
-import SubCategories from "../pages/Dashboard/SubCategories/SubCategories";
-import EditSubCategories from "../pages/Dashboard/SubCategories/EditSubCategories";
-import ClientBanner from "../pages/Dashboard/Clients/ClientBanner";
+import EditClient from "../pages/Dashboard/Clients/EditClient";
 
 export const routes = createBrowserRouter([
   {
@@ -166,6 +169,18 @@ export const routes = createBrowserRouter([
       {
         path: "/admin/categories/edit-sub-category/:id",
         element: <EditSubCategories />,
+      },
+      {
+        path: "/admin/clients/all-clients",
+        element: <AllClients />,
+      },
+      {
+        path: "/admin/clients/add-client",
+        element: <AddClient />,
+      },
+      {
+        path: "/admin/clients/edit-client/:id",
+        element: <EditClient />,
       },
       {
         path: "/admin/clients/client-banner",
