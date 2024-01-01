@@ -125,15 +125,27 @@ const adminSidebarItems = [
   },
   {
     icon: <MdMonitor />,
-    title: "Front-End Setting",
+    title: "About Us",
     subMenu: [
       {
         title: "About Us",
-        path: "/admin/about-us",
+        path: "/admin/about-us/details",
       },
       {
         title: "Company Profile",
         path: "/admin/about-us/company-profile",
+      },
+      {
+        title: "Our Mission",
+        path: "/admin/about-us/our-mission",
+      },
+      {
+        title: "Our Vision",
+        path: "/admin/about-us/our-vision",
+      },
+      {
+        title: "Our Team",
+        path: "/admin/about-us/our-team",
       },
     ],
   },
