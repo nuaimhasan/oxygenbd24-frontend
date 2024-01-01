@@ -4,7 +4,7 @@ export const logoApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getLogos: builder.query({
       query: () => ({
-        url: "/logo",
+        url: "/logo/all",
       }),
       providesTags: ["logo"],
     }),

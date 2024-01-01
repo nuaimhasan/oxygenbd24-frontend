@@ -45,6 +45,7 @@ import CorporateNews from "../pages/NewsEvents/category/CorporateNews";
 import Events from "../pages/NewsEvents/category/Events";
 import AddTeamMember from "../pages/Dashboard/AboutUs/addTeamMember";
 import EditTeamMember from "../pages/Dashboard/AboutUs/EditTeamMember";
+import Logo from "../pages/Dashboard/Logo/Logo";
 
 export const routes = createBrowserRouter([
   {
@@ -222,6 +223,10 @@ export const routes = createBrowserRouter([
         element: <EditTeamMember />,
       },
 
+      {
+        path: "/admin/front-end/logo",
+        element: <Logo />,
+      },
       {
         path: "/admin/front-end/contact-us",
         element: <ContactUs />,
