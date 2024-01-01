@@ -38,6 +38,7 @@ import CSR from "../pages/NewsEvents/category/CSR";
 import CorporateNews from "../pages/NewsEvents/category/CorporateNews";
 import Events from "../pages/NewsEvents/category/Events";
 import EditClient from "../pages/Dashboard/Clients/EditClient";
+import ContactUs from "../pages/Dashboard/ContactUs/ContactUs";
 
 export const routes = createBrowserRouter([
   {
@@ -189,6 +190,10 @@ export const routes = createBrowserRouter([
       {
         path: "/admin/front-end/about-us",
         element: <About />,
+      },
+      {
+        path: "/admin/front-end/contact-us",
+        element: <ContactUs />,
       },
       {
         path: "/admin/front-end/banner",
