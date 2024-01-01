@@ -4,7 +4,7 @@ export const clientBannerApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     allClientBanners: builder.query({
       query: () => ({
-        url: "/clientBanner",
+        url: "/clientBanner/all",
       }),
       providesTags: ["clientBanner"],
     }),

@@ -94,6 +94,10 @@ const adminSidebarItems = [
     title: "Clients",
     subMenu: [
       {
+        title: "Client Banner",
+        path: "/admin/clients/client-banner",
+      },
+      {
         title: "All Clients",
         path: "/admin/clients/all-clients",
       },

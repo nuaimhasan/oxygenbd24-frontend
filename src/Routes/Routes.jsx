@@ -34,6 +34,7 @@ import Events from "../pages/NewsEvents/category/Events";
 import AddSubCategories from "../pages/Dashboard/SubCategories/AddSubCategories";
 import SubCategories from "../pages/Dashboard/SubCategories/SubCategories";
 import EditSubCategories from "../pages/Dashboard/SubCategories/EditSubCategories";
+import ClientBanner from "../pages/Dashboard/Clients/ClientBanner";
 
 export const routes = createBrowserRouter([
   {
@@ -165,6 +166,10 @@ export const routes = createBrowserRouter([
       {
         path: "/admin/categories/edit-sub-category/:id",
         element: <EditSubCategories />,
+      },
+      {
+        path: "/admin/clients/client-banner",
+        element: <ClientBanner />,
       },
       {
         path: "/admin/front-end/about-us",
