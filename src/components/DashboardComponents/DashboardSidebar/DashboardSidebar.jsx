@@ -57,15 +57,15 @@ const adminSidebarItems = [
   },
   {
     icon: <FaBlogger />,
-    title: "Blogs",
+    title: "News & Events",
     subMenu: [
       {
-        title: "All Blogs",
-        path: "/admin/blogs/all-blogs",
+        title: "All News & Events",
+        path: "/admin/news-events/all-news-events",
       },
       {
-        title: "Blog Section Setting",
-        path: "/admin/blogs/blog-section-setting",
+        title: "News Category",
+        path: "/admin/news-events/news-category",
       },
     ],
   },
