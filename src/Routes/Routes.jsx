@@ -22,9 +22,11 @@ import Career from "../pages/Career/Career";
 import Clients from "../pages/Clients/Clients";
 import About from "../pages/Dashboard/AboutUs/AboutUs";
 import CompanyProfileSetting from "../pages/Dashboard/AboutUs/CompanyProfileSetting";
+import EditTeamMember from "../pages/Dashboard/AboutUs/EditTeamMember";
 import OurMissionSetting from "../pages/Dashboard/AboutUs/OurMissionSetting";
 import OurTeamSetting from "../pages/Dashboard/AboutUs/OurTeamSetting";
 import OurVisionSetting from "../pages/Dashboard/AboutUs/OurVisionSetting";
+import AddTeamMember from "../pages/Dashboard/AboutUs/addTeamMember";
 import AddBanner from "../pages/Dashboard/Banner/AddBanner";
 import Banners from "../pages/Dashboard/Banner/Banner";
 import CareerBanner from "../pages/Dashboard/Career/CareerBanner/CareerBanner";
@@ -36,6 +38,11 @@ import AllClients from "../pages/Dashboard/Clients/AllClients";
 import ClientBanner from "../pages/Dashboard/Clients/ClientBanner";
 import EditClient from "../pages/Dashboard/Clients/EditClient";
 import ContactUs from "../pages/Dashboard/ContactUs/ContactUs";
+import Logo from "../pages/Dashboard/Logo/Logo";
+import AddNewsCategory from "../pages/Dashboard/NewsEvents/NewsCategory/AddNewsCategory";
+import AllNewsCategories from "../pages/Dashboard/NewsEvents/NewsCategory/AllNewsCategories";
+import EditNewsCategories from "../pages/Dashboard/NewsEvents/NewsCategory/EditNewsCategory";
+import AllNewsEvent from "../pages/Dashboard/NewsEvents/NewsEvent/AllNewsEvent";
 import AddSubCategories from "../pages/Dashboard/SubCategories/AddSubCategories";
 import EditSubCategories from "../pages/Dashboard/SubCategories/EditSubCategories";
 import SubCategories from "../pages/Dashboard/SubCategories/SubCategories";
@@ -43,12 +50,8 @@ import Advertisement from "../pages/NewsEvents/category/Advertisement";
 import CSR from "../pages/NewsEvents/category/CSR";
 import CorporateNews from "../pages/NewsEvents/category/CorporateNews";
 import Events from "../pages/NewsEvents/category/Events";
-import AddTeamMember from "../pages/Dashboard/AboutUs/addTeamMember";
-import EditTeamMember from "../pages/Dashboard/AboutUs/EditTeamMember";
-import Logo from "../pages/Dashboard/Logo/Logo";
-import AllNewsCategories from "../pages/Dashboard/NewsEvents/NewsCategory/AllNewsCategories";
-import AddNewsCategory from "../pages/Dashboard/NewsEvents/NewsCategory/AddNewsCategory";
-import EditNewsCategories from "../pages/Dashboard/NewsEvents/NewsCategory/EditNewsCategory";
+import AddNewsEvent from "../pages/Dashboard/NewsEvents/NewsEvent/AddNewsEvent";
+import UpdateNewsEvent from "../pages/Dashboard/NewsEvents/NewsEvent/UpdateNewsEvent";
 
 export const routes = createBrowserRouter([
   {
@@ -255,6 +258,18 @@ export const routes = createBrowserRouter([
       {
         path: "/admin/news-events/edit-news-category/:id",
         element: <EditNewsCategories />,
+      },
+      {
+        path: "/admin/news-events/all-news-events",
+        element: <AllNewsEvent />,
+      },
+      {
+        path: "/admin/news-events/add-news-events",
+        element: <AddNewsEvent />,
+      },
+      {
+        path: "/admin/news-events/edit-news-events/:id",
+        element: <UpdateNewsEvent />,
       },
     ],
   },
