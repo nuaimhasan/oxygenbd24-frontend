@@ -11,7 +11,7 @@ const AddSubCategories = () => {
 
   const { data } = useGetCategoriesQuery();
 
-  const [addCategory, { isLoading, isError, error, isSuccess }] =
+  const [addSubCategory, { isLoading, isError, error, isSuccess }] =
     useAddSubCategoryMutation();
 
   useEffect(() => {
@@ -28,13 +28,16 @@ const AddSubCategories = () => {
   const handleAddCategory = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
-    const category = e.target.category.value;
+    const categoryId = e.target.category.value;
+    if (!categoryId) {
+      return Swal.fire("", "Category is required", "warning");
+    }
 
     const data = {
       name,
-      category,
+      categoryId,
     };
-    addCategory(data);
+    addSubCategory(data);
   };
 
   return (
@@ -52,7 +55,7 @@ const AddSubCategories = () => {
           <p className="mb-1">Category</p>
           <select name="category" id="category">
             {data?.data?.map((category) => (
-              <option key={category?._id} value={category?.name}>
+              <option key={category?._id} value={category?._id}>
                 {category?.name}
               </option>
             ))}
@@ -62,7 +65,7 @@ const AddSubCategories = () => {
         <div className="mt-5">
           <div className="flex gap-2">
             <button disabled={isLoading && "disabled"} className="primary_btn">
-              {isLoading ? "Loading..." : "Add Category"}
+              {isLoading ? "Loading..." : "Add Sub Category"}
             </button>
           </div>
         </div>

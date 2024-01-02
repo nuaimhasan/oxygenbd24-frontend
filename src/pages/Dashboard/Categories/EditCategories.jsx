@@ -18,7 +18,7 @@ const EditCategories = () => {
   useEffect(() => {
     if (isSuccess) {
       Swal.fire("", "Category updated successfully", "success");
-      navigate("/admin/categories/all-categories");
+      navigate("/admin/categories/categories");
     }
 
     if (isError) {

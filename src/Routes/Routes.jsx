@@ -56,6 +56,9 @@ import Events from "../pages/NewsEvents/category/Events";
 import AddImpact from "../pages/Dashboard/Impacts/AddImpact";
 import EditImpact from "../pages/Dashboard/Impacts/EditImpact";
 import ImpactSection from "../pages/Dashboard/Impacts/ImpactSection";
+import SubSubCategories from "../pages/Dashboard/SubSubCategories/SubSubCategories";
+import AddSubSubCategory from "../pages/Dashboard/SubSubCategories/AddSubSubCategory";
+import EditSubSubCategory from "../pages/Dashboard/SubSubCategories/EditSubSubCategory";
 
 export const routes = createBrowserRouter([
   {
@@ -165,7 +168,7 @@ export const routes = createBrowserRouter([
         element: <CareerBanner />,
       },
       {
-        path: "/admin/categories/all-categories",
+        path: "/admin/categories/categories",
         element: <Categories />,
       },
       {
@@ -177,7 +180,7 @@ export const routes = createBrowserRouter([
         element: <EditCategories />,
       },
       {
-        path: "/admin/categories/all-sub-categories",
+        path: "/admin/categories/sub-categories",
         element: <SubCategories />,
       },
       {
@@ -187,6 +190,18 @@ export const routes = createBrowserRouter([
       {
         path: "/admin/categories/edit-sub-category/:id",
         element: <EditSubCategories />,
+      },
+      {
+        path: "/admin/categories/sub-sub-categories",
+        element: <SubSubCategories />,
+      },
+      {
+        path: "/admin/categories/add-sub-sub-category",
+        element: <AddSubSubCategory />,
+      },
+      {
+        path: "/admin/categories/edit-sub-sub-category/:id",
+        element: <EditSubSubCategory />,
       },
       {
         path: "/admin/clients/all-clients",

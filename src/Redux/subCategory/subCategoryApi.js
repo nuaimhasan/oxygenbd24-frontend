@@ -23,17 +23,18 @@ export const subCategoryApi = apiSlice.injectEndpoints({
       providesTags: ["sub-category"],
     }),
     updateSubCategory: builder.mutation({
-      query: ({ id, data }) => ({
+      query: ({ id, name }) => ({
         url: `/sub-categories/${id}`,
         method: "PATCH",
-        body: data,
+        body: { name },
       }),
       invalidatesTags: ["sub-category"],
     }),
     deleteSubCategory: builder.mutation({
-      query: (id) => ({
+      query: ({ id, categoryId }) => ({
         url: `/sub-categories/${id}`,
         method: "DELETE",
+        data: { categoryId },
       }),
       invalidatesTags: ["sub-category"],
     }),

@@ -5,7 +5,7 @@ import {
   MdMonitor,
   MdOutlineDashboard,
 } from "react-icons/md";
-import { RiAdminFill, RiTeamFill } from "react-icons/ri";
+import { RiAdminFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import SidebarItems from "./SidebarItems";
 
@@ -30,28 +30,16 @@ const adminSidebarItems = [
     title: "Categories",
     subMenu: [
       {
-        title: "All Categories",
-        path: "/admin/categories/all-categories",
+        title: "Categories",
+        path: "/admin/categories/categories",
       },
       {
-        title: "All Sub Categories",
-        path: "/admin/categories/all-sub-categories",
+        title: "Sub Categories",
+        path: "/admin/categories/sub-categories",
       },
       {
-        title: "All Sub Sub Categories",
-        path: "/admin/categories/all-sub-sub-categories",
-      },
-      {
-        title: "Add Category",
-        path: "/admin/categories/add-category",
-      },
-      {
-        title: "Add Sub Category",
-        path: "/admin/categories/add-sub-category",
-      },
-      {
-        title: "Add Sub Sub Category",
-        path: "/admin/categories/add-sub-sub-category",
+        title: "Sub Sub Categories",
+        path: "/admin/categories/sub-sub-categories",
       },
     ],
   },
@@ -104,16 +92,6 @@ const adminSidebarItems = [
       {
         title: "All Clients",
         path: "/admin/clients/all-clients",
-      },
-    ],
-  },
-  {
-    icon: <RiTeamFill />,
-    title: "Teams",
-    subMenu: [
-      {
-        title: "All Teams",
-        path: "/admin/teams/all-teams",
       },
     ],
   },
