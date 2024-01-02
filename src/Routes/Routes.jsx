@@ -59,6 +59,9 @@ import ImpactSection from "../pages/Dashboard/Impacts/ImpactSection";
 import SubSubCategories from "../pages/Dashboard/SubSubCategories/SubSubCategories";
 import AddSubSubCategory from "../pages/Dashboard/SubSubCategories/AddSubSubCategory";
 import EditSubSubCategory from "../pages/Dashboard/SubSubCategories/EditSubSubCategory";
+import ProductsList from "../pages/Dashboard/Product/ProductsList";
+import AddProduct from "../pages/Dashboard/Product/AddProduct";
+import EditProduct from "../pages/Dashboard/Product/EditProduct";
 
 export const routes = createBrowserRouter([
   {
@@ -162,6 +165,18 @@ export const routes = createBrowserRouter([
       {
         path: "/admin/dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "/admin/products/all-products",
+        element: <ProductsList />,
+      },
+      {
+        path: "/admin/products/add-product",
+        element: <AddProduct />,
+      },
+      {
+        path: "/admin/products/edit-product/:id",
+        element: <EditProduct />,
       },
       {
         path: "/admin/career/banner",

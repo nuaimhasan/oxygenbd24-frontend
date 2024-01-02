@@ -20,8 +20,8 @@ const adminSidebarItems = [
     title: "Products",
     subMenu: [
       {
-        title: "Add Service",
-        path: "/admin/services/add-service",
+        title: "Products",
+        path: "/admin/products/all-products",
       },
     ],
   },

@@ -17,7 +17,7 @@ const AddCategories = () => {
   useEffect(() => {
     if (isSuccess) {
       Swal.fire("", "Category added successfully", "success");
-      navigate("/admin/categories/all-categories");
+      navigate("/admin/categories/categories");
     }
 
     if (isError) {
