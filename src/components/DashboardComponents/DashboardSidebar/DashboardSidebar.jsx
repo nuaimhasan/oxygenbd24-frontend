@@ -79,6 +79,10 @@ const adminSidebarItems = [
         title: "Career Banner Setting",
         path: "/admin/career/banner",
       },
+      {
+        title: "Career Forms",
+        path: "/admin/career/career-forms",
+      },
     ],
   },
   {

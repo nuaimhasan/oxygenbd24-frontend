@@ -14,6 +14,10 @@ const AllImpacts = () => {
 
   const [deleteCategory] = useDeleteImpactMutation();
 
+  if (isLoading) {
+    return <Spinner />;
+  }
+
   const handleDelete = async (id) => {
     const isConfirm = window.confirm("Are you sure delete this Impact?");
     if (isConfirm) {
@@ -38,52 +42,34 @@ const AllImpacts = () => {
 
   let content = null;
 
-  if (isLoading) {
-    content = <Spinner />;
-  }
-
   if (isError) {
     content = <p className="text-red-500 mt-4">{error?.data?.error}</p>;
   }
 
   if (!isError && isSuccess) {
-    content = (
-      <div className="relative overflow-x-auto mt-2">
-        <table>
-          <thead>
-            <tr>
-              <th>Order</th>
-              <th>Title</th>
-              <th>Sub Title</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {impacts?.map((impact) => (
-              <tr key={impact?._id}>
-                <td>{impact?.order}</td>
-                <td>{impact?.title}</td>
-                <td>{impact?.subtitle}</td>
-                <td className="flex items-center gap-2">
-                  <Link
-                    to={`/admin/impacts/edit-impact/${impact?._id}`}
-                    className="text-lg"
-                  >
-                    <FiEdit3 />
-                  </Link>
-                  <button
-                    className="text-lg"
-                    onClick={() => handleDelete(impact?._id)}
-                  >
-                    <MdOutlineDelete />
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    );
+    content = impacts?.map((impact) => (
+      <tr key={impact?._id}>
+        <td>{impact?.order}</td>
+        <td>{impact?.title}</td>
+        <td>{impact?.subtitle}</td>
+        <td>
+          <div className="flex items-center gap-2">
+            <Link
+              to={`/admin/impacts/edit-impact/${impact?._id}`}
+              className="text-lg"
+            >
+              <FiEdit3 />
+            </Link>
+            <button
+              className="text-lg"
+              onClick={() => handleDelete(impact?._id)}
+            >
+              <MdOutlineDelete />
+            </button>
+          </div>
+        </td>
+      </tr>
+    ));
   }
 
   return (
@@ -96,7 +82,21 @@ const AllImpacts = () => {
           </Link>
         </div>
 
-        {content}
+        <div className="relative overflow-x-auto mt-2">
+        <table>
+          <thead>
+            <tr>
+              <th>Order</th>
+              <th>Title</th>
+              <th>Sub Title</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {content}
+          </tbody>
+        </table>
+      </div>
       </div>
     </section>
   );

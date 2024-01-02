@@ -60,7 +60,7 @@ const AddProduct = () => {
   return (
     <section className="bg-base-100 shadow rounded">
       <div className="p-4 border-b text-neutral font-medium flex justify-between items-center">
-        <h3>Add Banner</h3>
+        <h3>Add Product</h3>
       </div>
 
       <form className="p-4" onSubmit={handleAddProduct}>

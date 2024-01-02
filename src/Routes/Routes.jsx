@@ -62,6 +62,7 @@ import EditSubSubCategory from "../pages/Dashboard/SubSubCategories/EditSubSubCa
 import ProductsList from "../pages/Dashboard/Product/ProductsList";
 import AddProduct from "../pages/Dashboard/Product/AddProduct";
 import EditProduct from "../pages/Dashboard/Product/EditProduct";
+import CareerForms from "../pages/Dashboard/Career/CareerForms";
 
 export const routes = createBrowserRouter([
   {
@@ -181,6 +182,10 @@ export const routes = createBrowserRouter([
       {
         path: "/admin/career/banner",
         element: <CareerBanner />,
+      },
+      {
+        path: "/admin/career/career-forms",
+        element: <CareerForms />,
       },
       {
         path: "/admin/categories/categories",
