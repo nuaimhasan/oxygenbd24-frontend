@@ -38,11 +38,14 @@ import AllClients from "../pages/Dashboard/Clients/AllClients";
 import ClientBanner from "../pages/Dashboard/Clients/ClientBanner";
 import EditClient from "../pages/Dashboard/Clients/EditClient";
 import ContactUs from "../pages/Dashboard/ContactUs/ContactUs";
+import AllImpacts from "../pages/Dashboard/Impacts/AllImpacts";
 import Logo from "../pages/Dashboard/Logo/Logo";
 import AddNewsCategory from "../pages/Dashboard/NewsEvents/NewsCategory/AddNewsCategory";
 import AllNewsCategories from "../pages/Dashboard/NewsEvents/NewsCategory/AllNewsCategories";
 import EditNewsCategories from "../pages/Dashboard/NewsEvents/NewsCategory/EditNewsCategory";
+import AddNewsEvent from "../pages/Dashboard/NewsEvents/NewsEvent/AddNewsEvent";
 import AllNewsEvent from "../pages/Dashboard/NewsEvents/NewsEvent/AllNewsEvent";
+import UpdateNewsEvent from "../pages/Dashboard/NewsEvents/NewsEvent/UpdateNewsEvent";
 import AddSubCategories from "../pages/Dashboard/SubCategories/AddSubCategories";
 import EditSubCategories from "../pages/Dashboard/SubCategories/EditSubCategories";
 import SubCategories from "../pages/Dashboard/SubCategories/SubCategories";
@@ -50,8 +53,8 @@ import Advertisement from "../pages/NewsEvents/category/Advertisement";
 import CSR from "../pages/NewsEvents/category/CSR";
 import CorporateNews from "../pages/NewsEvents/category/CorporateNews";
 import Events from "../pages/NewsEvents/category/Events";
-import AddNewsEvent from "../pages/Dashboard/NewsEvents/NewsEvent/AddNewsEvent";
-import UpdateNewsEvent from "../pages/Dashboard/NewsEvents/NewsEvent/UpdateNewsEvent";
+import AddImpact from "../pages/Dashboard/Impacts/AddImpact";
+import EditImpact from "../pages/Dashboard/Impacts/EditImpact";
 
 export const routes = createBrowserRouter([
   {
@@ -270,6 +273,20 @@ export const routes = createBrowserRouter([
       {
         path: "/admin/news-events/edit-news-events/:id",
         element: <UpdateNewsEvent />,
+      },
+
+      // impacts
+      {
+        path: "/admin/impacts/all-impacts",
+        element: <AllImpacts />,
+      },
+      {
+        path: "/admin/impacts/add-impact",
+        element: <AddImpact />,
+      },
+      {
+        path: "/admin/impacts/edit-impact/:id",
+        element: <EditImpact />,
       },
     ],
   },

@@ -71,11 +71,11 @@ const adminSidebarItems = [
   },
   {
     icon: <FaRegHandshake />,
-    title: "Why Choose",
+    title: "Impacts",
     subMenu: [
       {
-        title: "Why Choose Lists",
-        path: "/admin/why-choose",
+        title: "All Impacts",
+        path: "/admin/impacts/all-impacts",
       },
     ],
   },
