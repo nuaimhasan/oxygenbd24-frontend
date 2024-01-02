@@ -55,6 +55,7 @@ import CorporateNews from "../pages/NewsEvents/category/CorporateNews";
 import Events from "../pages/NewsEvents/category/Events";
 import AddImpact from "../pages/Dashboard/Impacts/AddImpact";
 import EditImpact from "../pages/Dashboard/Impacts/EditImpact";
+import ImpactSection from "../pages/Dashboard/Impacts/ImpactSection";
 
 export const routes = createBrowserRouter([
   {
@@ -287,6 +288,10 @@ export const routes = createBrowserRouter([
       {
         path: "/admin/impacts/edit-impact/:id",
         element: <EditImpact />,
+      },
+      {
+        path: "/admin/impacts/impact-section",
+        element: <ImpactSection />,
       },
     ],
   },

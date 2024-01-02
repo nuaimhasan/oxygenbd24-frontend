@@ -77,6 +77,10 @@ const adminSidebarItems = [
         title: "All Impacts",
         path: "/admin/impacts/all-impacts",
       },
+      {
+        title: "Impacts Section",
+        path: "/admin/impacts/impact-section",
+      },
     ],
   },
   {
