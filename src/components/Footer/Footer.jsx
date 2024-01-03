@@ -2,14 +2,28 @@ import { Link } from "react-router-dom";
 import { BiLogoFacebook, BiLogoLinkedin } from "react-icons/bi";
 import { BsTelephone } from "react-icons/bs";
 import { MdOutlineMail, MdOutlineLocationOn } from "react-icons/md";
+import { useGetLogosQuery } from "../../Redux/logo/logoApi";
+import { useGetContactsQuery } from "../../Redux/contact/contactApi";
 
 export default function Footer() {
+
+  const {data:logos} = useGetLogosQuery();
+  const logo = logos?.data[0];
+  const { data: contactData } = useGetContactsQuery();
+  const contact = contactData?.data[0];
+
   return (
     <footer className="bg-[#031A2F] pt-10 pb-5">
       <div className="container">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 pb-14">
           <div>
-            <img src="/images/logo/logo.png" alt="" className="w-60" />
+            <img
+              src={`${import.meta.env.VITE_BACKEND_URL}/logo/${
+                logo?.logo
+              }`}
+              alt=""
+              className="w-60"
+            />
           </div>
           <div>
             <h2 className="text-gray-300 text-xl font-medium">Quick Link</h2>
@@ -32,13 +46,13 @@ export default function Footer() {
               <li>
                 <p className="flex items-center gap-1.5">
                   <BsTelephone />
-                  01701-290000
+                  {contact?.primaryPhone}
                 </p>
               </li>
               <li>
                 <p className="flex items-center gap-1.5">
                   <MdOutlineMail />
-                  info@skrpsolar.com
+                  {contact?.email}
                 </p>
               </li>
               <li>
@@ -47,8 +61,7 @@ export default function Footer() {
                     <MdOutlineLocationOn />
                   </p>
                   <p>
-                    80, Rupayan Karim Tower, Kakrail, Dhaka-1000, Dhaka,
-                    Bangladesh
+                    {contact?.address}
                   </p>
                 </div>
               </li>
@@ -71,14 +84,14 @@ export default function Footer() {
 
             <div className="flex gap-3 items-center">
               <Link
-                to="https://www.facebook.com/skrprenewableenergy?mibextid=ZbWKwL"
+                to={contact?.facebookLink}
                 target="_blank"
                 className="w-7 h-7 rounded-full bg-primary/50 flex justify-center items-center text-base-100 hover:-mt-1 duration-200"
               >
                 <BiLogoFacebook className="text-xl" />
               </Link>
               <Link
-                to=""
+                to={contact?.linkedinLink}
                 target="_blank"
                 className="w-7 h-7 rounded-full bg-primary/50 flex justify-center items-center text-base-100 hover:-mt-1 duration-200"
               >

@@ -6,12 +6,15 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { BsSearch } from "react-icons/bs";
 import ProductDropdown from "./ProductDropdown";
 import AboutDropdown from "./AboutDropdown";
+import { useGetLogosQuery } from "../../Redux/logo/logoApi";
 
 export default function Header() {
   const [mobileMenu, setmobileMenu] = useState(false);
   const [aboutDropdown, setAboutDropdown] = useState(false);
   const [productsDropdown, setProductsDropdown] = useState(false);
   const [searchDropdown, setSearchDropdown] = useState(false);
+
+  const {data} =useGetLogosQuery()
 
   useEffect(() => {
     window.addEventListener("click", (e) => {
@@ -42,7 +45,9 @@ export default function Header() {
         <div className="header">
           <Link to="/">
             <img
-              src="/images/logo/logo.png"
+              src={`${import.meta.env.VITE_BACKEND_URL}/logo/${
+                data?.data[0]?.logo
+              }`}
               alt="rahaimafroz solar logo"
               className="w-36 sm:w-44 xl:w-52 h-9"
             />

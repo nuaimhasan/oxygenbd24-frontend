@@ -2,8 +2,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
+import { useAllClientsQuery } from "../../Redux/clients/clientsApi";
+import Spinner from "../Spinner/Spinner";
 
 export default function Clients() {
+  const { data,isLoading } = useAllClientsQuery();
+
+  if (isLoading) return <Spinner />;
+
   return (
     <section className="py-10">
       <div className="container">
@@ -35,24 +41,15 @@ export default function Clients() {
           }}
           className="py-10 alliances"
         >
-          <SwiperSlide>
-            <img src="/images/clients/1.png" alt="" className="h-14 mx-auto" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="/images/clients/2.png" alt="" className="h-14 mx-auto" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="/images/clients/3.png" alt="" className="h-20 mx-auto" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="/images/clients/4.png" alt="" className="h-14 mx-auto" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="/images/clients/5.png" alt="" className="h-14 mx-auto" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="/images/clients/6.png" alt="" className="h-14 mx-auto" />
-          </SwiperSlide>
+          {data?.data?.map((client) => (
+            <SwiperSlide key={client._id}>
+              <img
+                src={`${import.meta.env.VITE_BACKEND_URL}/clients/${client.image}`}
+                alt=""
+                className="h-14 mx-auto"
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </section>
