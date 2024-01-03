@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import { useGetAllProductsQuery } from "../../Redux/product/productApi";
 import ProductCard from "../../components/Product/ProductCard";
@@ -14,7 +15,6 @@ export default function Products() {
   console.log(categoryParams, subCategoryParams, subSubCategoryParams);
 
   const query = {};
-  // eslint-disable-next-line no-unused-vars
   const [page, setPage] = useState(1);
   // eslint-disable-next-line no-unused-vars
   const [limit, setLimit] = useState(8);
@@ -37,6 +37,13 @@ export default function Products() {
   const { data, isLoading, isError, isSuccess } = useGetAllProductsQuery({
     ...query,
   });
+
+  const handlePageChange = (pageNumber) => {
+    if (pageNumber < 1) return;
+    if (data?.meta?.total && pageNumber > data?.meta.total / limit) return;
+
+    setPage(pageNumber);
+  };
 
   if (isLoading) return <Spinner />;
 
@@ -73,6 +80,30 @@ export default function Products() {
       </div>
 
       <div className="container py-10">{content}</div>
+
+      {data?.data?.length > 0 && (
+        <div className="flex items-center justify-center my-16">
+          <div className="flex items-center space-x-1 border border-gray-300 rounded overflow-hidden text-sm">
+            <button
+              className="px-4 py-2 text-gray-600 hover:text-gray-800 focus:outline-none"
+              onClick={() => handlePageChange(page - 1)}
+              disabled={page === 1}
+            >
+              <FaArrowLeft />
+            </button>
+            <button className="px-4 py-2 bg-gray-700 text-gray-100 font-medium focus:outline-none">
+              Page {page}
+            </button>
+            <button
+              className="px-4 py-2 text-gray-600 hover:text-gray-800 focus:outline-none"
+              onClick={() => handlePageChange(page + 1)}
+              disabled={data?.meta?.total && page === data?.meta.total / limit}
+            >
+              <FaArrowRight />
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

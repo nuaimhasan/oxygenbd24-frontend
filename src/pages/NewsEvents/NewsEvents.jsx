@@ -6,6 +6,7 @@ import { useGetNewsCategoriesQuery } from "../../Redux/newsCategory/newsCategory
 import { useGetNewsEventsQuery } from "../../Redux/newsEvents/newsEventsApi";
 import Spinner from "../../components/Spinner/Spinner";
 import "./NewsEvents.css";
+import NewsEventCard from "../../components/NewsEvent/NewsEventCard";
 
 export default function NewsEvents() {
   const [sidebar, setSidebar] = useState(false);
@@ -65,25 +66,7 @@ export default function NewsEvents() {
     content = (
       <div className="flex flex-col gap-8">
         {data?.data?.map((news) => (
-          <div className="news_card" key={news?._id}>
-            <div>
-              <img
-                src={`${import.meta.env.VITE_BACKEND_URL}/newsEvent/${
-                  news?.image
-                }`}
-                alt=""
-                className="w-full h-60 rounded"
-              />
-            </div>
-            <h2 className="mt-2">
-              <Link
-                to={`/news-events/${news?.slug}`}
-                className="hover:text-secondary duration-200"
-              >
-                {news?.title}
-              </Link>
-            </h2>
-          </div>
+          <NewsEventCard news={news} key={news?._id} />
         ))}
       </div>
     );

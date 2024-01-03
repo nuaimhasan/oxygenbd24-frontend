@@ -3,14 +3,16 @@ import { apiSlice } from "../api/apiSlice";
 export const productApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getAllProducts: builder.query({
-      query: () => ({
-        url: "/product",
+      query: (query) => ({
+        url: "/products/all",
+        method: "GET",
+        params: query,
       }),
       providesTags: ["product"],
     }),
     updateProduct: builder.mutation({
       query: ({ id, formData }) => ({
-        url: `/product/update-product/${id}`,
+        url: `/products/update-product/${id}`,
         method: "PATCH",
         body: formData,
       }),
@@ -18,7 +20,7 @@ export const productApi = apiSlice.injectEndpoints({
     }),
     addProduct: builder.mutation({
       query: (formData) => ({
-        url: `/product/add-product`,
+        url: `/products/add-product`,
         method: "POST",
         body: formData,
       }),
@@ -26,20 +28,20 @@ export const productApi = apiSlice.injectEndpoints({
     }),
     deleteProductById: builder.mutation({
       query: (id) => ({
-        url: `/product/delete/${id}`,
+        url: `/products/delete/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: ["product"],
     }),
     getProductById: builder.query({
       query: (id) => ({
-        url: `/product/${id}`,
+        url: `/products/${id}`,
       }),
       providesTags: ["product"],
     }),
     getProductBySlug: builder.query({
       query: (slug) => ({
-        url: `/product/getbyslug/${slug}`,
+        url: `/products/getbyslug/${slug}`,
       }),
       providesTags: ["product"],
     }),

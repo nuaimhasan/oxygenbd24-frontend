@@ -1,11 +1,22 @@
 import { Link } from "react-router-dom";
+import Spinner from "../../components/Spinner/Spinner";
+import perser from "html-react-parser";
+import { useGetOurMissionsQuery } from "../../Redux/ourMission/ourMissionApi";
 
-export default function MissionVision() {
+export default function OurMission() {
+  const { data, isLoading } = useGetOurMissionsQuery();
+  const ourMission = data?.data[0];
+
+  if (isLoading) return <Spinner />;
+
+  const perserDescription = perser(ourMission?.description);
   return (
     <section>
       <div>
         <img
-          src="/images/about/MissionVission.jpg"
+          src={`${import.meta.env.VITE_BACKEND_URL}/ourMission/${
+            ourMission?.image
+          }`}
           alt=""
           className="w-full h-36 md:h-60"
         />
@@ -14,21 +25,11 @@ export default function MissionVision() {
         <div className="grid md:grid-cols-2">
           <div>
             <h2 className="text-xl font-semibold text-neutral mb-3">
-              Mission Vision
+              {ourMission?.title}
             </h2>
 
             <div className="text-neutral-content text-[15px]">
-              <p className="text-secondary">Mission</p>
-              <p>
-                To create Maximum Possible Values for all of our Business
-                Associates, adhering to the highest ethical standards.
-              </p>
-              <br />
-              <p className="text-secondary">Vision</p>
-              <p>
-                To become the number one product and service providing company
-                in terms of quality.
-              </p>
+              <p>{perserDescription}</p>
             </div>
 
             <div className="mt-6">

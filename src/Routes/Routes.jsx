@@ -1,12 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout";
 import AboutUs from "../pages/AboutUs/AboutUs";
-import AreaOperation from "../pages/AboutUs/AreaOperation";
 import CompanyProfile from "../pages/AboutUs/CompanyProfile";
-import Manpower from "../pages/AboutUs/Manpower";
-import MissionVision from "../pages/AboutUs/MissionVision";
-import PurposeService from "../pages/AboutUs/PurposeService";
-import Testimonials from "../pages/AboutUs/Testimonials";
+import OurMission from "../pages/AboutUs/OurMission";
 import Home from "../pages/Home/Home";
 
 import Contact from "../pages/Contact/Contact";
@@ -50,17 +46,18 @@ import AddSubCategories from "../pages/Dashboard/SubCategories/AddSubCategories"
 import EditSubCategories from "../pages/Dashboard/SubCategories/EditSubCategories";
 import SubCategories from "../pages/Dashboard/SubCategories/SubCategories";
 
+import CareerForms from "../pages/Dashboard/Career/CareerForms";
 import AddImpact from "../pages/Dashboard/Impacts/AddImpact";
 import EditImpact from "../pages/Dashboard/Impacts/EditImpact";
 import ImpactSection from "../pages/Dashboard/Impacts/ImpactSection";
-import SubSubCategories from "../pages/Dashboard/SubSubCategories/SubSubCategories";
-import AddSubSubCategory from "../pages/Dashboard/SubSubCategories/AddSubSubCategory";
-import EditSubSubCategory from "../pages/Dashboard/SubSubCategories/EditSubSubCategory";
-import ProductsList from "../pages/Dashboard/Product/ProductsList";
 import AddProduct from "../pages/Dashboard/Product/AddProduct";
 import EditProduct from "../pages/Dashboard/Product/EditProduct";
-import CareerForms from "../pages/Dashboard/Career/CareerForms";
+import ProductsList from "../pages/Dashboard/Product/ProductsList";
+import AddSubSubCategory from "../pages/Dashboard/SubSubCategories/AddSubSubCategory";
+import EditSubSubCategory from "../pages/Dashboard/SubSubCategories/EditSubSubCategory";
+import SubSubCategories from "../pages/Dashboard/SubSubCategories/SubSubCategories";
 import NewsEvents from "../pages/NewsEvents/NewsEvents";
+import OurVision from "../pages/AboutUs/OurVision";
 
 export const routes = createBrowserRouter([
   {
@@ -116,24 +113,12 @@ export const routes = createBrowserRouter([
         element: <CompanyProfile />,
       },
       {
-        path: "/about-us/mission-vision",
-        element: <MissionVision />,
+        path: "/about-us/our-mission",
+        element: <OurMission />,
       },
       {
-        path: "/about-us/purpose-service",
-        element: <PurposeService />,
-      },
-      {
-        path: "/about-us/testimonials",
-        element: <Testimonials />,
-      },
-      {
-        path: "/about-us/manpower",
-        element: <Manpower />,
-      },
-      {
-        path: "/about-us/area-operation",
-        element: <AreaOperation />,
+        path: "/about-us/our-vision",
+        element: <OurVision />,
       },
       {
         path: "/about-us/our-team",

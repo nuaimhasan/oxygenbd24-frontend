@@ -1,16 +1,13 @@
+import perser from "html-react-parser";
 import { Link } from "react-router-dom";
-import perser from 'html-react-parser'
 
-const ProductCard = ({product}) => {
-
-    const persedDescription = perser(product?.description)
+const ProductCard = ({ product }) => {
+  const persedDescription = perser(product?.description);
   return (
     <div>
       <div className="shadow rounded bg-base-100">
         <img
-          src={`${import.meta.env.VITE_BACKEND_URL}/products/${
-                  product?.image
-                }`}
+          src={`${import.meta.env.VITE_BACKEND_URL}/products/${product?.image}`}
           alt=""
           className="rounded-t h-40 w-full"
         />
@@ -34,6 +31,6 @@ const ProductCard = ({product}) => {
       </div>
     </div>
   );
-}
+};
 
-export default ProductCard
+export default ProductCard;

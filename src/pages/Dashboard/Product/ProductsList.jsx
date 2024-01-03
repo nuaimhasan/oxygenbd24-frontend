@@ -9,10 +9,9 @@ import Spinner from "../../../components/Spinner/Spinner";
 
 const ProductsList = () => {
   const [deleteProduct] = useDeleteProductByIdMutation();
-  const { data, isLoading, isError, isSuccess } =
-    useGetAllProductsQuery();
+  const { data, isLoading, isError, isSuccess } = useGetAllProductsQuery();
   const products = data?.data;
-  console.log(products);
+  // console.log(products);
 
   const deleteProductHandler = async (id) => {
     const isConfirm = window.confirm("Are you sure delete this product?");
@@ -84,7 +83,7 @@ const ProductsList = () => {
     <section>
       <div className="p-4 border-b bg-base-100 rounded">
         <div className="flex justify-between items-center">
-          <h1 className="font-medium text-neutral">Clients</h1>
+          <h1 className="font-medium text-neutral">Products</h1>
           <Link to="/admin/products/add-product/" className="secondary_btn">
             Add Product
           </Link>
