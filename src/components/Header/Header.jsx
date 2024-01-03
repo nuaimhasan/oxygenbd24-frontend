@@ -1,12 +1,12 @@
-import "./Header.css";
 import { useEffect, useState } from "react";
-import { NavLink, Link } from "react-router-dom";
 import { AiOutlineMenu } from "react-icons/ai";
-import { MdKeyboardArrowDown } from "react-icons/md";
 import { BsSearch } from "react-icons/bs";
-import ProductDropdown from "./ProductDropdown";
-import AboutDropdown from "./AboutDropdown";
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { Link, NavLink } from "react-router-dom";
 import { useGetLogosQuery } from "../../Redux/logo/logoApi";
+import AboutDropdown from "./AboutDropdown";
+import "./Header.css";
+import ProductDropdown from "./ProductDropdown";
 
 export default function Header() {
   const [mobileMenu, setmobileMenu] = useState(false);
@@ -14,7 +14,7 @@ export default function Header() {
   const [productsDropdown, setProductsDropdown] = useState(false);
   const [searchDropdown, setSearchDropdown] = useState(false);
 
-  const {data} =useGetLogosQuery()
+  const { data } = useGetLogosQuery();
 
   useEffect(() => {
     window.addEventListener("click", (e) => {
@@ -74,17 +74,18 @@ export default function Header() {
                 <AboutDropdown aboutDropdown={aboutDropdown} />
               </li>
               <li>
-                <button
+                <Link
+                  to="/products"
                   className="products_btn"
                   onClick={() => setProductsDropdown(!productsDropdown)}
                 >
                   Products <MdKeyboardArrowDown />
-                </button>
+                </Link>
 
                 <ProductDropdown productsDropdown={productsDropdown} />
               </li>
               <li>
-                <NavLink to="/news-events/advertisement">News & Events</NavLink>
+                <NavLink to="/news-events">News & Events</NavLink>
               </li>
               <li>
                 <NavLink to="/clients">Clients</NavLink>

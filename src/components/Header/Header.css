@@ -38,7 +38,7 @@
 
 .menu_wrap ul li .dropdown {
   position: absolute;
-  left: 0;
+  right: 0;
   top: 100%;
   min-width: 220px;
   max-width: max-content;

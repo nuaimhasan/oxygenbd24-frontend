@@ -39,6 +39,12 @@ export const newsEventApi = apiSlice.injectEndpoints({
       }),
       providesTags: ["news-events"],
     }),
+    getNewsEventBySlug: builder.query({
+      query: (slug) => ({
+        url: `/news-events/slug/${slug}`,
+      }),
+      providesTags: ["news-events"],
+    }),
   }),
 });
 
@@ -48,4 +54,5 @@ export const {
   useUpdateNewsEventMutation,
   useDeleteNewsEventByIdMutation,
   useGetNewsEventByIdQuery,
+  useGetNewsEventBySlugQuery
 } = newsEventApi;

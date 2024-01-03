@@ -2,6 +2,7 @@
 import { Link } from 'react-router-dom';
 
 const NewsEventCard = ({news}) => {
+  console.log(news);
   return (
     <div className="news_card" key={news?._id}>
       <div>
@@ -13,7 +14,7 @@ const NewsEventCard = ({news}) => {
       </div>
       <h2 className="mt-2">
         <Link
-          to={`/news-events/${news?.slug}`}
+          to={`/news-events/${news?.category}/${news?.slug}`}
           className="hover:text-secondary duration-200"
         >
           {news?.title}

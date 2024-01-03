@@ -58,6 +58,8 @@ import EditSubSubCategory from "../pages/Dashboard/SubSubCategories/EditSubSubCa
 import SubSubCategories from "../pages/Dashboard/SubSubCategories/SubSubCategories";
 import NewsEvents from "../pages/NewsEvents/NewsEvents";
 import OurVision from "../pages/AboutUs/OurVision";
+import NewsEventDetails from "../pages/NewsEvents/NewsEventDetails";
+import ProductDetails from "../pages/Products/ProductDetails";
 
 export const routes = createBrowserRouter([
   {
@@ -81,6 +83,10 @@ export const routes = createBrowserRouter([
         element: <Products />,
       },
       {
+        path: "/products/product-details/:slug",
+        element: <ProductDetails />,
+      },
+      {
         path: "/products/:category/:subCategory/:subSubCategory",
         element: <Products />,
       },
@@ -99,6 +105,10 @@ export const routes = createBrowserRouter([
       {
         path: "/news-events/:category",
         element: <NewsEvents />,
+      },
+      {
+        path: "/news-events/:category/:slug",
+        element: <NewsEventDetails />,
       },
       {
         path: "/contact-us",
