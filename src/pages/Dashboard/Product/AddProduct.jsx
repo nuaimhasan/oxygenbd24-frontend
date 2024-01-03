@@ -9,8 +9,10 @@ import {
 } from "../../../Redux/category/categoryApi";
 import { useAddProductMutation } from "../../../Redux/product/productApi";
 import { useGetSubCategoryQuery } from "../../../Redux/subCategory/subCategoryApi";
+import { useNavigate } from "react-router-dom";
 
 const AddProduct = () => {
+  const navigate = useNavigate();
   const editor = useRef(null);
   const [image, setImage] = useState([]);
   const [description, setDescription] = useState("");
@@ -52,6 +54,7 @@ const AddProduct = () => {
       e.target.reset();
       setImage([]);
       setDescription("");
+      navigate("/admin/products/all-products");
     } else {
       Swal.fire("", res.error, "error");
     }

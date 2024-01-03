@@ -1,7 +1,11 @@
-import "./NewsEvents.css";
-import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { HiOutlineMenuAlt2 } from "react-icons/hi";
+import { Link, useParams } from "react-router-dom";
+import { useGetNewsCategoriesQuery } from "../../Redux/newsCategory/newsCategoryApi";
+import { useGetNewsEventsQuery } from "../../Redux/newsEvents/newsEventsApi";
+import Spinner from "../../components/Spinner/Spinner";
+import "./NewsEvents.css";
 
 export default function NewsEvents() {
   const [sidebar, setSidebar] = useState(false);
@@ -16,6 +20,75 @@ export default function NewsEvents() {
       }
     });
   }, []);
+
+  const params = useParams();
+  let categoryParams = params?.category ? params?.category : "";
+
+  const query = {};
+  const [page, setPage] = useState(1);
+  // eslint-disable-next-line no-unused-vars
+  const [limit, setLimit] = useState(8);
+  const [category, setCategory] = useState("");
+
+  query["page"] = page;
+  query["limit"] = limit;
+  query["category"] = category;
+
+  useEffect(() => {
+    setCategory(categoryParams);
+  }, [categoryParams]);
+
+  // console.log(categoryParams, category);
+
+  const { data, isLoading, isError, isSuccess } = useGetNewsEventsQuery({
+    ...query,
+  });
+  const { data: newsCategory } = useGetNewsCategoriesQuery();
+  // console.log(data);
+  if (isLoading) return <Spinner />;
+
+  const handlePageChange = (pageNumber) => {
+    if (pageNumber < 1) return;
+    if (data?.meta?.total && pageNumber > data?.meta.total / limit) return;
+
+    setPage(pageNumber);
+  };
+
+  let content = null;
+
+  if (isError) content = <div>Something went wrong</div>;
+
+  if (!isLoading && isSuccess && data?.data?.length === 0)
+    content = <div>In this category no news found</div>;
+
+  if (!isLoading && isSuccess && data?.data?.length > 0) {
+    content = (
+      <div className="flex flex-col gap-8">
+        {data?.data?.map((news) => (
+          <div className="news_card" key={news?._id}>
+            <div>
+              <img
+                src={`${import.meta.env.VITE_BACKEND_URL}/newsEvent/${
+                  news?.image
+                }`}
+                alt=""
+                className="w-full h-60 rounded"
+              />
+            </div>
+            <h2 className="mt-2">
+              <Link
+                to={`/news-events/${news?.slug}`}
+                className="hover:text-secondary duration-200"
+              >
+                {news?.title}
+              </Link>
+            </h2>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
   return (
     <section className="py-6">
       <div className="container">
@@ -28,7 +101,9 @@ export default function NewsEvents() {
           </button>
           <p>Home</p>
           <p>-</p>
-          <p>news-events</p>
+          <Link to="/news-events">
+            <p className="text-blue-500">News & Events</p>
+          </Link>
         </div>
 
         <div className="md:flex gap-6 lg:mx-28 mt-6">
@@ -36,78 +111,48 @@ export default function NewsEvents() {
             <div className="py-2">
               <p className="text-neutral font-medium">Categories</p>
               <ul className="mt-1.5 pl-1 text-neutral-content flex flex-col gap-1">
-                <li>
-                  <Link
-                    to="/news-events/advertisement"
-                    className="hover:text-secondary duration-200"
-                  >
-                    Advertisement
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/news-events"
-                    className="hover:text-secondary duration-200"
-                  >
-                    Corporate News
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/news-events"
-                    className="hover:text-secondary duration-200"
-                  >
-                    CSR
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/news-events"
-                    className="hover:text-secondary duration-200"
-                  >
-                    Events
-                  </Link>
-                </li>
+                {newsCategory?.data?.map((category) => (
+                  <li key={category?._id}>
+                    <Link
+                      to={`/news-events/${category?.slug}`}
+                      className="hover:text-secondary duration-200"
+                    >
+                      {category?.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
 
           <div className="news_content">
-            <div className="flex flex-col gap-8">
-              <div className="news_card">
-                <div>
-                  <img
-                    src="/images/news/news.jpg"
-                    alt=""
-                    className="w-full h-60 rounded"
-                  />
-                </div>
-                <h2 className="mt-2">
-                  Job Fair For Persons’ With Disabilities 2018 – Held on 20th
-                  October, 2018 at Krishibid Institution Complex(KBC) Convention
-                  Hall
-                </h2>
-              </div>
+            {content}
 
-              <div className="news_card">
-                <div>
-                  <img
-                    src="/images/news/news2.jpg"
-                    alt=""
-                    className="w-full h-60 rounded"
-                  />
+            {data?.data?.length > 0 && (
+              <div className="flex items-center justify-center mt-16">
+                <div className="flex items-center space-x-1 border border-gray-300 rounded overflow-hidden text-sm">
+                  <button
+                    className="px-4 py-2 text-gray-600 hover:text-gray-800 focus:outline-none"
+                    onClick={() => handlePageChange(page - 1)}
+                    disabled={page === 1}
+                  >
+                    <FaArrowLeft />
+                  </button>
+                  <button className="px-4 py-2 bg-gray-700 text-gray-100 font-medium focus:outline-none">
+                    Page {page}
+                  </button>
+                  <button
+                    className="px-4 py-2 text-gray-600 hover:text-gray-800 focus:outline-none"
+                    onClick={() => handlePageChange(page + 1)}
+                    disabled={
+                      data?.meta?.total && page === data?.meta.total / limit
+                    }
+                  >
+                    <FaArrowRight />
+                  </button>
                 </div>
-                <h2 className="mt-2">
-                  SKRP Group Gifted a LED TV to the “Bijoy 71” Hall of Dhaka
-                  University. In picture, Md. Tajul Islam, Director (HR & CS) &
-                  Md. Saiful Islam, Director (Marketing) are handing over the TV
-                  to Dr. A J M Shafiul Alam Bhuiyan (Provost, Bijoy 71 Hall).
-                  Mr. Rasula Kibria (DGM-Electrical Division) and Mr Syed
-                  Rakibun Nabi Mukut (Manager-Water Purifier Division) & House
-                  tutors of “Bijoy 71” Hall were also there in the event.
-                </h2>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

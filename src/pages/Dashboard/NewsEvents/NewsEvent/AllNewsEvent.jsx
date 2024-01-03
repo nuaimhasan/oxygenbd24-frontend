@@ -81,8 +81,11 @@ const AllNewsEvent = () => {
       <div className="p-4 border-b bg-base-100 rounded">
         <div className="flex justify-between items-center">
           <h1 className="font-medium text-neutral">Clients</h1>
-          <Link to="/admin/clients/add-client" className="secondary_btn">
-            Add New Client
+          <Link
+            to="/admin/news-events/add-news-events"
+            className="secondary_btn"
+          >
+            Add News Event
           </Link>
         </div>
       </div>

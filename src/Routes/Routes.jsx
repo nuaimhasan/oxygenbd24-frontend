@@ -49,10 +49,7 @@ import UpdateNewsEvent from "../pages/Dashboard/NewsEvents/NewsEvent/UpdateNewsE
 import AddSubCategories from "../pages/Dashboard/SubCategories/AddSubCategories";
 import EditSubCategories from "../pages/Dashboard/SubCategories/EditSubCategories";
 import SubCategories from "../pages/Dashboard/SubCategories/SubCategories";
-import Advertisement from "../pages/NewsEvents/category/Advertisement";
-import CSR from "../pages/NewsEvents/category/CSR";
-import CorporateNews from "../pages/NewsEvents/category/CorporateNews";
-import Events from "../pages/NewsEvents/category/Events";
+
 import AddImpact from "../pages/Dashboard/Impacts/AddImpact";
 import EditImpact from "../pages/Dashboard/Impacts/EditImpact";
 import ImpactSection from "../pages/Dashboard/Impacts/ImpactSection";
@@ -63,6 +60,7 @@ import ProductsList from "../pages/Dashboard/Product/ProductsList";
 import AddProduct from "../pages/Dashboard/Product/AddProduct";
 import EditProduct from "../pages/Dashboard/Product/EditProduct";
 import CareerForms from "../pages/Dashboard/Career/CareerForms";
+import NewsEvents from "../pages/NewsEvents/NewsEvents";
 
 export const routes = createBrowserRouter([
   {
@@ -98,20 +96,12 @@ export const routes = createBrowserRouter([
         element: <Career />,
       },
       {
-        path: "/news-events/advertisement",
-        element: <Advertisement />,
+        path: "/news-events",
+        element: <NewsEvents />,
       },
       {
-        path: "/news-events/corporate-news",
-        element: <CorporateNews />,
-      },
-      {
-        path: "/news-events/csr",
-        element: <CSR />,
-      },
-      {
-        path: "/news-events/events",
-        element: <Events />,
+        path: "/news-events/:category",
+        element: <NewsEvents />,
       },
       {
         path: "/contact-us",

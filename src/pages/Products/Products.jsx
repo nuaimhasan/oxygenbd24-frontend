@@ -1,7 +1,61 @@
-import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useGetAllProductsQuery } from "../../Redux/product/productApi";
+import ProductCard from "../../components/Product/ProductCard";
+import Spinner from "../../components/Spinner/Spinner";
 
 export default function Products() {
   const params = useParams();
+  let categoryParams = params?.category ? params?.category : "";
+  let subCategoryParams = params?.subCategory ? params?.subCategory : "";
+  let subSubCategoryParams = params?.subSubCategory
+    ? params?.subSubCategory
+    : "";
+  console.log(categoryParams, subCategoryParams, subSubCategoryParams);
+
+  const query = {};
+  // eslint-disable-next-line no-unused-vars
+  const [page, setPage] = useState(1);
+  // eslint-disable-next-line no-unused-vars
+  const [limit, setLimit] = useState(8);
+  const [category, setCategory] = useState("");
+  const [subCategory, setSubCategory] = useState("");
+  const [subSubCategory, setSubSubCategory] = useState("");
+
+  query["page"] = page;
+  query["limit"] = limit;
+  query["category"] = category;
+  query["subCategory"] = subCategory;
+  query["subSubCategory"] = subSubCategory;
+
+  useEffect(() => {
+    setCategory(categoryParams);
+    setSubCategory(subCategoryParams);
+    setSubSubCategory(subSubCategoryParams);
+  }, [categoryParams, subCategoryParams, subSubCategoryParams]);
+
+  const { data, isLoading, isError, isSuccess } = useGetAllProductsQuery({
+    ...query,
+  });
+
+  if (isLoading) return <Spinner />;
+
+  let content = null;
+
+  if (isError) content = <div>Something went wrong please reload the page</div>;
+
+  if (!isLoading && isSuccess && data?.data?.length === 0)
+    content = <div>In this category no products found</div>;
+
+  if (!isLoading && isSuccess && data?.data?.length > 0) {
+    content = (
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {data?.data?.map((product) => (
+          <ProductCard product={product} key={product?._id} />
+        ))}
+      </div>
+    );
+  }
 
   return (
     <section>
@@ -18,63 +72,7 @@ export default function Products() {
         </div>
       </div>
 
-      <div className="container py-10">
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          <div className="shadow rounded bg-base-100">
-            <img
-              src="/images/products/led-dc-bulb.jpg"
-              alt=""
-              className="rounded-t h-40 w-full"
-            />
-            <div className="px-4 py-2">
-              <h2 className="text-neutral font-semibold text-xl">
-                LED DC Bulb
-              </h2>
-              <p className="text-neutral-content text-sm mt-1">
-                For rural Bangladesh, Solar Home Systems (or more popularly
-                known as SHS) is the most convenient way for households and
-                small enterprise owners to have access...
-              </p>
-
-              <div className="mt-4 pb-4">
-                <Link
-                  to=""
-                  className="bg-primary text-base-100 text-sm rounded-md px-4 py-2"
-                >
-                  View Details
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <div className="shadow rounded bg-base-100">
-            <img
-              src="/images/products/solar-panel.jpg"
-              alt=""
-              className="rounded-t h-40 w-full"
-            />
-            <div className="px-4 py-2">
-              <h2 className="text-neutral font-semibold text-xl">
-                Solar Panel Mono
-              </h2>
-              <p className="text-neutral-content text-sm mt-1">
-                For rural Bangladesh, Solar Home Systems (or more popularly
-                known as SHS) is the most convenient way for households and
-                small enterprise owners to have access...
-              </p>
-
-              <div className="mt-4 pb-4">
-                <Link
-                  to=""
-                  className="bg-primary text-base-100 text-sm rounded-md px-4 py-2"
-                >
-                  View Details
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div className="container py-10">{content}</div>
     </section>
   );
 }

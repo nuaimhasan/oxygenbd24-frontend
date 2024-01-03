@@ -5,9 +5,11 @@ import ImageUploading from "react-images-uploading";
 import Swal from "sweetalert2";
 import { useGetNewsCategoriesQuery } from "../../../../Redux/newsCategory/newsCategoryApi";
 import { useCreateNewsEventMutation } from "../../../../Redux/newsEvents/newsEventsApi";
+import { useNavigate } from "react-router-dom";
 
 const AddNewsEvent = () => {
   const editor = useRef(null);
+  const navigate = useNavigate();
 
   const [createNewsEvent, { isLoading: createLoading }] =
     useCreateNewsEventMutation();
@@ -36,7 +38,8 @@ const AddNewsEvent = () => {
         setImage([]);
         setDescription("");
         e.target.reset();
-        Swal.fire("", "About add success", "success");
+        Swal.fire("", "News event add success", "success");
+        navigate("/admin/news-events/all-news-events");
       }
     } catch (error) {
       Swal.fire("", error?.data?.error, "error");

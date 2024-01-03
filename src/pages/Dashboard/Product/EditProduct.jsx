@@ -2,64 +2,51 @@ import JoditEditor from "jodit-react";
 import { useRef, useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import ImageUploading from "react-images-uploading";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
-import {
-  useGetCategoriesQuery,
-  useGetCategoryQuery,
-} from "../../../Redux/category/categoryApi";
 import {
   useGetProductByIdQuery,
   useUpdateProductMutation,
 } from "../../../Redux/product/productApi";
-import { useGetSubCategoryQuery } from "../../../Redux/subCategory/subCategoryApi";
+import Spinner from "../../../components/Spinner/Spinner";
 
 const EditProduct = () => {
   const editor = useRef(null);
+  const navigate = useNavigate();
 
   const { id } = useParams();
-  const { data: product } = useGetProductByIdQuery(id);
+  const { data: product, isLoading: getloading } = useGetProductByIdQuery(id);
+  // console.log(product?.data);
 
   const [image, setImage] = useState([]);
   const [description, setDescription] = useState("");
-  const [categoryId, setCategoryId] = useState("");
-  const [subCategoryId, setSubCategoryId] = useState("");
-  const [subSubCategoryId, setSubSubCategoryId] = useState("");
 
-  const { data: categories } = useGetCategoriesQuery();
-  const { data: category } = useGetCategoryQuery(categoryId);
-  const { data: subCategory } = useGetSubCategoryQuery(subCategoryId);
   const [updateProduct, { isLoading }] = useUpdateProductMutation();
 
-  const subCategories = category?.data?.subCategories;
-  const subSubCategories = subCategory?.data?.subSubCategories;
+  if (getloading) return <Spinner />;
 
   const handleUpdateProduct = async (e) => {
     e.preventDefault();
     const title = e.target.title.value;
 
-    if (image?.length <= 0) {
-      return Swal.fire("", "Image is required", "warning");
-    }
-
-    if (description === "") {
-      return Swal.fire("", "Details is required", "warning");
-    }
-
     const formData = new FormData();
     formData.append("title", title);
-    formData.append("description", description);
-    formData.append("category", categoryId);
-    if (subCategoryId) formData.append("subCategory", subCategoryId);
-    if (subSubCategoryId) formData.append("subSubCategory", subSubCategoryId);
-    formData.append("image", image[0].file);
+    if (description.length > 0 ) {
+      formData.append("description", description);
+    } else {
+      formData.append("description", product?.data?.description);
+    }
+    if (image?.length > 0) {
+      formData.append("image", image[0].file);
+    }
 
-    const res = await updateProduct(formData).unwrap();
+    const res = await updateProduct({ id, formData }).unwrap();
     if (res.success === true) {
       Swal.fire("", res.message, "success");
       e.target.reset();
       setImage([]);
       setDescription("");
+      navigate("/admin/products/all-products");
     } else {
       Swal.fire("", res.error, "error");
     }
@@ -86,54 +73,32 @@ const EditProduct = () => {
             {/* category */}
             <div>
               <p className="text-sm mb-1">Category *</p>
-              <select
+              <input
+                type="text"
                 name="category"
-                required
-                defaultValue={product?.data?.category?._id}
-                onChange={(e) => setCategoryId(e.target.value)}
-              >
-                <option value="">Select Category</option>
-                {categories?.data?.map((category) => (
-                  <option key={category?._id} value={category?._id}>
-                    {category?.name}
-                  </option>
-                ))}
-              </select>
+                disabled
+                defaultValue={product?.data?.category?.name}
+              />
             </div>
             {/* sub category */}
             <div>
               <p className="text-sm mb-1">Sub Category</p>
-              <select
-                name="sub_category"
-                onChange={(e) => setSubCategoryId(e.target.value)}
-              >
-                <option value="">Select Sub Category</option>
-                {subCategories?.length > 0 &&
-                  subCategories?.map((subCategory) => (
-                    <option key={subCategory?._id} value={subCategory?._id}>
-                      {subCategory?.name}
-                    </option>
-                  ))}
-              </select>
+              <input
+                type="text"
+                name="sub-category"
+                disabled
+                defaultValue={product?.data?.subCategory?.name}
+              />
             </div>
             {/* sub sub category */}
             <div>
               <p className="text-sm">Sub SubCategory</p>
-              <select
-                name="sub_subCategory"
-                onChange={(e) => setSubSubCategoryId(e.target.value)}
-              >
-                <option value="">Select Sub SubCategory</option>
-                {subSubCategories?.length > 0 &&
-                  subSubCategories?.map((subSubCategory) => (
-                    <option
-                      key={subSubCategory?._id}
-                      value={subSubCategory?._id}
-                    >
-                      {subSubCategory?.name}
-                    </option>
-                  ))}
-              </select>
+              <input
+                type="text"
+                name="sub-sub-category"
+                disabled
+                defaultValue={product?.data?.subSubCategory?.name}
+              />
             </div>
 
             <div>
@@ -181,6 +146,15 @@ const EditProduct = () => {
                       </div>
                     )}
                   </ImageUploading>
+                </div>
+                <div className="mt-4">
+                  <img
+                    src={`${import.meta.env.VITE_BACKEND_URL}/products/${
+                      product?.data?.image
+                    }`}
+                    alt=""
+                    className="w-32"
+                  />
                 </div>
               </div>
             </div>

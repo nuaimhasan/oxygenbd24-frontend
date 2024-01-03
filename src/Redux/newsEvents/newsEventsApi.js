@@ -3,8 +3,10 @@ import { apiSlice } from "../api/apiSlice";
 export const newsEventApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getNewsEvents: builder.query({
-      query: () => ({
+      query: (query) => ({
         url: "/news-events",
+        method: "GET",
+        params: query,
       }),
       providesTags: ["news-events"],
     }),
