@@ -10,7 +10,7 @@ export default async function useAuthCheck() {
     const localAuth = localStorage?.getItem("skrp_jwt");
 
     if (localAuth) {
-      fetch(`${import.meta.env.VITE_BACKEND_URL}/user/me`, {
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/admins/loggedUser`, {
         headers: {
           authorization: `bearer ${localAuth}`,
         },

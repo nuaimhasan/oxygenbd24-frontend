@@ -5,7 +5,7 @@ export const userApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     login: builder.mutation({
       query: (loginInfo) => ({
-        url: "/user/login",
+        url: "/admins/login",
         method: "POST",
         body: loginInfo,
       }),
@@ -27,7 +27,34 @@ export const userApi = apiSlice.injectEndpoints({
         }
       },
     }),
+    getAdmins: builder.query({
+      query: () => ({
+        url: "/admins/all",
+        method: "GET",
+      }),
+      providesTags: ["admin"],
+    }),
+    deleteAdmin: builder.mutation({
+      query: (id) => ({
+        url: `/admins/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["admin"],
+    }),
+    addAdministrator: builder.mutation({
+      query: (info) => ({
+        url: `/admins/add`,
+        method: "POST",
+        body: info,
+      }),
+      invalidatesTags: ["admin"],
+    }),
   }),
 });
 
-export const { useLoginMutation } = userApi;
+export const {
+  useLoginMutation,
+  useGetAdminsQuery,
+  useDeleteAdminMutation,
+  useAddAdministratorMutation,
+} = userApi;

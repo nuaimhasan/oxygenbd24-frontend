@@ -27,6 +27,16 @@ const adminSidebarItems = [
   },
   {
     icon: <BsCart4 />,
+    title: "Administrator",
+    subMenu: [
+      {
+        title: "Admins",
+        path: "/admin/all-administrator",
+      },
+    ],
+  },
+  {
+    icon: <BsCart4 />,
     title: "Categories",
     subMenu: [
       {

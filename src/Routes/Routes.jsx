@@ -46,6 +46,9 @@ import AddSubCategories from "../pages/Dashboard/SubCategories/AddSubCategories"
 import EditSubCategories from "../pages/Dashboard/SubCategories/EditSubCategories";
 import SubCategories from "../pages/Dashboard/SubCategories/SubCategories";
 
+import OurVision from "../pages/AboutUs/OurVision";
+import AddAdministrator from "../pages/Dashboard/Administrator/AddAdministrator";
+import Administrator from "../pages/Dashboard/Administrator/Administrator";
 import CareerForms from "../pages/Dashboard/Career/CareerForms";
 import AddImpact from "../pages/Dashboard/Impacts/AddImpact";
 import EditImpact from "../pages/Dashboard/Impacts/EditImpact";
@@ -56,9 +59,8 @@ import ProductsList from "../pages/Dashboard/Product/ProductsList";
 import AddSubSubCategory from "../pages/Dashboard/SubSubCategories/AddSubSubCategory";
 import EditSubSubCategory from "../pages/Dashboard/SubSubCategories/EditSubSubCategory";
 import SubSubCategories from "../pages/Dashboard/SubSubCategories/SubSubCategories";
-import NewsEvents from "../pages/NewsEvents/NewsEvents";
-import OurVision from "../pages/AboutUs/OurVision";
 import NewsEventDetails from "../pages/NewsEvents/NewsEventDetails";
+import NewsEvents from "../pages/NewsEvents/NewsEvents";
 import ProductDetails from "../pages/Products/ProductDetails";
 
 export const routes = createBrowserRouter([
@@ -146,11 +148,23 @@ export const routes = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <DashboardLayout />,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/admin/dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "/admin/all-administrator",
+        element: <Administrator />,
+      },
+      {
+        path: "/admin/administrator/add-administrator",
+        element: <AddAdministrator />,
       },
       {
         path: "/admin/products/all-products",

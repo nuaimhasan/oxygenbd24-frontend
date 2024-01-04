@@ -16,11 +16,11 @@ export default function Login() {
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
-    const userName = form.userName.value;
+    const email = form.email.value;
     const password = form.password.value;
 
     const info = {
-      userName,
+      email,
       password,
     };
 
@@ -35,11 +35,11 @@ export default function Login() {
         </h2>
         <form onSubmit={handleLogin} className="p-4">
           <div className="mb-4">
-            <p className="text-[15px]">username *</p>
+            <p className="text-[15px]">Email *</p>
             <input
               type="text"
-              placeholder="Enter username"
-              name="userName"
+              placeholder="Enter email"
+              name="email"
               required
             />
           </div>
