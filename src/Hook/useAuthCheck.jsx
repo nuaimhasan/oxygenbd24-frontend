@@ -7,7 +7,7 @@ export default async function useAuthCheck() {
   const [authChecked, setAuthChecked] = useState(false);
 
   useEffect(() => {
-    const localAuth = localStorage?.getItem("skrp_jwt");
+    const localAuth = localStorage?.getItem("business_jwt");
 
     if (localAuth) {
       fetch(`${import.meta.env.VITE_BACKEND_URL}/admins/loggedUser`, {

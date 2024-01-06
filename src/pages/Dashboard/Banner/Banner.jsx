@@ -1,7 +1,10 @@
 import { AiOutlineDelete } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import { useDeleteBannerMutation, useGetBannersQuery } from "../../../Redux/banner/bannerApi";
+import {
+  useDeleteBannerMutation,
+  useGetBannersQuery,
+} from "../../../Redux/banner/bannerApi";
 
 export default function Banners() {
   const { data, isLoading } = useGetBannersQuery();
@@ -38,7 +41,10 @@ export default function Banners() {
       <div className="p-4 border-b bg-base-100 rounded">
         <div className="flex justify-between items-center">
           <h1 className="font-medium text-neutral">Banners</h1>
-          <Link to="/admin/front-end/banner/add-banner" className="secondary_btn">
+          <Link
+            to="/admin/front-end/banner/add-banner"
+            className="secondary_btn"
+          >
             Add New Banner
           </Link>
         </div>
@@ -62,8 +68,8 @@ export default function Banners() {
                     src={`${import.meta.env.VITE_BACKEND_URL}/banner/${
                       banner?.image
                     }`}
-                    alt={banner?.logo}
-                    className="w-28"
+                    alt={banner?.image}
+                    className="w-28 h-10"
                   />
                 </td>
                 <td>

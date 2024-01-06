@@ -1,5 +1,3 @@
-import JoditEditor from "jodit-react";
-import { useEffect, useRef, useState } from "react";
 import Swal from "sweetalert2";
 import {
   useAddImpactSectionMutation,
@@ -9,24 +7,11 @@ import {
 import Spinner from "../../../components/Spinner/Spinner";
 
 const ImpactSection = () => {
-  const editor = useRef(null);
-
   const { data, isLoading } = useGetImpactSectionsQuery();
   const [updateImpactSection, { isLoading: updateLoading }] =
     useUpdateImpactSectionMutation();
   const [createImpactSection, { isLoading: createLoading }] =
     useAddImpactSectionMutation();
-
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-
-  useEffect(() => {
-    if (data && !isLoading) {
-      const impactsections = data.data[0];
-      setTitle(impactsections?.title);
-      setDescription(impactsections?.description);
-    }
-  }, [data, isLoading]);
 
   if (isLoading) return <Spinner />;
 
@@ -35,9 +20,12 @@ const ImpactSection = () => {
   const updateAddImpactsHandler = async (e) => {
     e.preventDefault();
 
+    const title = e.target.title.value;
+    const details = e.target.details.value;
+
     const data = {
       title,
-      description,
+      description: details,
     };
 
     if (id) {
@@ -67,34 +55,26 @@ const ImpactSection = () => {
         <h3 className="font-medium text-neutral">About Info</h3>
       </div>
 
-      <form className="p-4">
-        <div className="text-neutral-content grid sm:grid-cols-2 md:grid-cols-3 gap-4 items-start">
-          <div className="flex flex-col gap-3">
+      <form onSubmit={updateAddImpactsHandler} className="p-4">
+        <div className="text-neutral-content">
+          <div className="flex flex-col gap-3 mb-4">
             <div>
               <p className="mb-1">Title</p>
               <input
                 type="text"
                 name="title"
-                defaultValue={title}
-                onChange={(e) => setTitle(e.target.value)}
+                defaultValue={id && data?.data[0]?.title}
               />
             </div>
           </div>
 
-          <div className="md:col-span-2 border rounded">
-            <p className="border-b p-3">Description</p>
-
-            <div className="p-4 about_details">
-              <JoditEditor
-                ref={editor}
-                value={
-                  data?.data[0]?.description?.length > 0
-                    ? data?.data[0]?.description
-                    : description
-                }
-                onBlur={(text) => setDescription(text)}
-              />
-            </div>
+          <div>
+            <p className="mb-1">Description</p>
+            <textarea
+              name="details"
+              rows="5"
+              defaultValue={id && data?.data[0]?.description}
+            ></textarea>
           </div>
         </div>
 
@@ -102,7 +82,6 @@ const ImpactSection = () => {
           <button
             disabled={(updateLoading || createLoading) && "disabled"}
             className="primary_btn"
-            onClick={updateAddImpactsHandler}
           >
             {updateLoading || createLoading
               ? "Loading.."

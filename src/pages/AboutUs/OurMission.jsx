@@ -9,7 +9,8 @@ export default function OurMission() {
 
   if (isLoading) return <Spinner />;
 
-  const perserDescription = perser(ourMission?.description);
+  const perserDescription =
+    ourMission?.description && perser(ourMission?.description);
   return (
     <section>
       <div>

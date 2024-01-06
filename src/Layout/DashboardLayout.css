@@ -96,7 +96,6 @@ table.dashboard_table tbody tr:nth-child(odd) {
   background: transparent !important;
 } */
 
-
 .admin_sidebar {
   background: #293845;
   color: #ffffffe3;
@@ -168,7 +167,7 @@ table.dashboard_table tbody tr:nth-child(odd) {
 
 .admin_siderbar .dropdown ul li a,
 .admin_siderbar .dropdown ul li button {
-  padding: 8px 8px 8px 35px;
+  padding: 8px 8px 8px 35px !important;
 }
 
 .admin_siderbar .subDropdown ul li a {

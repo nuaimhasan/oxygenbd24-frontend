@@ -23,7 +23,7 @@ export default function AddAlliance({ addModal, setAddModal }) {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/alliance/addAlliance`, {
       method: "POST",
       headers: {
-        authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
+        authorization: `bearer ${localStorage.getItem("business_jwt")}`,
       },
       body: formData,
     })

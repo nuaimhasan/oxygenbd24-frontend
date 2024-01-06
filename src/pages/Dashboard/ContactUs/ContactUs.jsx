@@ -45,7 +45,7 @@ const ContactUs = () => {
       );
       return;
     }
-    if (addIsSuccess) {
+    if (addIsSuccess && !id) {
       swal.fire("", "Contact Us Added Successfully", "success");
       setBanner([]);
       setImages([]);
@@ -61,7 +61,7 @@ const ContactUs = () => {
       );
       return;
     }
-    if (updateIsSuccess) {
+    if (updateIsSuccess && id) {
       swal.fire("", "Contact Us Updated Successfully", "success");
       setBanner([]);
       setImages([]);
@@ -74,6 +74,7 @@ const ContactUs = () => {
     updateIsSuccess,
     addError,
     updateError,
+    id,
   ]);
 
   const hanldeAddUpdate = async (e) => {

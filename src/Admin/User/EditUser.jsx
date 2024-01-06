@@ -13,7 +13,7 @@ export default function EditUser() {
     queryFn: () =>
       fetch(`${import.meta.env.VITE_BACKEND_URL}/user/${id}`, {
         headers: {
-          authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
+          authorization: `bearer ${localStorage.getItem("business_jwt")}`,
         },
       }).then((res) => res.json()),
   });
@@ -42,7 +42,7 @@ export default function EditUser() {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
+        authorization: `bearer ${localStorage.getItem("business_jwt")}`,
       },
       body: JSON.stringify(info),
     })

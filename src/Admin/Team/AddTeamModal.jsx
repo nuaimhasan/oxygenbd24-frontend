@@ -28,7 +28,7 @@ export default function AddTeamModal({ addModal, setAddModal }) {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/team/addTeamMember`, {
       method: "POST",
       headers: {
-        authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
+        authorization: `bearer ${localStorage.getItem("business_jwt")}`,
       },
       body: formData,
     })

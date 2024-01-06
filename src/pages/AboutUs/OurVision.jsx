@@ -9,7 +9,8 @@ export default function OurVision() {
 
   if (isLoading) return <Spinner />;
 
-  const perserDescription = perser(ourVision?.description);
+  const perserDescription =
+    ourVision?.description && perser(ourVision?.description);
   return (
     <section>
       <div>

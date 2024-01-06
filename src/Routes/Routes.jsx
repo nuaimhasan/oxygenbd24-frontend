@@ -159,7 +159,7 @@ export const routes = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: "/admin/all-administrator",
+        path: "/admin/administrator/all-administrator",
         element: <Administrator />,
       },
       {

@@ -16,6 +16,8 @@ export default function Header() {
 
   const { data } = useGetLogosQuery();
 
+  console.log(data?.data);
+
   useEffect(() => {
     window.addEventListener("click", (e) => {
       if (
@@ -48,7 +50,7 @@ export default function Header() {
               src={`${import.meta.env.VITE_BACKEND_URL}/logo/${
                 data?.data[0]?.logo
               }`}
-              alt="rahaimafroz solar logo"
+              alt="logo"
               className="w-36 sm:w-44 xl:w-52 h-9"
             />
           </Link>

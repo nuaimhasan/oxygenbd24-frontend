@@ -22,7 +22,7 @@ export default function AlliancesLists() {
         {
           method: "DELETE",
           headers: {
-            authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
+            authorization: `bearer ${localStorage.getItem("business_jwt")}`,
           },
         }
       )

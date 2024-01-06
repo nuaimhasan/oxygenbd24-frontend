@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useAddAdministratorMutation } from "../../../Redux/user/userApi";
 
-
 export default function AddAdministrator() {
   const navigate = useNavigate();
   const [addAdministrator, { isLoading, isError, error }] =
@@ -24,7 +23,6 @@ export default function AddAdministrator() {
 
     try {
       const res = await addAdministrator({ ...info }).unwrap();
-      // console.log(res);
 
       if (res?.success) {
         Swal.fire({
@@ -33,7 +31,7 @@ export default function AddAdministrator() {
           text: "Administrator add success",
         });
         form.reset();
-        navigate("/admin/all-administrator");
+        navigate("/admin/administrator/all-administrator");
       }
     } catch (error) {
       Swal.fire({

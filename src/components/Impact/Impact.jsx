@@ -11,7 +11,8 @@ export default function Impact() {
 
   if (isLoading) return <Spinner />;
 
-  const percerDescription = percer(impactSection?.description);
+  const percerDescription =
+    impactSection?.description && percer(impactSection?.description);
   return (
     <section className="bg-primary py-20 text-base-100">
       <div className="container">
@@ -25,14 +26,11 @@ export default function Impact() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-4">
             {data?.data?.map((impact) => (
-              <div
-                className="bg-base-100 p-4 rounded text-primary "
-                key={impact._id}
-              >
-                <p className="text-4xl font-light mb-4 border-b w-max border-primary">
+              <div className="bg-base-100 p-4 rounded" key={impact._id}>
+                <p className="text-4xl font-light mb-4 border-b w-max border-primary text-primary">
                   {impact?.title}
                 </p>
-                <p>{impact?.subtitle}</p>
+                <p className="text-neutral">{impact?.subtitle}</p>
               </div>
             ))}
           </div>

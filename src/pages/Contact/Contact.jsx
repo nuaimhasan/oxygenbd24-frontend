@@ -1,4 +1,3 @@
-
 import { BsTelephone } from "react-icons/bs";
 import {
   MdOutlineLocationOn,
@@ -10,12 +9,9 @@ import Spinner from "../../components/Spinner/Spinner";
 
 export default function Contact() {
   window.scroll(0, 0);
-
   const { data: contactData, isLoading } = useGetContactsQuery();
-
-  if (isLoading) return <Spinner />;
-
   const contact = contactData?.data[0];
+  if (isLoading) return <Spinner />;
 
   return (
     <section className="">
@@ -66,9 +62,7 @@ export default function Contact() {
                   Address
                 </h2>
                 <div className="mt-3 text-neutral-content">
-                  <p>
-                    {contact?.address}
-                  </p>
+                  <p>{contact?.address}</p>
                 </div>
               </div>
 
@@ -79,9 +73,7 @@ export default function Contact() {
 
                 <h2 className="text-xl font-semibold mt-4 text-neutral">Fax</h2>
                 <div className="mt-3 text-neutral-content">
-                  <p>
-                    {contact?.fax}
-                  </p>
+                  <p>{contact?.fax}</p>
                 </div>
               </div>
 
@@ -94,9 +86,7 @@ export default function Contact() {
                   Email
                 </h2>
                 <div className="mt-3 text-neutral-content">
-                  <p>
-                    {contact?.email}
-                  </p>
+                  <p>{contact?.email}</p>
                 </div>
               </div>
             </div>

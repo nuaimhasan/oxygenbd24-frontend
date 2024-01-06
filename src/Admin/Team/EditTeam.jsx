@@ -16,7 +16,7 @@ export default function EditTeam() {
     queryFn: () =>
       fetch(`${import.meta.env.VITE_BACKEND_URL}/team/${id}`, {
         headers: {
-          authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
+          authorization: `bearer ${localStorage.getItem("business_jwt")}`,
         },
       }).then((res) => res.json()),
   });
@@ -41,7 +41,7 @@ export default function EditTeam() {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/team/updateTeamMember/${id}`, {
       method: "PUT",
       headers: {
-        authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
+        authorization: `bearer ${localStorage.getItem("business_jwt")}`,
       },
       body: formData,
     })

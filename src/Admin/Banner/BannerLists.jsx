@@ -22,7 +22,7 @@ export default function BannerLists() {
       fetch(`${import.meta.env.VITE_BACKEND_URL}/banner/deleteBanner/${id}`, {
         method: "DELETE",
         headers: {
-          authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
+          authorization: `bearer ${localStorage.getItem("business_jwt")}`,
         },
       })
         .then((res) => res.json())

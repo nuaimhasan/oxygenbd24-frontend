@@ -14,7 +14,7 @@ export const userApi = apiSlice.injectEndpoints({
         try {
           const result = await queryFulfilled;
 
-          localStorage.setItem("skrp_jwt", result?.data?.token);
+          localStorage.setItem("business_jwt", result?.data?.token);
 
           dispatch(
             userLoggedIn({

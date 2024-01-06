@@ -57,7 +57,7 @@ const ProductsList = () => {
                   product?.image
                 }`}
                 alt={product?.image}
-                className="w-28"
+                className="w-28 h-14"
               />
             </td>
             <td>{product?.category?.name}</td>

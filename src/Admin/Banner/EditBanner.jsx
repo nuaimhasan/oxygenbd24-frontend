@@ -16,7 +16,7 @@ export default function EditBanner() {
     queryFn: () =>
       fetch(`${import.meta.env.VITE_BACKEND_URL}/banner/${id}`, {
         headers: {
-          authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
+          authorization: `bearer ${localStorage.getItem("business_jwt")}`,
         },
       }).then((res) => res.json()),
   });
@@ -40,7 +40,7 @@ export default function EditBanner() {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/banner/updateBanner/${id}`, {
       method: "PUT",
       headers: {
-        authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
+        authorization: `bearer ${localStorage.getItem("business_jwt")}`,
       },
       body: formData,
     })

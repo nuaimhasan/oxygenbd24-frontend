@@ -25,7 +25,7 @@ export default function AddProduct({ addModal, setAddModal }) {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/banner/addBanner`, {
       method: "POST",
       headers: {
-        authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
+        authorization: `bearer ${localStorage.getItem("business_jwt")}`,
       },
       body: formData,
     })

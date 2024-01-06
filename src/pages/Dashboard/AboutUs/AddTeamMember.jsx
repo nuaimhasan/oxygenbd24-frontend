@@ -50,7 +50,7 @@ const AddTeamMember = () => {
         <div className="text-neutral-content grid sm:grid-cols-2 md:grid-cols-3 gap-4 items-start">
           <div className="flex flex-col gap-3">
             <div>
-              <p className="mb-1">Title</p>
+              <p className="mb-1">Full Name</p>
               <input
                 type="text"
                 name="title"

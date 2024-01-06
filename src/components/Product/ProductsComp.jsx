@@ -15,7 +15,7 @@ const ProductsComp = () => {
               Products
             </h2>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-10 mt-10">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-10">
               {data?.data?.slice(0, 4).map((product) => (
                 <ProductCard product={product} key={product?._id} />
               ))}

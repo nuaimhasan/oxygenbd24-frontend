@@ -9,13 +9,16 @@ export default function CompanyProfile() {
 
   if (isLoading) return <Spinner />;
 
-  const perserDescription = perser(companyProfile?.description);
+  const perserDescription =
+    companyProfile?.description && perser(companyProfile?.description);
 
   return (
     <section>
       <div>
         <img
-          src={`${import.meta.env.VITE_BACKEND_URL}/companyProfile/${companyProfile?.image}`}
+          src={`${import.meta.env.VITE_BACKEND_URL}/companyProfile/${
+            companyProfile?.image
+          }`}
           alt=""
           className="w-full h-36 md:h-60"
         />
@@ -28,9 +31,7 @@ export default function CompanyProfile() {
             </h2>
 
             <div className="text-neutral-content text-[15px]">
-              <p>
-                {perserDescription}
-              </p>
+              <p>{perserDescription}</p>
             </div>
 
             <div className="mt-6">

@@ -12,7 +12,7 @@ export default function UserLists() {
     queryFn: () =>
       fetch(`${import.meta.env.VITE_BACKEND_URL}/user/allUsers`, {
         headers: {
-          authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
+          authorization: `bearer ${localStorage.getItem("business_jwt")}`,
         },
       }).then((res) => res.json()),
   });
@@ -23,7 +23,7 @@ export default function UserLists() {
       fetch(`${import.meta.env.VITE_BACKEND_URL}/user/delete/${id}`, {
         method: "DELETE",
         headers: {
-          authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
+          authorization: `bearer ${localStorage.getItem("business_jwt")}`,
         },
       })
         .then((res) => res.json())

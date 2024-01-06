@@ -1,19 +1,19 @@
 import { Link } from "react-router-dom";
 import { useGetAboutUsQuery } from "../../Redux/about/aboutApi";
-import percer from 'html-react-parser'
+import percer from "html-react-parser";
 import Spinner from "../Spinner/Spinner";
 
 export default function About() {
+  const { data, isLoading } = useGetAboutUsQuery();
+  const aboutUs = data?.data[0];
 
-  const {data, isLoading} = useGetAboutUsQuery()
-  const aboutUs = data?.data[0]
+  if (isLoading) {
+    return <Spinner />;
+  }
 
-   if (isLoading) {
-     return <Spinner />;
-   }
+  const percerDescription =
+    aboutUs?.description && percer(aboutUs?.description);
 
-  const percerDescription = percer(aboutUs?.description)
-  
   return (
     <section className="py-7 sm:py-16">
       <div className="container">
@@ -33,7 +33,9 @@ export default function About() {
           </div>
           <div>
             <img
-              src={`${import.meta.env.VITE_BACKEND_URL}/aboutUs/${aboutUs?.image}`}
+              src={`${import.meta.env.VITE_BACKEND_URL}/aboutUs/${
+                aboutUs?.image
+              }`}
               alt=""
               className="w-full h-96 rounded"
             />

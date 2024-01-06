@@ -1,5 +1,4 @@
-import JoditEditor from "jodit-react";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import ImageUploading from "react-images-uploading";
 import Swal from "sweetalert2";
@@ -11,8 +10,6 @@ import {
 import Spinner from "../../../../components/Spinner/Spinner";
 
 export default function CareerBanner() {
-  const editor = useRef(null);
-
   const { data, isLoading } = useGetCareerBannersQuery();
   const [updateCareerBanner, { isLoading: updateLoading }] =
     useUpdateCareerBannerMutation();
@@ -20,25 +17,17 @@ export default function CareerBanner() {
     useCreateCareerBannerMutation();
 
   const [image, setImage] = useState([]);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-
-  useEffect(() => {
-    if (data && !isLoading) {
-      const aboutUs = data.data[0];
-      setTitle(aboutUs?.title);
-      setDescription(aboutUs?.description);
-    }
-  }, [data, isLoading]);
 
   if (isLoading) return <Spinner />;
-
   const id = data?.data[0]?._id;
 
   const updateAboutUsHandler = async (e) => {
     e.preventDefault();
 
     const img = image[0]?.file;
+
+    const title = e.target.title.value;
+    const description = e.target.description.value;
 
     const formData = new FormData();
     formData.append("title", title);
@@ -75,7 +64,7 @@ export default function CareerBanner() {
         <h3 className="font-medium text-neutral">Career Banner</h3>
       </div>
 
-      <form className="p-4">
+      <form onSubmit={updateAboutUsHandler} className="p-4">
         <div className="text-neutral-content grid sm:grid-cols-2 md:grid-cols-3 gap-4 items-start">
           <div className="flex flex-col gap-3">
             <div>
@@ -83,8 +72,8 @@ export default function CareerBanner() {
               <input
                 type="text"
                 name="title"
-                defaultValue={title}
-                onChange={(e) => setTitle(e.target.value)}
+                defaultValue={id && data?.data[0]?.title}
+                required
               />
             </div>
 
@@ -148,20 +137,14 @@ export default function CareerBanner() {
             </div>
           </div>
 
-          <div className="md:col-span-2 border rounded">
-            <p className="border-b p-3">Description</p>
-
-            <div className="p-4 about_details">
-              <JoditEditor
-                ref={editor}
-                value={
-                  data?.data[0]?.description?.length > 0
-                    ? data?.data[0]?.description
-                    : description
-                }
-                onBlur={(text) => setDescription(text)}
-              />
-            </div>
+          <div className="md:col-span-2">
+            <p className="pb-1">Description</p>
+            <textarea
+              name="description"
+              rows="4"
+              required
+              defaultValue={id && data?.data[0]?.description}
+            ></textarea>
           </div>
         </div>
 
@@ -169,7 +152,6 @@ export default function CareerBanner() {
           <button
             disabled={(updateLoading || createLoading) && "disabled"}
             className="primary_btn"
-            onClick={updateAboutUsHandler}
           >
             {updateLoading || createLoading
               ? "Loading.."

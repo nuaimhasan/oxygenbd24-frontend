@@ -5,7 +5,7 @@ export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_BACKEND_URL,
     prepareHeaders: async (headers) => {
-      const token = localStorage.getItem("skrp_jwt");
+      const token = localStorage.getItem("business_jwt");
       if (token) {
         headers.set("Authorization", `bearer ${token}`);
       }

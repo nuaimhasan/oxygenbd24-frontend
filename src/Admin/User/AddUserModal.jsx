@@ -27,7 +27,7 @@ export default function AddUserModal({ addModal, setAddModal }) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        authorization: `bearer ${localStorage.getItem("skrp_jwt")}`,
+        authorization: `bearer ${localStorage.getItem("business_jwt")}`,
       },
       body: JSON.stringify(info),
     })
