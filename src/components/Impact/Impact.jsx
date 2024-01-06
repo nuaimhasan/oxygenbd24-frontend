@@ -14,7 +14,7 @@ export default function Impact() {
   const percerDescription =
     impactSection?.description && percer(impactSection?.description);
   return (
-    <section className="bg-primary py-20 text-base-100">
+    <section className="bg-primary py-10 md:py-20 text-base-100">
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>

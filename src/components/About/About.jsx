@@ -37,7 +37,7 @@ export default function About() {
                 aboutUs?.image
               }`}
               alt=""
-              className="w-full h-96 rounded"
+              className="w-full sm:h-80 lg:h-96 rounded"
             />
           </div>
         </div>

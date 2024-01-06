@@ -16,8 +16,6 @@ export default function Header() {
 
   const { data } = useGetLogosQuery();
 
-  console.log(data?.data);
-
   useEffect(() => {
     window.addEventListener("click", (e) => {
       if (

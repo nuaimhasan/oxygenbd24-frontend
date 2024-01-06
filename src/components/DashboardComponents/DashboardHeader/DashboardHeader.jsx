@@ -10,7 +10,7 @@ export default function DashboardHeader({ setSidebar }) {
         <div className="flex items-center gap-2">
           <button
             onClick={() => setSidebar(true)}
-            className="dashboard_sidebar_btn lg:hidden"
+            className="admin_sidebar_btn lg:hidden"
           >
             <HiOutlineMenuAlt2 className="text-xl" />
           </button>

@@ -18,6 +18,7 @@ export default function DashboardLayout() {
       }
     });
   }, []);
+
   return (
     <section className="flex">
       <aside className={`admin_sidebar ${sidebar && "admin_sidebar_show"}`}>

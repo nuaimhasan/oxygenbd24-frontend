@@ -14,7 +14,7 @@ export default function Contact() {
   if (isLoading) return <Spinner />;
 
   return (
-    <section className="">
+    <section>
       <div>
         <img
           src={`${import.meta.env.VITE_BACKEND_URL}/contactUs/${

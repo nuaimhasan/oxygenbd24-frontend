@@ -203,3 +203,9 @@ table.dashboard_table tbody tr:nth-child(odd) {
     padding: 10px;
   }
 }
+
+@media only screen and (max-width: 400px) {
+  .admin_sidebar {
+    width: 90% !important;
+  }
+}
