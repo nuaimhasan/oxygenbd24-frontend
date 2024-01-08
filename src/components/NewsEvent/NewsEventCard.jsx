@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 
 const NewsEventCard = ({news}) => {
-  console.log(news);
+  // console.log(news);
   return (
     <div className="news_card" key={news?._id}>
       <div>

@@ -24,6 +24,7 @@ export default function NewsEvents() {
 
   const params = useParams();
   let categoryParams = params?.category ? params?.category : "";
+  console.log(categoryParams);
 
   const query = {};
   const [page, setPage] = useState(1);
@@ -45,7 +46,7 @@ export default function NewsEvents() {
     ...query,
   });
   const { data: newsCategory } = useGetNewsCategoriesQuery();
-  // console.log(data);
+  console.log(newsCategory?.data);
   if (isLoading) return <Spinner />;
 
   const handlePageChange = (pageNumber) => {

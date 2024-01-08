@@ -81,7 +81,7 @@ const UpdateNewsEvent = () => {
                 defaultValue={newsEvent?.data?.category}
               >
                 {data?.data?.map((category) => (
-                  <option key={category?._id} value={category?.name}>
+                  <option key={category?._id} value={category?.slug}>
                     {category?.name}
                   </option>
                 ))}

@@ -2,10 +2,10 @@ import JoditEditor from "jodit-react";
 import { useRef, useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import ImageUploading from "react-images-uploading";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useGetNewsCategoriesQuery } from "../../../../Redux/newsCategory/newsCategoryApi";
 import { useCreateNewsEventMutation } from "../../../../Redux/newsEvents/newsEventsApi";
-import { useNavigate } from "react-router-dom";
 
 const AddNewsEvent = () => {
   const editor = useRef(null);
@@ -63,7 +63,7 @@ const AddNewsEvent = () => {
               <p className="mb-1">Category</p>
               <select name="category" id="category">
                 {data?.data?.map((category) => (
-                  <option key={category?._id} value={category?.name}>
+                  <option key={category?._id} value={category?.slug}>
                     {category?.name}
                   </option>
                 ))}
