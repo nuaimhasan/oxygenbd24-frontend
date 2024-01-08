@@ -62,6 +62,7 @@ import SubSubCategories from "../pages/Dashboard/SubSubCategories/SubSubCategori
 import NewsEventDetails from "../pages/NewsEvents/NewsEventDetails";
 import NewsEvents from "../pages/NewsEvents/NewsEvents";
 import ProductDetails from "../pages/Products/ProductDetails";
+import Themes from "../pages/Dashboard/Theme/Themes";
 
 export const routes = createBrowserRouter([
   {
@@ -149,9 +150,7 @@ export const routes = createBrowserRouter([
   {
     path: "/admin",
     element: (
-      <PrivateRoute>
         <DashboardLayout />
-      </PrivateRoute>
     ),
     children: [
       {
@@ -282,6 +281,10 @@ export const routes = createBrowserRouter([
       {
         path: "/admin/front-end/banner/add-banner",
         element: <AddBanner />,
+      },
+      {
+        path: "/admin/front-end/themes",
+        element: <Themes />,
       },
 
       // news $ events

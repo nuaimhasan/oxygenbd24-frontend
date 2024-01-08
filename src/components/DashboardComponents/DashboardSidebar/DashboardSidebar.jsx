@@ -161,6 +161,10 @@ const adminSidebarItems = [
         title: "Contact Us",
         path: "/admin/front-end/contact-us",
       },
+      {
+        title: "Themes",
+        path: "/admin/front-end/themes",
+      },
     ],
   },
 ];

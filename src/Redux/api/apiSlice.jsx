@@ -35,5 +35,6 @@ export const apiSlice = createApi({
     "sub-sub-category",
     "news-category",
     "admin",
+    "themes",
   ],
 });
