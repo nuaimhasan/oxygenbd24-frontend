@@ -6,7 +6,7 @@ import {
   useUpdateThemeMutation,
 } from "../../../Redux/theme/themeApi";
 
-const Themes = () => {
+export default function Themes() {
   const { data } = useGetThemesQuery();
   const theme = data?.data[0];
   const id = theme?._id;
@@ -76,11 +76,15 @@ const Themes = () => {
     const primary = e.target.primary.value;
     const secondary = e.target.secondary.value;
     const accent = e.target.accent.value;
+    const neutral = e.target.neutral.value;
+    const neutralContent = e.target.neutralContent.value;
 
     const data = {
       primary,
       secondary,
       accent,
+      neutral,
+      neutralContent,
     };
 
     if (id) {
@@ -101,7 +105,7 @@ const Themes = () => {
           <div>
             <p className="mb-1">Primary Color</p>
             <input
-              type="text"
+              type="color"
               name="primary"
               required
               defaultValue={theme?.primary}
@@ -110,7 +114,7 @@ const Themes = () => {
           <div>
             <p className="mb-1">Secondary Color</p>
             <input
-              type="text"
+              type="color"
               name="secondary"
               required
               defaultValue={theme?.secondary}
@@ -119,8 +123,28 @@ const Themes = () => {
           <div>
             <p className="mb-1">Accent Color</p>
             <input
-              type="text"
+              type="color"
               name="accent"
+              required
+              defaultValue={theme?.accent}
+            />
+          </div>
+
+          <div>
+            <p className="mb-1">Neutral Color</p>
+            <input
+              type="color"
+              name="neutral"
+              required
+              defaultValue={theme?.accent}
+            />
+          </div>
+
+          <div>
+            <p className="mb-1">Neutral Content Color</p>
+            <input
+              type="color"
+              name="neutralContent"
               required
               defaultValue={theme?.accent}
             />
@@ -144,6 +168,4 @@ const Themes = () => {
       </form>
     </section>
   );
-};
-
-export default Themes;
+}
