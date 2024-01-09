@@ -67,7 +67,7 @@ export default function Footer() {
         <div className="border-t pt-5">
           <div className="flex justify-between items-center">
             <p className="text-gray-400 text-sm font-light">
-              Copyright © 2020 SKRP. All rights reserved. Powered by{" "}
+              Copyright © 2020 business. All rights reserved. Powered by{" "}
               <Link
                 to="https://emanagerbd.xyz/"
                 target="_blank"

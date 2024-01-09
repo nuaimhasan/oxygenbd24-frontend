@@ -13,6 +13,11 @@ const userSlice = createSlice({
       state.token = action.payload.token;
       state.loggedUser = action.payload.data;
     },
+    userLogout: (state) => {
+      state.token = "";
+      state.loggedUser = undefined;
+      localStorage.removeItem("business_jwt");
+    },
   },
 });
 

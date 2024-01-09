@@ -11,7 +11,6 @@ import Products from "../pages/Products/Products";
 
 import DashboardLayout from "../Layout/DashboardLAyout";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
-import Dashboard from "../admin/Dashboard/Dashboard";
 
 import OurTeam from "../pages/AboutUs/OurTeam";
 import Career from "../pages/Career/Career";
@@ -63,6 +62,7 @@ import NewsEventDetails from "../pages/NewsEvents/NewsEventDetails";
 import NewsEvents from "../pages/NewsEvents/NewsEvents";
 import ProductDetails from "../pages/Products/ProductDetails";
 import Themes from "../pages/Dashboard/Theme/Themes";
+import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 
 export const routes = createBrowserRouter([
   {
@@ -150,7 +150,9 @@ export const routes = createBrowserRouter([
   {
     path: "/admin",
     element: (
+      <PrivateRoute>
         <DashboardLayout />
+      </PrivateRoute>
     ),
     children: [
       {

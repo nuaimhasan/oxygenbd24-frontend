@@ -25,7 +25,7 @@ const OurVisionSetting = () => {
 
   useEffect(() => {
     if (data && !isLoading) {
-      const aboutUs = data.data[0];
+      const aboutUs = data?.data[0];
       setTitle(aboutUs?.title);
       setDescription(aboutUs?.description);
     }

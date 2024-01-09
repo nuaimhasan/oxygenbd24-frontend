@@ -25,7 +25,7 @@ const CompanyProfileSetting = () => {
 
   useEffect(() => {
     if (data && !isLoading) {
-      const aboutUs = data.data[0];
+      const aboutUs = data?.data[0];
       setTitle(aboutUs?.title);
       setDescription(aboutUs?.description);
     }
@@ -136,9 +136,9 @@ const CompanyProfileSetting = () => {
 
                   {data?.success && (
                     <img
-                      src={`${import.meta.env.VITE_BACKEND_URL}/companyProfile/${
-                        data?.data[0]?.image
-                      }`}
+                      src={`${
+                        import.meta.env.VITE_BACKEND_URL
+                      }/companyProfile/${data?.data[0]?.image}`}
                       alt=""
                       className="w-32 mt-4"
                     />

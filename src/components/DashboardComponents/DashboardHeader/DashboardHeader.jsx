@@ -1,8 +1,21 @@
+import { useEffect, useState } from "react";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
+import { useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
+import { userLogout } from "../../../Redux/user/userSlice";
 
 export default function DashboardHeader({ setSidebar }) {
   const { pathname } = useLocation();
+  const [dropdown, setDropdown] = useState(false);
+  useEffect(() => {
+    window.addEventListener("click", (e) => {
+      if (!e.target.closest(".d_btn")) {
+        setDropdown(false);
+      }
+    });
+  }, []);
+
+  const dispatch = useDispatch();
 
   return (
     <header className="py-3 px-6 bg-base-100 text-neutral shadow">
@@ -22,12 +35,26 @@ export default function DashboardHeader({ setSidebar }) {
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
-          <img
-            src="/images/demo-user.avif"
-            alt=""
-            className="w-8 h-8 rounded-full"
-          />
+        <div className="relative">
+          <button className="d_btn flex items-center gap-2">
+            <img
+              src="/images/demo.jpg"
+              alt=""
+              className="w-8 h-8 rounded-full "
+              onClick={() => setDropdown(!dropdown)}
+            />
+          </button>
+
+          {dropdown && (
+            <div className="absolute top-[140%] right-0 w-40 bg-base-100 rounded shadow p-2">
+              <button
+                onClick={() => dispatch(userLogout())}
+                className="hover:bg-gray-100 text-red-500 w-full text-start px-2 py-1 rounded"
+              >
+                Logout
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </header>

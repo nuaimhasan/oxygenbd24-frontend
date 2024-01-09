@@ -23,7 +23,7 @@ export default function Clients() {
 
       <div className="container py-10">
         <div className="mt-10 grid grid-cols-3 md:grid-cols-5 gap-10">
-          {clientsData?.data.map((client) => (
+          {clientsData?.data?.map((client) => (
             <div key={client._id} className="flex justify-center items-center">
               <img
                 src={`${import.meta.env.VITE_BACKEND_URL}/clients/${

@@ -1,15 +1,15 @@
-export default function WhySKRP() {
+export default function Whybusiness() {
   return (
     <section className="py-20">
       <div className="container">
         <h2 className="text-3xl text-center w-max mx-auto border-b-2 border-primary text-priamry pb-2 font-semibold text-neutral">
-          Why SKRP
+          Why business
         </h2>
 
         <div className="grid grid-cols-3 gap-6 mt-10">
           <div>
             <img
-              src="/images/why-skrp/Broad-portfolio.png"
+              src="/images/why-business/Broad-portfolio.png"
               alt=""
               className="w-14 h-14 rounded-full mx-auto"
             />
@@ -21,7 +21,7 @@ export default function WhySKRP() {
 
           <div>
             <img
-              src="/images/why-skrp/One-stop-solutions.png"
+              src="/images/why-business/One-stop-solutions.png"
               alt=""
               className="w-14 h-14 rounded-full mx-auto"
             />
@@ -33,7 +33,7 @@ export default function WhySKRP() {
 
           <div>
             <img
-              src="/images/why-skrp/Focused-OnM.png"
+              src="/images/why-business/Focused-OnM.png"
               alt=""
               className="w-14 h-14 rounded-full mx-auto"
             />

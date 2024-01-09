@@ -9,11 +9,11 @@ export default function Login() {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/admin/dashboard";
-  if (loggedUser?.success) {
+  if (loggedUser?.success && !isError) {
     navigate(from, { replace: true });
   }
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
@@ -24,7 +24,7 @@ export default function Login() {
       password,
     };
 
-    login(info);
+    await login(info);
   };
 
   return (
@@ -52,7 +52,9 @@ export default function Login() {
               required
             />
           </div>
-          {isError && <p className="text-sm text-red-500">{error}</p>}
+          {isError && (
+            <p className="text-sm text-red-500">{error?.data?.error}</p>
+          )}
 
           <div className="mt-4">
             <button
