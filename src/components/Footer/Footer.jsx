@@ -6,21 +6,18 @@ import { useGetLogosQuery } from "../../Redux/logo/logoApi";
 import { useGetContactsQuery } from "../../Redux/contact/contactApi";
 
 export default function Footer() {
-
-  const {data:logos} = useGetLogosQuery();
+  const { data: logos } = useGetLogosQuery();
   const logo = logos?.data[0];
   const { data: contactData } = useGetContactsQuery();
   const contact = contactData?.data[0];
 
   return (
-    <footer className="bg-[#031A2F] pt-10 pb-5">
+    <footer className="bg-accent pt-10 pb-5">
       <div className="container">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 pb-14">
           <div>
             <img
-              src={`${import.meta.env.VITE_BACKEND_URL}/logo/${
-                logo?.logo
-              }`}
+              src={`${import.meta.env.VITE_BACKEND_URL}/logo/${logo?.logo}`}
               alt=""
               className="w-60"
             />
@@ -60,9 +57,7 @@ export default function Footer() {
                   <p className="text-lg">
                     <MdOutlineLocationOn />
                   </p>
-                  <p>
-                    {contact?.address}
-                  </p>
+                  <p>{contact?.address}</p>
                 </div>
               </li>
             </ul>

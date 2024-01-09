@@ -3,11 +3,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#045cac",
-        secondary: "#F2682B",
-        neutral: "#404145",
-        "neutral-content": "#7a7a7a",
-        "neutral-focus": "#000",
+        primary: "var(--primary-color)",
+        secondary: "var(--secondary-color)",
+        accent: "var(--accent-color)",
+        neutral: "var(--neutral-color)",
+        "neutral-content": "var(--neutralContent-color)",
         "base-100": "#ffffff",
       },
     },

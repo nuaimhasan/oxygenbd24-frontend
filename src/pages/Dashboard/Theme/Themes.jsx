@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import swal from "sweetalert2";
 import {
   useAddThemeMutation,
@@ -10,6 +10,12 @@ export default function Themes() {
   const { data } = useGetThemesQuery();
   const theme = data?.data[0];
   const id = theme?._id;
+
+  const [pColor, setPColor] = useState("");
+  const [sColor, setSColor] = useState("");
+  const [aColor, setAColor] = useState("");
+  const [nColor, setNColor] = useState("");
+  const [ncColor, setNCColor] = useState("");
 
   const [
     addTheme,
@@ -103,51 +109,116 @@ export default function Themes() {
       <form className="p-4" onSubmit={hanldeAddUpdate}>
         <div className="text-neutral-content grid sm:grid-cols-2 md:grid-cols-3 gap-4 items-start">
           <div>
-            <p className="mb-1">Primary Color</p>
-            <input
-              type="color"
-              name="primary"
-              required
-              defaultValue={theme?.primary}
-            />
+            <p className="mb-1 flex items-center gap-2">
+              Primary Color{" "}
+              <span
+                className="inline-block w-4 h-4 rounded-full"
+                style={{ backgroundColor: theme?.primary }}
+              ></span>
+            </p>
+            <div className="flex">
+              <input
+                type="text"
+                name="primary"
+                required
+                defaultValue={pColor ? pColor : theme?.primary}
+              />
+              <input
+                type="color"
+                className="w-12 h-9 rounded"
+                onChange={(e) => setPColor(e.target.value)}
+              />
+            </div>
           </div>
           <div>
-            <p className="mb-1">Secondary Color</p>
-            <input
-              type="color"
-              name="secondary"
-              required
-              defaultValue={theme?.secondary}
-            />
+            <p className="mb-1 flex items-center gap-2">
+              Secondary Color{" "}
+              <span
+                className="inline-block w-4 h-4 rounded-full"
+                style={{ backgroundColor: theme?.secondary }}
+              ></span>
+            </p>
+            <div className="flex">
+              <input
+                type="text"
+                name="secondary"
+                required
+                defaultValue={sColor ? sColor : theme?.secondary}
+              />
+              <input
+                type="color"
+                className="w-12 h-9 rounded"
+                onChange={(e) => setSColor(e.target.value)}
+              />
+            </div>
           </div>
           <div>
-            <p className="mb-1">Accent Color</p>
-            <input
-              type="color"
-              name="accent"
-              required
-              defaultValue={theme?.accent}
-            />
+            <p className="mb-1 flex items-center gap-2">
+              Accent Color{" "}
+              <span
+                className="inline-block w-4 h-4 rounded-full"
+                style={{ backgroundColor: theme?.accent }}
+              ></span>
+            </p>
+            <div className="flex">
+              <input
+                type="text"
+                name="accent"
+                required
+                defaultValue={aColor ? aColor : theme?.accent}
+              />
+              <input
+                type="color"
+                className="w-12 h-9 rounded"
+                onChange={(e) => setAColor(e.target.value)}
+              />
+            </div>
           </div>
 
           <div>
-            <p className="mb-1">Neutral Color</p>
-            <input
-              type="color"
-              name="neutral"
-              required
-              defaultValue={theme?.accent}
-            />
+            <p className="mb-1 flex items-center gap-2">
+              Neutral Color{" "}
+              <span
+                className="inline-block w-4 h-4 rounded-full"
+                style={{ backgroundColor: theme?.neutral }}
+              ></span>
+            </p>
+            <div className="flex">
+              <input
+                type="text"
+                name="neutral"
+                required
+                defaultValue={nColor ? nColor : theme?.neutral}
+              />
+              <input
+                type="color"
+                className="w-12 h-9 rounded"
+                onChange={(e) => setNColor(e.target.value)}
+              />
+            </div>
           </div>
 
           <div>
-            <p className="mb-1">Neutral Content Color</p>
-            <input
-              type="color"
-              name="neutralContent"
-              required
-              defaultValue={theme?.accent}
-            />
+            <p className="mb-1 flex items-center gap-2">
+              Neutral Content Color
+              <span
+                className="inline-block w-4 h-4 rounded-full"
+                style={{ backgroundColor: theme?.neutralContent }}
+              ></span>
+            </p>
+            <div className="flex">
+              <input
+                type="text"
+                name="neutralContent"
+                required
+                defaultValue={ncColor ? ncColor : theme?.neutralContent}
+              />
+              <input
+                type="color"
+                className="w-12 h-9 rounded"
+                onChange={(e) => setNCColor(e.target.value)}
+              />
+            </div>
           </div>
         </div>
 

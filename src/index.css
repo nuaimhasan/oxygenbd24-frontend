@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+:root {
+  --primary-color: #ffa500;
+  --secondary-color: #045cac;
+  --accent-color: #031a2f;
+  --neutral-color: #404145;
+  --neutralContent-color: #7a7a7a;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,7 +26,7 @@ h2 {
 }
 
 .active {
-  color: #f2682b;
+  color: var(--primary-color);
 }
 
 .container {
@@ -38,8 +46,8 @@ h2 {
 }
 
 .primary_btn {
-  background: #045cac;
-  border: 2px solid #045cac;
+  background: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
   color: #fff;
   padding: 8px 30px;
   border-radius: 5px 15px 5px 15px;
@@ -50,13 +58,13 @@ h2 {
 
 .primary_btn:hover {
   background: transparent;
-  color: #045cac;
+  color: var(--secondary-color);
   font-weight: 600;
 }
 
 .secondary_btn {
-  background: #f2682b;
-  border: 2px solid #f2682b;
+  background: var(--primary-color);
+  border: 2px solid var(--primary-color);
   color: #fff;
   padding: 8px 30px;
   border-radius: 5px;
@@ -67,7 +75,7 @@ h2 {
 
 .secondary_btn:hover {
   background: transparent;
-  color: #f2682b;
+  color: var(--primary-color);
 }
 
 .overlay {
@@ -93,7 +101,7 @@ h2 {
   background: #f4951e !important;
 }
 .alliances span.swiper-pagination-bullet {
-  background: #045cac;
+  background: var(--secondary-color);
 }
 
 /* ---------------------Modal------------ */
@@ -153,8 +161,6 @@ form select {
   color: #3a3a3a;
 }
 
-
-
 table {
   width: 100%;
   font-size: 15px;
@@ -186,5 +192,3 @@ table tbody td {
 .jodit-status-bar {
   display: none !important;
 }
-
-

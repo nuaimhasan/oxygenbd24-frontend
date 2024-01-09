@@ -33,7 +33,7 @@
 
 .menu_wrap ul li a:hover,
 .menu_wrap ul li button:hover {
-  color: #f2682b;
+  color: var(--primary-color);
 }
 
 .menu_wrap ul li .dropdown {

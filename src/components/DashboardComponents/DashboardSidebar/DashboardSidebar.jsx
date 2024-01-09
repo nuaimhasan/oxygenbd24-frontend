@@ -8,6 +8,7 @@ import {
 import { RiAdminFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import SidebarItems from "./SidebarItems";
+import { useGetLogosQuery } from "../../../Redux/logo/logoApi";
 
 const adminSidebarItems = [
   {
@@ -170,10 +171,21 @@ const adminSidebarItems = [
 ];
 
 export default function DashboardSidebar() {
+  const { data } = useGetLogosQuery();
+  const logo = data?.data[0];
+
   return (
     <div className="h-full flex flex-col justify-between">
       <div>
         <nav className="admin_siderbar">
+          <Link to="/admin/dashboard" className="py-5 block">
+            <img
+              src={`${import.meta.env.VITE_BACKEND_URL}/logo/${logo?.logo}`}
+              alt="logo"
+              className="w-1/2 mx-auto"
+            />
+          </Link>
+
           <ul>
             {adminSidebarItems?.map((item, i) => (
               <SidebarItems key={i} item={item} />
@@ -181,10 +193,9 @@ export default function DashboardSidebar() {
           </ul>
         </nav>
       </div>
-
-      <div className="bg-[#445360] p-2 flex justify-between items-center font-light">
+      <div className="bg-accent p-2 flex justify-between items-center font-light">
         <p>Visit Front-End</p>
-        <Link to="/" target="_blank" className="text-secondary hover:underline">
+        <Link to="/" target="_blank" className="text-primary hover:underline">
           Business
         </Link>
       </div>
