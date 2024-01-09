@@ -4,6 +4,7 @@ import perser from "html-react-parser";
 import { useGetProductBySlugQuery } from "../../Redux/product/productApi";
 
 export default function ProductDetails() {
+  window.scroll(0, 0);
   const { slug } = useParams();
 
   const { data, isLoading } = useGetProductBySlugQuery(slug);

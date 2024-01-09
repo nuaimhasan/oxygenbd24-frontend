@@ -4,6 +4,7 @@ import perser from "html-react-parser";
 import { useGetOurVisionsQuery } from "../../Redux/ourVision/ourVisionApi";
 
 export default function OurVision() {
+  window.scroll(0, 0);
   const { data, isLoading } = useGetOurVisionsQuery();
   const ourVision = data?.data[0];
 

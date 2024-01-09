@@ -6,6 +6,7 @@ import Spinner from "../Spinner/Spinner";
 export default function About() {
   const { data, isLoading } = useGetAboutUsQuery();
   const aboutUs = data?.data[0];
+  console.log(aboutUs);
 
   if (isLoading) {
     return <Spinner />;
@@ -33,7 +34,7 @@ export default function About() {
           </div>
           <div>
             <img
-              src={`${import.meta.env.VITE_BACKEND_URL}/aboutUs/${
+              src={`${import.meta.env.VITE_BACKEND_URL}/aboutus/${
                 aboutUs?.image
               }`}
               alt=""

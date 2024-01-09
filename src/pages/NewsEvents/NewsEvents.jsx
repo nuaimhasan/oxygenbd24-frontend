@@ -9,6 +9,7 @@ import "./NewsEvents.css";
 import NewsEventCard from "../../components/NewsEvent/NewsEventCard";
 
 export default function NewsEvents() {
+  window.scroll(0, 0);
   const [sidebar, setSidebar] = useState(false);
   useEffect(() => {
     window.addEventListener("click", (e) => {

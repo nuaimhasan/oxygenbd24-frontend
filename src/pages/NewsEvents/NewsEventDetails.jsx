@@ -4,6 +4,7 @@ import Spinner from "../../components/Spinner/Spinner";
 import perser from "html-react-parser";
 
 const NewsEventDetails = () => {
+  window.scroll(0, 0);
   const { slug } = useParams();
 
   const { data, isLoading } = useGetNewsEventBySlugQuery(slug);
@@ -25,12 +26,8 @@ const NewsEventDetails = () => {
           />
         </div>
         <div className="mt-10">
-          <h1 className="text-xl font-medium mb-5">
-            {data?.data?.title}
-          </h1>
-          <p>
-            {perserDescription}
-          </p>
+          <h1 className="text-xl font-medium mb-5">{data?.data?.title}</h1>
+          <p>{perserDescription}</p>
         </div>
       </div>
     </section>

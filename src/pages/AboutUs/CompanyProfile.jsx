@@ -4,6 +4,7 @@ import Spinner from "../../components/Spinner/Spinner";
 import perser from "html-react-parser";
 
 export default function CompanyProfile() {
+  window.scroll(0, 0);
   const { data, isLoading } = useGetCompanyProfilesQuery();
   const companyProfile = data?.data[0];
 

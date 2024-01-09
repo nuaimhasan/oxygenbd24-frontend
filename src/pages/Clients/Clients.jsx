@@ -3,6 +3,7 @@ import { useAllClientsQuery } from "../../Redux/clients/clientsApi";
 import Spinner from "../../components/Spinner/Spinner";
 
 export default function Clients() {
+  window.scroll(0, 0);
   const { data: clientsData, isLoading } = useAllClientsQuery();
   const { data: clientBanner, isLoading: bannerLoading } =
     useAllClientBannersQuery();

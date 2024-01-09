@@ -39,6 +39,7 @@ export default function Products() {
   });
 
   const handlePageChange = (pageNumber) => {
+    window.scroll(0, 0);
     if (pageNumber < 1) return;
     if (data?.meta?.total && pageNumber > data?.meta.total / limit) return;
 
@@ -68,7 +69,7 @@ export default function Products() {
     <section>
       <div className="relative">
         <img
-          src="/images/solar-solutions/banner.png"
+          src="/images/product-banner.webp"
           alt=""
           className="w-full h-28 md:h-80"
         />

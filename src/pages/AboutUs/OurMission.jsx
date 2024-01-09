@@ -4,6 +4,7 @@ import perser from "html-react-parser";
 import { useGetOurMissionsQuery } from "../../Redux/ourMission/ourMissionApi";
 
 export default function OurMission() {
+  window.scroll(0, 0);
   const { data, isLoading } = useGetOurMissionsQuery();
   const ourMission = data?.data[0];
 

@@ -13,11 +13,13 @@ export default function Contact() {
   const contact = contactData?.data[0];
   if (isLoading) return <Spinner />;
 
+  console.log(contact);
+
   return (
     <section>
       <div>
         <img
-          src={`${import.meta.env.VITE_BACKEND_URL}/contactUs/${
+          src={`${import.meta.env.VITE_BACKEND_URL}/contactus/${
             contact?.banner
           }`}
           alt=""
@@ -29,7 +31,7 @@ export default function Contact() {
         <div className="grid lg:grid-cols-2 gap-4 items-center">
           <div className="lg:w-[80%] mx-auto">
             <img
-              src={`${import.meta.env.VITE_BACKEND_URL}/contactUs/${
+              src={`${import.meta.env.VITE_BACKEND_URL}/contactus/${
                 contact?.image
               }`}
               alt=""
