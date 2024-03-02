@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
+import { useDispatch } from "react-redux";
+import { userLogout } from "../../../Redux/user/userSlice";
 
 export default function AdminHeader() {
   const [mobileMenu, setmobileMenu] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     window.addEventListener("click", (e) => {
@@ -47,6 +50,14 @@ export default function AdminHeader() {
               </li>
               <li>
                 <NavLink to="/admin/orders">Orders</NavLink>
+              </li>
+              <li>
+                <button
+                  onClick={() => dispatch(userLogout())}
+                  className="bg-red-600 px-4 py-1 rounded text-base-100"
+                >
+                  Logout
+                </button>
               </li>
             </ul>
           </nav>

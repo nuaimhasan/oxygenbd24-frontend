@@ -2,13 +2,14 @@ import { FaUserShield, FaCartPlus } from "react-icons/fa";
 import OrderTable from "../../../components/AdminComponents/OrdersTable/OrderTable";
 import { useGetAllOrdersQuery } from "../../../Redux/order/orderApi";
 import { useGetAdminsQuery } from "../../../Redux/user/userApi";
+import Spinner from "../../../components/Spinner/Spinner";
 
 export default function Dashboard() {
   const { data: users, isLoading: userLoading } = useGetAdminsQuery();
   const { data: orders, isLoading: orderLoading } = useGetAllOrdersQuery();
 
   if (userLoading || orderLoading) {
-    return <p>Loading...</p>;
+    return <Spinner />;
   }
 
   return (

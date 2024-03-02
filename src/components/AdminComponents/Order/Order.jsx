@@ -1,11 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useGetOrderByIdQuery } from "../../../Redux/order/orderApi";
+import Spinner from "../../Spinner/Spinner";
 
 export default function Order() {
   const { id } = useParams();
   const { data, isLoading } = useGetOrderByIdQuery(id);
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Spinner />;
   }
 
   const order = data?.data;

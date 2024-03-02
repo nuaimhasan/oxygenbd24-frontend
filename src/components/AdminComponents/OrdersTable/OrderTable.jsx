@@ -6,12 +6,13 @@ import {
   useGetAllOrdersQuery,
 } from "../../../Redux/order/orderApi";
 import Swal from "sweetalert2";
+import Spinner from "../../Spinner/Spinner";
 
 export default function OrderTable() {
   const { data, isLoading } = useGetAllOrdersQuery();
   const [deleteOrder, { isLoading: deleteLoading }] = useDeleteOrderMutation();
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Spinner />;
   }
 
   const orders = data?.data;
