@@ -1,9 +1,11 @@
 import { Navigate, useLocation } from "react-router-dom";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Spinner from "../components/Spinner/Spinner";
 
 export default function AdminRoute({ children }) {
-  //   const { loggedUser } = useSelector((state) => state.user);
+  const { loggedUser } = useSelector((state) => state.user);
+
+  console.log(loggedUser);
 
   const location = useLocation();
   const token = localStorage.getItem("magicalHairOil_jwt");
@@ -12,7 +14,7 @@ export default function AdminRoute({ children }) {
     return <Navigate to="/admin/login" state={{ from: location }} replace />;
   }
 
-  if (token) {
+  if (token && loggedUser?.success) {
     return children;
   }
 

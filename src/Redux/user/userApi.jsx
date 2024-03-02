@@ -5,7 +5,7 @@ export const userApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     login: builder.mutation({
       query: (loginInfo) => ({
-        url: "/admin/login",
+        url: "/user/login",
         method: "POST",
         body: loginInfo,
       }),
@@ -14,7 +14,7 @@ export const userApi = apiSlice.injectEndpoints({
         try {
           const result = await queryFulfilled;
 
-          localStorage.setItem("extremenetbd_jwt", result?.data?.token);
+          localStorage.setItem("magicalHairOil_jwt", result?.data?.token);
 
           dispatch(
             userLoggedIn({
@@ -30,7 +30,7 @@ export const userApi = apiSlice.injectEndpoints({
 
     getAdmins: builder.query({
       query: () => ({
-        url: "/admin/all",
+        url: "/user/all",
         method: "GET",
       }),
       providesTags: ["admin"],

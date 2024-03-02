@@ -15,13 +15,14 @@ export default async function useAuthCheck() {
 
   useEffect(() => {
     if (localAuth) {
-      fetch(`${import.meta.env.VITE_BACKEND_URL}/admin/loggedUser`, {
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/user/logged-user`, {
         headers: {
           authorization: `bearer ${localAuth}`,
         },
       })
         .then((res) => res.json())
         .then((data) => {
+          console.log(data);
           if (data?.success) {
             dispatch(
               userLoggedIn({

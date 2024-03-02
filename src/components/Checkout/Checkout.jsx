@@ -3,12 +3,16 @@ import { MdOutlineClose } from "react-icons/md";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 import { cities, districts } from "../../Data/location";
+import { useCreateOrderMutation } from "../../Redux/order/orderApi";
+import Swal from "sweetalert2";
 
 export default function Checkout({ checkout, setCheckout }) {
   const [quantity, setQuantity] = useState(1);
   const [city, setCity] = useState("Dhaka");
   const [shipping, setShipping] = useState(70);
   const [validPhone, setValidPhone] = useState("");
+
+  const [createOrder, { isLoading }] = useCreateOrderMutation();
 
   const [districtDropdown, setDistrictDropdown] = useState(false);
   const [district, setDistrict] = useState("");
@@ -37,7 +41,7 @@ export default function Checkout({ checkout, setCheckout }) {
     }
   }, [city]);
 
-  const handlePlaceOrder = (e) => {
+  const handlePlaceOrder = async (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
@@ -62,7 +66,26 @@ export default function Checkout({ checkout, setCheckout }) {
       shipping,
     };
 
-    console.log(orderInfo);
+    const res = await createOrder(orderInfo);
+
+    if (res?.error) {
+      return Swal.fire(
+        "",
+        res?.error?.data?.message
+          ? res?.error?.data?.message
+          : "something went wrong",
+        "error"
+      );
+    }
+
+    if (res?.data?.success) {
+      Swal.fire("", "Order create success", "success");
+      form.reset();
+      setCheckout(false);
+      setQuantity(1);
+      setCity("Dhaka");
+      setSearchDistrict("");
+    }
   };
 
   return (
@@ -248,7 +271,7 @@ export default function Checkout({ checkout, setCheckout }) {
               </div>
 
               <button className="bg-primary text-base-100 py-1.5 w-full">
-                Place Order
+                {isLoading ? "Loading..." : "Place Order"}
               </button>
             </div>
           </form>

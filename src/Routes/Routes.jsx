@@ -6,6 +6,9 @@ import Dashboard from "../pages/Admin/Dashboard/Dashboard";
 // import AdminRoute from "../AdminRoute/AdminRoute";
 import Login from "../pages/Login/Login";
 import Orders from "../pages/Admin/Orders/Orders";
+import AdminRoute from "../AdminRoute/AdminRoute";
+import OrderDetails from "../pages/Admin/OrderDetails/OrderDetails";
+import OrderPrint from "../pages/Admin/OrderPrint/OrderPrint";
 
 export const routes = createBrowserRouter([
   {
@@ -26,7 +29,11 @@ export const routes = createBrowserRouter([
 
   {
     path: "/admin",
-    element: <AdminLayout />,
+    element: (
+      <AdminRoute>
+        <AdminLayout />
+      </AdminRoute>
+    ),
     children: [
       {
         path: "/admin",
@@ -40,6 +47,15 @@ export const routes = createBrowserRouter([
         path: "/admin/orders",
         element: <Orders />,
       },
+      {
+        path: "/admin/order/:id",
+        element: <OrderDetails />,
+      },
     ],
+  },
+
+  {
+    path: "/admin/order/print/:id",
+    element: <OrderPrint />,
   },
 ]);

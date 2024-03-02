@@ -17,7 +17,7 @@ export default function AdminHeader() {
   }, []);
 
   return (
-    <header className={`py-2 2xl:py-0 w-full sticky top-0 bg-[#74b650f5]`}>
+    <header className={`py-2 2xl:py-0 w-full sticky top-0 z-50 bg-[#74b650f5]`}>
       <div className="container relative">
         <div className="header">
           <Link to="/admin/dashboard">
