@@ -1,0 +1,27 @@
+.checkout {
+  width: 350px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 99999;
+  background: #fff;
+  box-shadow: -2px 0px 20px 0px #ddddddc7;
+
+  transform: translate(100%);
+  transition: all 0.3s ease;
+}
+
+.checkout_show {
+  transform: translate(0%);
+}
+
+@media only screen and (max-width: 400px) {
+  .checkout {
+    width: 90%;
+  }
+}
+
+.billing::-webkit-scrollbar {
+  display: none;
+}
