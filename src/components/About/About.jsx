@@ -1,45 +1,67 @@
 import { Link } from "react-router-dom";
-import { useGetAboutUsQuery } from "../../Redux/about/aboutApi";
-import percer from "html-react-parser";
-import Spinner from "../Spinner/Spinner";
 
 export default function About() {
-  const { data, isLoading } = useGetAboutUsQuery();
-  const aboutUs = data?.data[0];
-  console.log(aboutUs);
-
-  if (isLoading) {
-    return <Spinner />;
-  }
-
-  const percerDescription =
-    aboutUs?.description && percer(aboutUs?.description);
-
   return (
-    <section className="py-7 sm:py-16">
+    <section className="py-7 sm:py-10" id="about">
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>
-            <h2 className="text-2xl font-semibold text-neutral">
-              {aboutUs?.title}
+            <img
+              src="/images/about/about.png"
+              alt=""
+              className="w-full sm:w-[60%] lg:w-full mx-auto h-60 sm:h-80 lg:h-96 rounded"
+            />
+          </div>
+
+          <div>
+            <h2 className="text-2xl sm:text-4xl text-neutral">
+              <span className="font-semibold text-primary">
+                Magical Hair Oil
+              </span>{" "}
+              <span>Magical solution to all hair problems</span>
             </h2>
 
-            <div className="text-[15px] text-neutral-content mt-3 flex flex-col gap-2">
-              {percerDescription}
+            <div>
+              <div className="text-[15px] text-neutral-content mt-3 flex flex-col gap-2">
+                <p>
+                  &quot;Magical Hair Oil&quot; is a blend of natural ingredients
+                  carefully selected to promote healthy hair growth and reduce
+                  hair fall, as well as address issues related to dandruff. Our
+                  hair oil is formulated with a unique combination of oils known
+                  for their nourishing properties, such as coconut oil, almond
+                  oil, argan oil, and essential oils like rosemary and lavender.
+                </p>
+                <p>
+                  We understand the importance of using natural ingredients to
+                  maintain the health of your hair and scalp. Our oil is free
+                  from harmful chemicals and additives, making it suitable for
+                  all hair types, including mixed hair. Whether you have curly,
+                  wavy, or straight hair, our Magical Hair Oil is designed to
+                  provide the nutrients your hair needs to thrive.
+                </p>
+                <p>
+                  Hair fall can be caused by various factors, including stress,
+                  pollution, and improper hair care routines. Our hair oil is
+                  enriched with ingredients that strengthen the hair follicles
+                  and reduce breakage, resulting in less hair fall over time.
+                </p>
+                <p>
+                  Additionally, our formula targets dandruff by nourishing the
+                  scalp and balancing its natural oils. This helps alleviate
+                  itching and flakiness, promoting a healthier scalp environment
+                  for hair growth.
+                </p>
+              </div>
 
-              <Link to="/about-us" className="secondary_btn w-max mt-2">
-                See More
-              </Link>
+              <div className="mt-5">
+                <Link
+                  to="#product"
+                  className="w-max px-6 py-2 rounded bg-primary text-base-100 mt-2"
+                >
+                  Shop Now
+                </Link>
+              </div>
             </div>
-          </div>
-          <div>
-            <img
-              src={`${import.meta.env.VITE_BACKEND_URL}/aboutus/${
-                aboutUs?.image
-              }`}
-              alt=""
-              className="w-full sm:h-80 lg:h-96 rounded"
-            />
           </div>
         </div>
       </div>

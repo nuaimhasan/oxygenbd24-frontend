@@ -2,54 +2,52 @@ import { Link } from "react-router-dom";
 import { BiLogoFacebook, BiLogoLinkedin } from "react-icons/bi";
 import { BsTelephone } from "react-icons/bs";
 import { MdOutlineMail, MdOutlineLocationOn } from "react-icons/md";
-import { useGetLogosQuery } from "../../Redux/logo/logoApi";
-import { useGetContactsQuery } from "../../Redux/contact/contactApi";
 
 export default function Footer() {
-  const { data: logos } = useGetLogosQuery();
-  const logo = logos?.data[0];
-  const { data: contactData } = useGetContactsQuery();
-  const contact = contactData?.data[0];
-
   return (
-    <footer className="bg-accent pt-10 pb-5">
+    <footer className="pt-5 sm:pt-10 pb-5">
       <div className="container">
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 pb-14">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 pb-6 sm:pb-14">
           <div>
-            <img
-              src={`${import.meta.env.VITE_BACKEND_URL}/logo/${logo?.logo}`}
-              alt=""
-              className="w-60"
-            />
+            <img src="/images/logo/logo.png" alt="" className="w-60" />
+            <p className="text-neutral-content text-sm mt-1">
+              Magical Hair Oil is a magical solution to all hair problems made
+              from completely natural ingredients
+            </p>
           </div>
           <div>
-            <h2 className="text-gray-300 text-xl font-medium">Quick Link</h2>
-            <ul className="text-gray-400 font-light pl-2 mt-2 flex flex-col gap-1.5 text-[15px]">
+            <h2 className="text-gray-700 text-xl font-medium">Quick Link</h2>
+            <ul className="text-gray-600 font-light pl-2 mt-2 flex flex-col gap-1.5 text-[15px]">
               <li>
-                <Link to="/about-us" className="hover:underline">
+                <a href="#about" className="hover:underline">
                   About Us
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/contact-us" className="hover:underline">
+                <a href="#contact" className="hover:underline">
                   Contact Us
-                </Link>
+                </a>
+              </li>
+              <li>
+                <a href="#product" className="hover:underline">
+                  Product
+                </a>
               </li>
             </ul>
           </div>
           <div>
-            <h2 className="text-gray-300 text-xl font-medium">Contact</h2>
-            <ul className="text-gray-400 font-light pl-2 mt-2 flex flex-col gap-1.5 text-[15px]">
+            <h2 className="text-gray-700 text-xl font-medium">Contact</h2>
+            <ul className="text-gray-600 font-light pl-2 mt-2 flex flex-col gap-1.5 text-[15px]">
               <li>
                 <p className="flex items-center gap-1.5">
                   <BsTelephone />
-                  {contact?.primaryPhone}
+                  01977-779279
                 </p>
               </li>
               <li>
                 <p className="flex items-center gap-1.5">
                   <MdOutlineMail />
-                  {contact?.email}
+                  magicalhairoil990@gmail.com
                 </p>
               </li>
               <li>
@@ -57,7 +55,7 @@ export default function Footer() {
                   <p className="text-lg">
                     <MdOutlineLocationOn />
                   </p>
-                  <p>{contact?.address}</p>
+                  <p>Zigatola, Dhaka, Bangladesh</p>
                 </div>
               </li>
             </ul>
@@ -66,29 +64,29 @@ export default function Footer() {
 
         <div className="border-t pt-5">
           <div className="flex justify-between items-center">
-            <p className="text-gray-400 text-sm font-light">
-              Copyright © 2020 business. All rights reserved. Powered by{" "}
+            <p className="text-gray-700 text-sm font-light">
+              Copyright © 2024 Magical Hair Oil. All rights reserved. Powered by{" "}
               <Link
-                to="https://emanagerbd.xyz/"
+                to="https://emanagerit.com"
                 target="_blank"
                 className="underline"
               >
-                eManager
+                eManager Ltd
               </Link>
             </p>
 
             <div className="flex gap-3 items-center">
               <Link
-                to={contact?.facebookLink}
+                to="https://www.facebook.com/magicalhairoilbd"
                 target="_blank"
-                className="w-7 h-7 rounded-full bg-primary/50 flex justify-center items-center text-base-100 hover:-mt-1 duration-200"
+                className="w-7 h-7 rounded-full bg-primary flex justify-center items-center text-base-100 hover:-mt-1 duration-200"
               >
                 <BiLogoFacebook className="text-xl" />
               </Link>
               <Link
-                to={contact?.linkedinLink}
+                to=""
                 target="_blank"
-                className="w-7 h-7 rounded-full bg-primary/50 flex justify-center items-center text-base-100 hover:-mt-1 duration-200"
+                className="w-7 h-7 rounded-full bg-primary flex justify-center items-center text-base-100 hover:-mt-1 duration-200"
               >
                 <BiLogoLinkedin className="text-xl" />
               </Link>

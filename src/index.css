@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
-  --primary-color: #ffa500;
-  --secondary-color: #045cac;
-  --accent-color: #031a2f;
-  --neutral-color: #404145;
-  --neutralContent-color: #7a7a7a;
+  --primary: #73b650;
+  --secondary: #97c93b;
+  --accent: #031a2f;
+  --neutral: #404145;
+  --neutralContent: #7a7a7a;
+  --base100: #fff;
 }
 
 @tailwind base;
@@ -25,10 +26,6 @@ h2 {
   font-family: "Exo", sans-serif;
 }
 
-.active {
-  color: var(--primary-color);
-}
-
 .container {
   max-width: 90% !important;
   margin: auto;
@@ -36,7 +33,7 @@ h2 {
 
 @media only screen and (min-width: 1250px) {
   .container {
-    max-width: 1180px !important;
+    max-width: 1100px !important;
   }
 }
 
@@ -95,13 +92,6 @@ h2 {
 .overlay_show {
   opacity: 1;
   visibility: visible;
-}
-
-.alliances span.swiper-pagination-bullet.swiper-pagination-bullet-active {
-  background: #f4951e !important;
-}
-.alliances span.swiper-pagination-bullet {
-  background: var(--secondary-color);
 }
 
 /* ---------------------Modal------------ */

@@ -1,6 +1,6 @@
 {
-  "name": "business",
-  "homepage": "https://business.emanagerit.com",
+  "name": "magicalhairoil",
+  "homepage": "https://magicalhairoil.com",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,18 +13,12 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
-    "html-react-parser": "^5.0.11",
     "jodit-react": "^1.3.39",
-    "lottie-react": "^2.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
-    "react-images-uploading": "^3.1.7",
-    "react-query": "^3.39.3",
-    "react-redux": "^8.1.3",
     "react-router-dom": "^6.16.0",
-    "sweetalert2": "^11.9.0",
-    "swiper": "^11.0.3"
+    "sweetalert2": "^11.9.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
