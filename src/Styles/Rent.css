@@ -1,0 +1,48 @@
+.rent_card {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.rent_card ul li {
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 5px;
+  list-style: disc;
+  list-style: inside;
+}
+/* 
+.rent_card ul li:nth-child(odd) {
+  color: #fdcf13;
+} */
+
+.rent_card:nth-child(even) {
+  background: #4c58e3;
+}
+
+.rent_card:nth-child(odd) {
+  background: #3b47d3;
+}
+
+.rent_card:nth-child(even) .order_btn {
+  background: #3b47d3;
+}
+
+.rent_card:nth-child(odd) .order_btn {
+  background: #4c58e3;
+}
+
+.order_btn {
+  display: block;
+  padding: 14px;
+  font-size: 18px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.order_btn:hover {
+  background: var(--primary) !important;
+}

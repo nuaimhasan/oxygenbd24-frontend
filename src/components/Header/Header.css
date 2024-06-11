@@ -29,9 +29,12 @@
   transition: all 0.4s ease;
 }
 
-.menu_wrap ul li a.active,
-.menu_wrap ul li a:hover {
+.activeHeader .menu_wrap ul li a:hover {
   color: var(--base100);
+}
+
+.menu_wrap ul li a:hover {
+  color: var(--primary);
 }
 
 @media only screen and (max-width: 640px) {

@@ -8,7 +8,7 @@ export default function AdminRoute({ children }) {
   console.log(loggedUser);
 
   const location = useLocation();
-  const token = localStorage.getItem("magicalHairOil_jwt");
+  const token = localStorage.getItem("healyou_jwt");
 
   if (!token) {
     return <Navigate to="/admin/login" state={{ from: location }} replace />;

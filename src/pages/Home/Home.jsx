@@ -3,9 +3,9 @@ import Banner from "../../components/Banner/Banner";
 import Services from "../../components/Services/Services";
 import About from "../../components/About/About";
 import Product from "../../components/Product/Product";
-import Benefits from "../../components/Benefits/Benefits";
 import Contact from "../../components/Contact/Contact";
 import { useEffect } from "react";
+import Rental from "../../components/Rental/Rental";
 
 export default function Home() {
   useEffect(() => {
@@ -18,7 +18,7 @@ export default function Home() {
       <Services />
       <About />
       <Product />
-      <Benefits />
+      <Rental />
       <Contact />
     </>
   );

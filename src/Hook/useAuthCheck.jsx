@@ -7,10 +7,10 @@ export default async function useAuthCheck() {
   const dispatch = useDispatch();
   const [authChecked, setAuthChecked] = useState(false);
 
-  const localAuth = localStorage?.getItem("magicalHairOil_jwt");
+  const localAuth = localStorage?.getItem("healyou_jwt");
   const { isExpired } = useJwt(localAuth);
   if (isExpired) {
-    localStorage.removeItem("magicalHairOil_jwt");
+    localStorage.removeItem("healyou_jwt");
   }
 
   useEffect(() => {
