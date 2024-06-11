@@ -5,10 +5,8 @@ import Spinner from "../components/Spinner/Spinner";
 export default function AdminRoute({ children }) {
   const { loggedUser } = useSelector((state) => state.user);
 
-  console.log(loggedUser);
-
   const location = useLocation();
-  const token = localStorage.getItem("healyou_jwt");
+  const token = localStorage.getItem("oxygenbd24_jwt");
 
   if (!token) {
     return <Navigate to="/admin/login" state={{ from: location }} replace />;

@@ -1,43 +1,51 @@
-import { FaUserShield, FaCartPlus } from "react-icons/fa";
-import OrderTable from "../../../components/AdminComponents/OrdersTable/OrderTable";
-import { useGetAllOrdersQuery } from "../../../Redux/order/orderApi";
-import { useGetAdminsQuery } from "../../../Redux/user/userApi";
-import Spinner from "../../../components/Spinner/Spinner";
+import { Link } from "react-router-dom";
+import { RiAdminFill } from "react-icons/ri";
+import { MdHomeRepairService } from "react-icons/md";
+import { LuImageMinus } from "react-icons/lu";
+// import Spinner from "../../../components/Spinner/Spinner";
 
 export default function Dashboard() {
-  const { data: users, isLoading: userLoading } = useGetAdminsQuery();
-  const { data: orders, isLoading: orderLoading } = useGetAllOrdersQuery();
-
-  if (userLoading || orderLoading) {
-    return <Spinner />;
-  }
-
   return (
-    <section className="py-5">
-      <div className="container">
-        <div className="grid sm:grid-cols-4 gap-1 sm:gap-4">
-          <div className="flex justify-between items-center rounded-lg shadow p-4 bg-base-100">
+    <section>
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <Link
+          to="/admin/administrator/all-administrator"
+          className="shadow rounded p-4 bg-base-100"
+        >
+          <div className="flex justify-between items-start">
             <div>
-              <p className="text-neutral font-dinMedium">Total Admin</p>
-              <h3 className="text-primary font-bold">{users?.data?.length}</h3>
+              <h2 className="text-lg">Total Admin</h2>
+              <p>1</p>
             </div>
-            <div className="bg-primary text-base-100 w-11 h-11 rounded-lg flex justify-center items-center">
-              <FaUserShield className="text-xl" />
+            <div>
+              <RiAdminFill className="text-2xl text-secondary" />
             </div>
           </div>
-          <div className="flex justify-between items-center rounded-lg shadow p-4 bg-base-100">
-            <div>
-              <p className="text-neutral font-dinMedium">Total Orders</p>
-              <h3 className="text-primary font-bold">{orders?.data?.length}</h3>
-            </div>
-            <div className="bg-primary text-base-100 w-11 h-11 rounded-lg flex justify-center items-center">
-              <FaCartPlus className="text-xl" />
-            </div>
-          </div>
-        </div>
+        </Link>
 
-        {/* Orders */}
-        <OrderTable />
+        <Link to="/admin/services" className="shadow rounded p-4 bg-base-100">
+          <div className="flex justify-between items-start">
+            <div>
+              <h2 className="text-lg">Total Services</h2>
+              <p>0</p>
+            </div>
+            <div>
+              <MdHomeRepairService className="text-2xl text-primary" />
+            </div>
+          </div>
+        </Link>
+
+        <Link to="/admin/projects" className="shadow rounded p-4 bg-base-100">
+          <div className="flex justify-between items-start">
+            <div>
+              <h2 className="text-lg">Total Projects</h2>
+              <p>0</p>
+            </div>
+            <div>
+              <LuImageMinus className="text-2xl text-primary" />
+            </div>
+          </div>
+        </Link>
       </div>
     </section>
   );

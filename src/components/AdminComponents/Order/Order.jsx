@@ -54,7 +54,7 @@ export default function Order() {
       <div className="mt-4 pt-4 border-t border-neutral-content">
         <div className="grid grid-cols-5">
           <div className="col-span-3">
-            <p className="text-[15px]">Healyou </p>
+            <p className="text-[15px]">oxygenbd24 </p>
             <p className="text-sm text-neutral-content">200ml</p>
           </div>
 

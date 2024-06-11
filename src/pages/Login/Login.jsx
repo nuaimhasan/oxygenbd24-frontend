@@ -19,11 +19,11 @@ export default function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     const form = e.target;
-    const username = form.username.value;
+    const email = form.email.value;
     const password = form.password.value;
 
     const loginInfo = {
-      username,
+      email,
       password,
     };
 
@@ -46,13 +46,13 @@ export default function Login() {
         </div>
         <br />
         <div className="mb-5">
-          <label htmlFor="username" className="block mb-2 text-sm font-medium">
-            Username
+          <label htmlFor="email" className="block mb-2 text-sm font-medium">
+            Email
           </label>
           <input
-            type="username"
-            id="username"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+            type="email"
+            id="email"
+            className="lowercase bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
             placeholder="eManager"
             required
           />

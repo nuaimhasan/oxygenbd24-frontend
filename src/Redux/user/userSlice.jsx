@@ -16,7 +16,7 @@ const userSlice = createSlice({
     userLogout: (state) => {
       state.token = "";
       state.loggedUser = undefined;
-      localStorage.removeItem("healyou_jwt");
+      localStorage.removeItem("oxygenbd24_jwt");
     },
   },
 });

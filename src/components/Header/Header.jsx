@@ -39,7 +39,7 @@ export default function Header() {
           <Link to="/">
             {activeHeader ? (
               <img
-                src="/images/logo/healyou-logo-light.png"
+                src="/images/logo/oxygenbd24-logo-light.png"
                 alt="logo"
                 className="w-40 sm:w-44"
               />

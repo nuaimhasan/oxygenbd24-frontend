@@ -5,7 +5,7 @@ export const userApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     login: builder.mutation({
       query: (loginInfo) => ({
-        url: "/user/login",
+        url: "/admin/login",
         method: "POST",
         body: loginInfo,
       }),
@@ -14,7 +14,7 @@ export const userApi = apiSlice.injectEndpoints({
         try {
           const result = await queryFulfilled;
 
-          localStorage.setItem("healyou_jwt", result?.data?.token);
+          localStorage.setItem("oxygenbd24_jwt", result?.data?.token);
 
           dispatch(
             userLoggedIn({
@@ -30,7 +30,7 @@ export const userApi = apiSlice.injectEndpoints({
 
     getAdmins: builder.query({
       query: () => ({
-        url: "/user/all",
+        url: "/admin/all",
         method: "GET",
       }),
       providesTags: ["admin"],

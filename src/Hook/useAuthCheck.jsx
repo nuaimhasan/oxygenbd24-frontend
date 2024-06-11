@@ -7,22 +7,21 @@ export default async function useAuthCheck() {
   const dispatch = useDispatch();
   const [authChecked, setAuthChecked] = useState(false);
 
-  const localAuth = localStorage?.getItem("healyou_jwt");
+  const localAuth = localStorage?.getItem("oxygenbd24_jwt");
   const { isExpired } = useJwt(localAuth);
   if (isExpired) {
-    localStorage.removeItem("healyou_jwt");
+    localStorage.removeItem("oxygenbd24_jwt");
   }
 
   useEffect(() => {
     if (localAuth) {
-      fetch(`${import.meta.env.VITE_BACKEND_URL}/user/logged-user`, {
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/admin/loggedUser`, {
         headers: {
           authorization: `bearer ${localAuth}`,
         },
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data?.success) {
             dispatch(
               userLoggedIn({

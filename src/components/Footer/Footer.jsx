@@ -9,9 +9,13 @@ export default function Footer() {
       <div className="container">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 pb-6 sm:pb-14">
           <div>
-            <img src="/images/logo/healyou-logo.png" alt="" className="w-60" />
+            <img
+              src="/images/logo/oxygenbd24-logo.png"
+              alt=""
+              className="w-60"
+            />
             <p className="text-neutral-content text-sm mt-1">
-              Healyou is a magical solution to all hair problems made from
+              oxygenbd24 is a magical solution to all hair problems made from
               completely natural ingredients
             </p>
           </div>
@@ -65,7 +69,7 @@ export default function Footer() {
         <div className="border-t pt-5">
           <div className="flex justify-between items-center">
             <p className="text-sm font-light">
-              Copyright © 2024 Healyou. All rights reserved. Powered by{" "}
+              Copyright © 2024 oxygenbd24. All rights reserved. Powered by{" "}
               <Link
                 to="https://emanagerit.com"
                 target="_blank"
