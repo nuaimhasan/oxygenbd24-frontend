@@ -6,7 +6,7 @@ export default function ProductCard({ product }) {
       <img
         src={`${import.meta.env.VITE_BACKEND_URL}/products/${product?.image}`}
         alt=""
-        className="product_img rounded-t h-60 sm:h-72 w-full"
+        className="product_img rounded-t h-60 w-full"
       />
       <div className="p-2 text-center">
         <Link to="" className="text-neutral font-semibold text-xl sm:text-2xl">

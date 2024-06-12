@@ -23,7 +23,7 @@ export default function Product() {
             Our Oxygen Cilinder Price
           </h2>
 
-          <div className="mt-10 grid md:grid-cols-3 gap-6 items-center">
+          <div className="mt-10 grid sm:grid-cols-2 md:grid-cols-4 gap-6 items-center">
             {products?.map((product) => (
               <ProductCard key={product?._id} product={product} />
             ))}
