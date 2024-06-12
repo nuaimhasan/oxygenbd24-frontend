@@ -29,7 +29,7 @@ export default function Rental() {
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-0 text-base-100">
+        <div className="mt-10 grid grid-cols-2 md:grid-cols-4 text-base-100">
           {resnts?.map((rent) => (
             <div key={rent?._id} className="rent_card relative">
               <h2 className="text-2xl font-semibold">{rent?.title}</h2>
