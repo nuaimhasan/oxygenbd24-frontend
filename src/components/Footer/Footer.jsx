@@ -28,10 +28,6 @@ export default function Footer() {
                 />
               )}
             </Link>
-            <p className="text-neutral-content text-sm mt-1">
-              oxygenbd24 is a magical solution to all hair problems made from
-              completely natural ingredients
-            </p>
           </div>
           <div>
             <h2 className="text-xl font-medium">Quick Link</h2>
