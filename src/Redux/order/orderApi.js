@@ -1,36 +1,45 @@
 import { apiSlice } from "../api/apiSlice";
 
-export const oderApi = apiSlice.injectEndpoints({
+export const orderApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    createOrder: builder.mutation({
-      query: (orderInfo) => ({
-        url: `/order/create-order`,
-        method: "POST",
-        body: orderInfo,
-      }),
-      invalidatesTags: ["order"],
-    }),
-
     getAllOrders: builder.query({
-      query: () => ({
-        url: `/order/all-orders`,
+      query: (query) => ({
+        url: "/order/all",
         method: "GET",
+        params: query,
       }),
       providesTags: ["order"],
     }),
 
     getOrderById: builder.query({
       query: (id) => ({
-        url: `/order/single/${id}`,
-        method: "GET",
+        url: `order/${id}`,
       }),
       providesTags: ["order"],
     }),
 
+    addOrder: builder.mutation({
+      query: (orderInfo) => ({
+        url: `/order/add`,
+        method: "POST",
+        body: orderInfo,
+      }),
+      invalidatesTags: ["order"],
+    }),
+
     deleteOrder: builder.mutation({
       query: (id) => ({
-        url: `/order/delete/${id}`,
+        url: `/order/${id}`,
         method: "DELETE",
+      }),
+      invalidatesTags: ["order"],
+    }),
+
+    statusUpdate: builder.mutation({
+      query: ({ id, status }) => ({
+        url: `/order/update-status/${id}`,
+        method: "PATCH",
+        body: { status },
       }),
       invalidatesTags: ["order"],
     }),
@@ -38,8 +47,9 @@ export const oderApi = apiSlice.injectEndpoints({
 });
 
 export const {
-  useCreateOrderMutation,
   useGetAllOrdersQuery,
-  useDeleteOrderMutation,
+  useAddOrderMutation,
   useGetOrderByIdQuery,
-} = oderApi;
+  useDeleteOrderMutation,
+  useStatusUpdateMutation,
+} = orderApi;

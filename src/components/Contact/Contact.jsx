@@ -1,7 +1,11 @@
 import { MdCall, MdEmail } from "react-icons/md";
 import { FaMap } from "react-icons/fa";
+import { useGetContactsQuery } from "../../Redux/contact/contactApi";
 
 export default function Contact() {
+  const { data } = useGetContactsQuery();
+  const contact = data?.data[0];
+
   return (
     <section className="py-10" id="contact">
       <div className="container">
@@ -14,7 +18,7 @@ export default function Contact() {
             </div>
             <div>
               <h2 className="sm:text-xl font-medium">Phone</h2>
-              <p className="-mt-1 text-sm md:text-base">00000-000000</p>
+              <p className="-mt-1 text-sm md:text-base">{contact?.phone}</p>
             </div>
           </div>
 
@@ -24,7 +28,7 @@ export default function Contact() {
             </div>
             <div>
               <h2 className="sm:text-xl font-medium">Email</h2>
-              <p className="-mt-1 text-sm md:text-base">oxygenbd24@gmail.com</p>
+              <p className="-mt-1 text-sm md:text-base">{contact?.email}</p>
             </div>
           </div>
 
@@ -34,9 +38,7 @@ export default function Contact() {
             </div>
             <div>
               <h2 className="sm:text-xl font-medium">Location</h2>
-              <p className="-mt-1 text-sm md:text-base">
-                Gulshan, Dhaka, Bangladesh
-              </p>
+              <p className="-mt-1 text-sm md:text-base">{contact?.address}</p>
             </div>
           </div>
         </div>

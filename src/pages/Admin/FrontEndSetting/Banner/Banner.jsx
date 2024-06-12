@@ -1,5 +1,4 @@
-import JoditEditor from "jodit-react";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import ImageUploading from "react-images-uploading";
 import Spinner from "../../../../components/Spinner/Spinner";
@@ -11,12 +10,10 @@ import {
 } from "../../../../Redux/banner/bannerApi";
 
 export default function Banner() {
-  const editor = useRef(null);
   const { data, isLoading } = useGetBannerQuery();
   let id = data?.data[0]?._id;
 
   const [images, setImages] = useState([]);
-  const [details, setDetails] = useState("");
 
   const [updateBanner, { isLoading: updateLoading }] =
     useUpdateBannerMutation();
@@ -29,10 +26,9 @@ export default function Banner() {
     if (!image && !data?.data[0]?.image)
       return Swal.fire("", "image is required", "warning");
 
-    const description =
-      details?.length > 0 ? details : data?.data[0]?.description;
     const title = e.target.title.value;
     const sub_title = e.target.sub_title.value;
+    const description = e.target.description.value;
 
     const formData = new FormData();
     formData.append("title", title);
@@ -75,7 +71,7 @@ export default function Banner() {
       <form onSubmit={handleUpdateAbout} className="p-4">
         <div className="grid sm:grid-cols-2 gap-4">
           <div className="form_group mt-2">
-            <p className="text-neutral-content">Title</p>
+            <p className="text-neutral-content">Short Title</p>
             <input
               type="text"
               name="title"
@@ -85,7 +81,7 @@ export default function Banner() {
           </div>
 
           <div className="form_group mt-2">
-            <p className="text-neutral-content">Sub Title</p>
+            <p className="text-neutral-content">Main Title</p>
             <input
               type="text"
               name="sub_title"
@@ -159,15 +155,11 @@ export default function Banner() {
             <p className="border-b p-3">Description</p>
 
             <div className="p-4">
-              <JoditEditor
-                ref={editor}
-                value={
-                  data?.data[0]?.description?.length > 0
-                    ? data?.data[0]?.description
-                    : details
-                }
-                onBlur={(text) => setDetails(text)}
-              />
+              <textarea
+                name="description"
+                rows="8"
+                defaultValue={data?.data[0]?.description}
+              ></textarea>
             </div>
           </div>
         </div>

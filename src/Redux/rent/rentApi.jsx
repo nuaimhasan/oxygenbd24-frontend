@@ -13,7 +13,7 @@ export const rentApi = apiSlice.injectEndpoints({
 
     getRentById: builder.query({
       query: (id) => ({
-        url: `rent/${id}`,
+        url: `/rent/${id}`,
       }),
       providesTags: ["rent"],
     }),

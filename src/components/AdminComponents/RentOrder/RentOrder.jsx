@@ -1,21 +1,21 @@
 import { useParams } from "react-router-dom";
-import { useGetOrderByIdQuery } from "../../../Redux/order/orderApi";
 import Spinner from "../../Spinner/Spinner";
+import { useGetRentOrderByIdQuery } from "../../../Redux/rentOrder/rentOrderApi";
 import { useGetContactsQuery } from "../../../Redux/contact/contactApi";
 
-export default function Order() {
+export default function RentOrder() {
   const { id } = useParams();
-  const { data, isLoading } = useGetOrderByIdQuery(id);
+  const { data, isLoading } = useGetRentOrderByIdQuery(id);
   const { data: contactData } = useGetContactsQuery();
 
   if (isLoading) {
     return <Spinner />;
   }
 
-  const order = data?.data;
-  const { createdAt, product, shipping, invoiceNumber } = order;
+  const rentOrder = data?.data;
+  const { createdAt, product, shipping } = rentOrder;
 
-  const date = createdAt?.split("T")[0];
+  const date = createdAt && createdAt?.split("T")[0];
 
   return (
     <div>
@@ -28,7 +28,7 @@ export default function Order() {
 
         <div>
           <p className="text-sm text-neutral-content">{date}</p>
-          <h2 className="text-lg font-semibold">INV: {invoiceNumber}</h2>
+          {/* <h2 className="text-lg font-semibold">INV: {invoiceNumber}</h2> */}
         </div>
       </div>
       <div className="mt-4">

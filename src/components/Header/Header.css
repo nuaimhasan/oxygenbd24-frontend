@@ -29,10 +29,6 @@
   transition: all 0.4s ease;
 }
 
-.activeHeader .menu_wrap ul li a:hover {
-  color: var(--base100);
-}
-
 .menu_wrap ul li a:hover {
   color: var(--primary);
 }

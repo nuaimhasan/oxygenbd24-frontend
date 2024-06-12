@@ -1,20 +1,25 @@
+import { useGetBannerQuery } from "../../Redux/banner/bannerApi";
+
 export default function Banner() {
+  const { data, isLoading } = useGetBannerQuery();
+  const banner = data?.data[0];
+
+  if (isLoading) return <div className="bg-[#78f44f38] w-full h-screen"></div>;
+
   return (
-    <section className="pt-10 h-screen bg-[#4f9ff41d]" id="home">
+    <section className="pt-10 h-screen banner" id="home">
       <div className="container h-full">
         <div className="h-full flex justify-center items-center">
           <div className="grid lg:grid-cols-2 gap-6 items-center">
             <div>
               <h2 className="text-xl sm:text-2xl text-secondary">
-                Oxygen Cilinder
+                {banner?.title}
               </h2>
               <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold my-1 sm:my-3 text-neutral">
-                Do You Need Medical Oxygen?
+                {banner?.subTitle}
               </h2>
               <p className="text-sm sm:text-[15px] text-neutral-content">
-                Are you looking for natural solutions to all your hair problems?
-                Then our non-sticky &quot;Magical Hair Well&quot; made with
-                all-natural ingredients is just for you.
+                {banner?.description}
               </p>
               <div className="mt-4 flex items-center gap-4 text-sm sm:text-[15px]">
                 <a href="#product" className="primary_btn">
@@ -31,7 +36,9 @@ export default function Banner() {
 
             <div className="">
               <img
-                src="/images/banner/oxygen_cilinder.png"
+                src={`${import.meta.env.VITE_BACKEND_URL}/banner/${
+                  banner?.image
+                }`}
                 alt=""
                 className="w-[75%] sm:w-[88%] mx-auto sm:ml-auto"
               />

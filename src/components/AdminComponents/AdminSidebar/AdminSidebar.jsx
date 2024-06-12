@@ -8,6 +8,7 @@ import { RiAdminFill } from "react-icons/ri";
 import { IoMdSettings } from "react-icons/io";
 import SidebarItems from "./SidebarItems";
 import { FiMonitor } from "react-icons/fi";
+import { FaCartPlus } from "react-icons/fa";
 
 const adminSidebarItems = [
   {
@@ -24,6 +25,20 @@ const adminSidebarItems = [
     icon: <MdHomeRepairService />,
     title: "Rental",
     path: "/admin/rental/all",
+  },
+  {
+    icon: <FaCartPlus />,
+    title: "Orders",
+    subMenu: [
+      {
+        title: "Orders",
+        path: "/admin/orders",
+      },
+      {
+        title: "Rent Orders",
+        path: "/admin/rent-orders",
+      },
+    ],
   },
   {
     icon: <RiAdminFill />,
@@ -60,10 +75,10 @@ const adminSidebarItems = [
         title: "Contact",
         path: "/admin/general-setting/contact",
       },
-      // {
-      //   title: "SEO",
-      //   path: "/admin/general-setting/seo",
-      // },
+      {
+        title: "SEO",
+        path: "/admin/general-setting/seo",
+      },
     ],
   },
 ];

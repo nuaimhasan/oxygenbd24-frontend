@@ -8,26 +8,21 @@ import {
 } from "../../../../Redux/seo/seoApi";
 
 export default function SEO() {
-  const { data, isLoading } = useGetSEOQuery();
+  const { data } = useGetSEOQuery();
   const seo = data?.data[0];
   const id = seo?._id;
+
+  const [keyword, setKeyword] = useState("");
+  const [keywords, setKeywords] = useState([]);
 
   const [addSEO, { isLoading: addIsLoading }] = useAddSEOMutation();
   const [updateSEO, { isLoading: upIsLoading }] = useUpdateSEOMutation();
 
-  const [keywords, setKeywords] = useState(seo?.keywords || []);
-  const [keyword, setKeyword] = useState("");
-
   useEffect(() => {
-    if (!isLoading) {
+    if (id) {
       setKeywords(seo?.keywords);
     }
-  }, [seo?.keywords, isLoading]);
-
-  const handleAddKeyword = () => {
-    setKeywords([...keywords, keyword]);
-    setKeyword("");
-  };
+  }, [seo?.keywords, id]);
 
   const handleRemoveKeyword = (index) => {
     const newKeywords = [...keywords];
@@ -38,12 +33,14 @@ export default function SEO() {
   const handleSEOSetting = async (e) => {
     e.preventDefault();
     const form = e.target;
+    const title = form.title.value;
     const author = form.author.value;
     const sitemapLink = form.sitemapLink.value;
     const metaContent = form.metaContent.value;
     const description = form.description.value;
 
     const data = {
+      title,
       keywords,
       author,
       sitemapLink,
@@ -81,8 +78,18 @@ export default function SEO() {
         {/*  */}
         <div className="flex flex-col gap-3 text-sm">
           <div>
+            <p className="mb-1">Title</p>
+            <input
+              type="text"
+              name="title"
+              defaultValue={seo?.title}
+              required
+            />
+          </div>
+
+          <div>
             <p className="mb-1">Keywords</p>
-            <div className="flex items-center">
+            <div className="flex items-center gap-1">
               <input
                 type="text"
                 name="size"
@@ -91,7 +98,10 @@ export default function SEO() {
                 onChange={(e) => setKeyword(e.target.value)}
               />
               <div
-                onClick={handleAddKeyword}
+                onClick={() => {
+                  setKeywords([...keywords, keyword]);
+                  setKeyword("");
+                }}
                 className="w-10 h-[34px] rounded bg-primary text-base-100 flex justify-center items-center cursor-pointer mt-px"
               >
                 +
@@ -144,6 +154,7 @@ export default function SEO() {
               name="description"
               rows="2"
               defaultValue={seo?.description}
+              required
             ></textarea>
           </div>
         </div>

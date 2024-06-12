@@ -1,11 +1,14 @@
 import "./Header.css";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
+import { useGetLogosQuery } from "../../Redux/logo/logoApi";
 
 export default function Header() {
   const [mobileMenu, setmobileMenu] = useState(false);
   const [activeHeader, setActiveHeader] = useState(false);
+  const { data, isLoading } = useGetLogosQuery();
+  const logo = data?.data[0]?.logo;
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -30,24 +33,20 @@ export default function Header() {
 
   return (
     <header
-      className={`py-2 2xl:py-0 w-full fixed top-0 z-50 ${
-        activeHeader && "bg-[var(--primary)] activeHeader"
+      className={`py-1 xl:py-0 w-full fixed top-0 z-50 ${
+        activeHeader && "bg-[#fffffff5] shadow activeHeader"
       }`}
     >
       <div className="container relative">
         <div className="header">
           <Link to="/">
-            {activeHeader ? (
-              <img
-                src="/images/logo/oxygenbd24-logo-light.png"
-                alt="logo"
-                className="w-40 sm:w-44"
-              />
+            {isLoading ? (
+              <img src="/images/logo/logo.png" alt="logo" className="w-36" />
             ) : (
               <img
-                src="/images/logo/logo.png"
+                src={`${import.meta.env.VITE_BACKEND_URL}/logo/${logo}`}
                 alt="logo"
-                className="w-40 sm:w-44"
+                className="w-36 h-14"
               />
             )}
           </Link>
@@ -69,14 +68,7 @@ export default function Header() {
 
             <ul className={`${mobileMenu && "show"}`}>
               <li>
-                <a
-                  href="#home"
-                  className={`text-primary  ${
-                    activeHeader && "sm:text-base-100"
-                  }`}
-                >
-                  Home
-                </a>
+                <NavLink to="/">Home</NavLink>
               </li>
               <li>
                 <a href="#product">Product</a>

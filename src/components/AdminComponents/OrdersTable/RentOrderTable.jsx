@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import Spinner from "../../Spinner/Spinner";
 import {
-  useDeleteOrderMutation,
-  useGetAllOrdersQuery,
-} from "../../../Redux/order/orderApi";
+  useGetAllRentOrdersQuery,
+  useDeleteRentOrderMutation,
+} from "../../../Redux/rentOrder/rentOrderApi.jsx";
 
-export default function OrderTable() {
-  const { data, isLoading } = useGetAllOrdersQuery();
-  const [deleteOrder, { isLoading: deleteLoading }] = useDeleteOrderMutation();
+export default function RentOrderTable() {
+  const { data, isLoading } = useGetAllRentOrdersQuery();
+  const [deleteOrder, { isLoading: deleteLoading }] =
+    useDeleteRentOrderMutation();
   if (isLoading) {
     return <Spinner />;
   }
@@ -48,7 +49,7 @@ export default function OrderTable() {
                 <td>
                   <div className="flex gap-3">
                     <Link
-                      to={`/admin/order/${order?._id}`}
+                      to={`/admin/rent/${order?._id}`}
                       className=" hover:text-blue-700"
                     >
                       <GrView />

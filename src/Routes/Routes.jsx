@@ -24,6 +24,11 @@ import EditProduct from "../pages/Admin/Product/EditProduct";
 import RentalLists from "../pages/Admin/Rental/RentalLists";
 import AddRent from "../pages/Admin/Rental/AddRent";
 import EditRent from "../pages/Admin/Rental/EditRent";
+import ProductDetails from "../pages/ProductDetails/ProductDetails";
+import Checkout from "../pages/Chekout/Chekout";
+import Rentorders from "../pages/Admin/Orders/RentOrders";
+import RentCheckout from "../pages/Chekout/RentCheckout";
+import RentOrderDetails from "../pages/Admin/RentOrderDetails/RentOrderDetails";
 
 export const routes = createBrowserRouter([
   {
@@ -33,6 +38,18 @@ export const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/product/:id",
+        element: <ProductDetails />,
+      },
+      {
+        path: "/checkout/:id",
+        element: <Checkout />,
+      },
+      {
+        path: "/rent/checkout/:id",
+        element: <RentCheckout />,
       },
     ],
   },
@@ -95,6 +112,14 @@ export const routes = createBrowserRouter([
       {
         path: "/admin/order/:id",
         element: <OrderDetails />,
+      },
+      {
+        path: "/admin/rent-orders",
+        element: <Rentorders />,
+      },
+      {
+        path: "/admin/rent/:id",
+        element: <RentOrderDetails />,
       },
 
       // Administrator Setting

@@ -1,7 +1,21 @@
 import { Link } from "react-router-dom";
 import "../../Styles/Rent.css";
+import { useGetAllRentsQuery } from "../../Redux/rent/rentApi";
 
 export default function Rental() {
+  const { data, isLoading } = useGetAllRentsQuery();
+  const resnts = data?.data;
+
+  if (isLoading)
+    return (
+      <div className="container grid grid-cols-4 gap-1">
+        <div className="h-[500px] bg-base-100 shadow"></div>
+        <div className="h-[500px] bg-base-100 shadow"></div>
+        <div className="h-[500px] bg-base-100 shadow"></div>
+        <div className="h-[500px] bg-base-100 shadow"></div>
+      </div>
+    );
+
   return (
     <section className="py-10 bg-[#4f9ff40f]">
       <div className="container">
@@ -16,113 +30,32 @@ export default function Rental() {
         </div>
 
         <div className="mt-10 grid grid-cols-4 text-base-100">
-          <div className="rent_card">
-            <h2 className="text-2xl font-semibold">Linde Oxygen(BOC)</h2>
-            <h3 className="text-4xl font-bold">15000৳</h3>
+          {resnts?.map((rent) => (
+            <div key={rent?._id} className="rent_card relative">
+              <h2 className="text-2xl font-semibold">{rent?.title}</h2>
+              <h3 className="text-4xl font-bold">{rent?.price}৳</h3>
 
-            {/* Feature */}
-            <ul className="mt-5 text-center">
-              <li>30 Days</li>
-              <li>Company: Linder</li>
-              <li>Size: Medium/Standard</li>
-              <li>Height: 3 ft</li>
-              <li>Weight: 16 kg</li>
-              <li>Pressure: 2000 Litters+ </li>
-              <li>Backup: Par min 2 liter 12 hours </li>
-              <li>Nasal Cannula/Oxygen Musk </li>
-              <li>Moving Trolley</li>
-              <li>Oxygen Flow Meter</li>
-              <li>Government Approved</li>
-              <li>Free Home Delivery within 1 hour </li>
-            </ul>
+              {/* Feature */}
+              <ul className="mt-5 text-center min-h-[350px]">
+                <li>{rent?.time}</li>
+                <li>Company: {rent?.company}</li>
+                <li>Size: {rent?.size}</li>
+                <li>Height: {rent?.height}</li>
+                <li>Weight: {rent?.weight}</li>
+                <li>Pressure: {rent?.pressure}</li>
+                <li>Backup: {rent?.backup}</li>
+                {rent?.features?.map((feature, i) => (
+                  <li key={i}>{feature}</li>
+                ))}
+              </ul>
 
-            <div className="mt-10 w-full text-center">
-              <Link to="" className="order_btn">
-                Order Now
-              </Link>
+              <div className="absolute bottom-0 mt-10 w-full text-center">
+                <Link to={`/rent/checkout/${rent?._id}`} className="order_btn">
+                  Order Now
+                </Link>
+              </div>
             </div>
-          </div>
-
-          <div className="rent_card">
-            <h2 className="text-2xl font-semibold">Linde Oxygen(BOC)</h2>
-            <h3 className="text-4xl font-bold">15000৳</h3>
-
-            {/* Feature */}
-            <ul className="mt-5 text-center">
-              <li>30 Days</li>
-              <li>Company: Linder</li>
-              <li>Size: Medium/Standard</li>
-              <li>Height: 3 ft</li>
-              <li>Weight: 16 kg</li>
-              <li>Pressure: 2000 Litters+ </li>
-              <li>Backup: Par min 2 liter 12 hours </li>
-              <li>Nasal Cannula/Oxygen Musk </li>
-              <li>Moving Trolley</li>
-              <li>Oxygen Flow Meter</li>
-              <li>Government Approved</li>
-              <li>Free Home Delivery within 1 hour </li>
-            </ul>
-
-            <div className="mt-10 w-full text-center">
-              <Link to="" className="order_btn">
-                Order Now
-              </Link>
-            </div>
-          </div>
-
-          <div className="rent_card">
-            <h2 className="text-2xl font-semibold">Linde Oxygen(BOC)</h2>
-            <h3 className="text-4xl font-bold">15000৳</h3>
-
-            {/* Feature */}
-            <ul className="mt-5 text-center">
-              <li>30 Days</li>
-              <li>Company: Linder</li>
-              <li>Size: Medium/Standard</li>
-              <li>Height: 3 ft</li>
-              <li>Weight: 16 kg</li>
-              <li>Pressure: 2000 Litters+ </li>
-              <li>Backup: Par min 2 liter 12 hours </li>
-              <li>Nasal Cannula/Oxygen Musk </li>
-              <li>Moving Trolley</li>
-              <li>Oxygen Flow Meter</li>
-              <li>Government Approved</li>
-              <li>Free Home Delivery within 1 hour </li>
-            </ul>
-
-            <div className="mt-10 w-full text-center">
-              <Link to="" className="order_btn">
-                Order Now
-              </Link>
-            </div>
-          </div>
-
-          <div className="rent_card">
-            <h2 className="text-2xl font-semibold">Linde Oxygen(BOC)</h2>
-            <h3 className="text-4xl font-bold">15000৳</h3>
-
-            {/* Feature */}
-            <ul className="mt-5 text-center">
-              <li>30 Days</li>
-              <li>Company: Linder</li>
-              <li>Size: Medium/Standard</li>
-              <li>Height: 3 ft</li>
-              <li>Weight: 16 kg</li>
-              <li>Pressure: 2000 Litters+ </li>
-              <li>Backup: Par min 2 liter 12 hours </li>
-              <li>Nasal Cannula/Oxygen Musk </li>
-              <li>Moving Trolley</li>
-              <li>Oxygen Flow Meter</li>
-              <li>Government Approved</li>
-              <li>Free Home Delivery within 1 hour </li>
-            </ul>
-
-            <div className="mt-10 w-full text-center">
-              <Link to="" className="order_btn">
-                Order Now
-              </Link>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

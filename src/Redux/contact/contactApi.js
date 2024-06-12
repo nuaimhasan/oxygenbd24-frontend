@@ -10,19 +10,19 @@ export const contactApi = apiSlice.injectEndpoints({
     }),
 
     addContact: builder.mutation({
-      query: (formData) => ({
+      query: (contactInfo) => ({
         url: `/contact/add`,
         method: "POST",
-        body: formData,
+        body: contactInfo,
       }),
       invalidatesTags: ["contact"],
     }),
 
     updateContact: builder.mutation({
-      query: ({ id, formData }) => ({
+      query: ({ id, contactInfo }) => ({
         url: `/contact/update/${id}`,
         method: "PATCH",
-        body: formData,
+        body: contactInfo,
       }),
       invalidatesTags: ["contact"],
     }),

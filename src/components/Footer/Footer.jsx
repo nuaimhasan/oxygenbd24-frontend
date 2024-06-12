@@ -2,18 +2,32 @@ import { Link } from "react-router-dom";
 import { BiLogoFacebook, BiLogoLinkedin } from "react-icons/bi";
 import { BsTelephone } from "react-icons/bs";
 import { MdOutlineMail, MdOutlineLocationOn } from "react-icons/md";
+import { useGetLogosQuery } from "../../Redux/logo/logoApi";
+import { useGetContactsQuery } from "../../Redux/contact/contactApi";
 
 export default function Footer() {
+  const { data, isLoading } = useGetLogosQuery();
+  const logo = data?.data[0]?.logo;
+
+  const { data: contactData } = useGetContactsQuery();
+  const contact = contactData?.data[0];
+
   return (
-    <footer className="bg-[#4f9ff40f] pt-10 pb-5">
+    <footer className="bg-[#4f9ff428] pt-10 pb-5">
       <div className="container">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 pb-6 sm:pb-14">
           <div>
-            <img
-              src="/images/logo/oxygenbd24-logo.png"
-              alt=""
-              className="w-60"
-            />
+            <Link to="/">
+              {isLoading ? (
+                <img src="/images/logo/logo.png" alt="logo" className="w-36" />
+              ) : (
+                <img
+                  src={`${import.meta.env.VITE_BACKEND_URL}/logo/${logo}`}
+                  alt="logo"
+                  className="w-36"
+                />
+              )}
+            </Link>
             <p className="text-neutral-content text-sm mt-1">
               oxygenbd24 is a magical solution to all hair problems made from
               completely natural ingredients
@@ -45,13 +59,13 @@ export default function Footer() {
               <li>
                 <p className="flex items-center gap-1.5">
                   <BsTelephone />
-                  00000-000000
+                  {contact?.phone}
                 </p>
               </li>
               <li>
                 <p className="flex items-center gap-1.5">
                   <MdOutlineMail />
-                  healypou@gmail.com
+                  {contact?.email}
                 </p>
               </li>
               <li>
@@ -59,7 +73,7 @@ export default function Footer() {
                   <p className="text-lg">
                     <MdOutlineLocationOn />
                   </p>
-                  <p>Gulshan, Dhaka, Bangladesh</p>
+                  <p>{contact?.address}</p>
                 </div>
               </li>
             </ul>
@@ -75,20 +89,20 @@ export default function Footer() {
                 target="_blank"
                 className="underline"
               >
-                eManager Ltd
+                eManager It Ltd
               </Link>
             </p>
 
             <div className="flex gap-3 items-center">
               <Link
-                to=""
+                to={contact?.facebookLink}
                 target="_blank"
                 className="w-7 h-7 rounded-full bg-primary flex justify-center items-center text-base-100 hover:-mt-1 duration-200"
               >
                 <BiLogoFacebook className="text-xl" />
               </Link>
               <Link
-                to=""
+                to={contact?.linkedinLink}
                 target="_blank"
                 className="w-7 h-7 rounded-full bg-primary flex justify-center items-center text-base-100 hover:-mt-1 duration-200"
               >
