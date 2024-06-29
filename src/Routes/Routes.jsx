@@ -1,8 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
-import { lazy } from "react";
+import { Suspense, lazy } from "react";
 
 import MainLayout from "../Layout/MainLayout";
 import Home from "../pages/Home/Home";
+import Spinner from "../components/Spinner/Spinner";
 
 const ProductDetails = lazy(() =>
   import("../pages/ProductDetails/ProductDetails")
@@ -28,12 +29,6 @@ const Rentorders = lazy(() => import("../pages/Admin/Orders/Rentorders"));
 const RentOrderDetails = lazy(() =>
   import("../pages/Admin/RentOrderDetails/RentOrderDetails")
 );
-// import RentOrderDetails from "../pages/Admin/RentOrderDetails/RentOrderDetails";
-// import Rentorders from "../pages/Admin/Orders/RentOrders";
-
-// import Orders from "../pages/Admin/Orders/Orders";
-// import AdminRoute from "../AdminRoute/AdminRoute";
-// import OrderDetails from "../pages/Admin/OrderDetails/OrderDetails";
 
 const Logo = lazy(() => import("../pages/Admin/FrontEndSetting/Logo/Logo"));
 const Favicon = lazy(() =>
@@ -52,15 +47,6 @@ const ContactUs = lazy(() =>
 );
 const SEO = lazy(() => import("../pages/Admin/GeneralSetting/SEO/SEO"));
 
-// import OrderPrint from "../pages/Admin/OrderPrint/OrderPrint";
-// import Logo from "../pages/Admin/FrontEndSetting/Logo/Logo";
-// import Favicon from "../pages/Admin/FrontEndSetting/Favicon/Favicon";
-// import Banner from "../pages/Admin/FrontEndSetting/Banner/Banner";
-
-// import About from "../pages/Admin/GeneralSetting/About/About";
-// import ContactUs from "../pages/Admin/GeneralSetting/ContactUs/ContactUs";
-// import SEO from "../pages/Admin/GeneralSetting/SEO/SEO";
-
 const Administrator = lazy(() =>
   import("../pages/Admin/Administrator/Administrator")
 );
@@ -71,25 +57,13 @@ const EditAdministrator = lazy(() =>
   import("../pages/Admin/Administrator/EditAdministrator")
 );
 
-// import Administrator from "../pages/Admin/Administrator/Administrator";
-// import AddAdministrator from "../pages/Admin/Administrator/AddAdministrator";
-// import EditAdministrator from "../pages/Admin/Administrator/EditAdministrator";
-
 const ProductsList = lazy(() => import("../pages/Admin/Product/ProductsList"));
 const AddProduct = lazy(() => import("../pages/Admin/Product/AddProduct"));
 const EditProduct = lazy(() => import("../pages/Admin/Product/EditProduct"));
 
-// import ProductsList from "../pages/Admin/Product/ProductsList";
-// import AddProduct from "../pages/Admin/Product/AddProduct";
-// import EditProduct from "../pages/Admin/Product/EditProduct";
-
 const RentalLists = lazy(() => import("../pages/Admin/Rental/RentalLists"));
 const AddRent = lazy(() => import("../pages/Admin/Rental/AddRent"));
 const EditRent = lazy(() => import("../pages/Admin/Rental/EditRent"));
-
-// import RentalLists from "../pages/Admin/Rental/RentalLists";
-// import AddRent from "../pages/Admin/Rental/AddRent";
-// import EditRent from "../pages/Admin/Rental/EditRent";
 
 export const routes = createBrowserRouter([
   {
@@ -123,9 +97,11 @@ export const routes = createBrowserRouter([
   {
     path: "/admin",
     element: (
-      <AdminRoute>
-        <AdminLayout />
-      </AdminRoute>
+      <Suspense fallback={<Spinner />}>
+        <AdminRoute>
+          <AdminLayout />
+        </AdminRoute>
+      </Suspense>
     ),
     children: [
       {
