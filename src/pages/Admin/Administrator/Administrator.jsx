@@ -1,5 +1,5 @@
 import { AiOutlineDelete } from "react-icons/ai";
-import { FaEdit } from "react-icons/fa";
+// import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import Spinner from "../../../components/Spinner/Spinner";
@@ -60,7 +60,6 @@ export default function Administrator() {
               <th>User name</th>
               <th>Email</th>
               <th>Phone</th>
-              <th>Role</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -72,12 +71,11 @@ export default function Administrator() {
                 </td>
                 <td>{admin?.email}</td>
                 <td>{admin?.phone}</td>
-                <td>{admin?.role}</td>
                 <td>
                   <div className="flex items-center gap-2">
-                    <Link to={`/admin/administrator/edit/${admin?._id}`}>
+                    {/* <Link to={`/admin/administrator/edit/${admin?._id}`}>
                       <FaEdit className="text-[17px] text-gray-700 hover:text-green-500 duration-200" />
-                    </Link>
+                    </Link> */}
 
                     <button
                       onClick={() => handleDelete(admin?.id)}

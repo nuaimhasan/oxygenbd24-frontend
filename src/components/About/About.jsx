@@ -13,6 +13,7 @@ export default function About() {
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <img
+              loading="lazy"
               src={`${import.meta.env.VITE_BACKEND_URL}/aboutus/${
                 about?.image
               }`}

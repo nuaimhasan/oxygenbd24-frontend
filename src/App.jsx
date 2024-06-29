@@ -4,6 +4,8 @@ import useAuthCheck from "./Hook/useAuthCheck";
 import { Helmet } from "react-helmet-async";
 import { useGetSEOQuery } from "./Redux/seo/seoApi";
 import { useGetFaviconQuery } from "./Redux/favicon/faviconApi";
+import { useEffect } from "react";
+import { useGetThemesQuery } from "./Redux/theme/themeApi";
 
 export default function App() {
   const authChecked = useAuthCheck();
@@ -13,6 +15,21 @@ export default function App() {
 
   const { data: faviconData } = useGetFaviconQuery();
   const favicon = faviconData?.data[0];
+
+  const { data: theme } = useGetThemesQuery();
+  const colors = theme?.data[0];
+
+  useEffect(() => {
+    document.documentElement.style.setProperty("--primary", colors?.primary);
+    document.documentElement.style.setProperty(
+      "--secondary",
+      colors?.secondary
+    );
+    document.documentElement.style.setProperty(
+      "--accent",
+      colors?.accent ? colors?.accent : "#041f38"
+    );
+  }, [colors]);
 
   if (!authChecked) {
     return <p>Loading...</p>;

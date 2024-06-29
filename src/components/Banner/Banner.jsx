@@ -36,6 +36,7 @@ export default function Banner() {
 
             <div className="">
               <img
+                loading="lazy"
                 src={`${import.meta.env.VITE_BACKEND_URL}/banner/${
                   banner?.image
                 }`}

@@ -4,6 +4,7 @@ export default function ProductCard({ product }) {
   return (
     <div className="product_card shadow rounded border border-primary">
       <img
+        loading="lazy"
         src={`${import.meta.env.VITE_BACKEND_URL}/products/${product?.image}`}
         alt=""
         className="product_img rounded-t h-60 w-full"

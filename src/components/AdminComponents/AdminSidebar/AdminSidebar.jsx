@@ -61,6 +61,10 @@ const adminSidebarItems = [
         title: "Banner",
         path: "/admin/frontend-setting/banner",
       },
+      {
+        title: "Theme",
+        path: "/admin/frontend-setting/theme",
+      },
     ],
   },
   {

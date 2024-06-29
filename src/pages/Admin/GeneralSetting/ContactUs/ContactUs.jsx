@@ -22,14 +22,20 @@ export default function ContactUs() {
     const phone = e.target.phone.value;
     const address = e.target.address.value;
     const facebookLink = e.target.facebookLink.value;
+    const messangerLink = e.target.messangerLink.value;
+    const wpLink = e.target.wpLink.value;
     const linkedinLink = e.target.linkedinLink.value;
+    const youtubeLink = e.target.youtubeLink.value;
 
     const contactInfo = {
       email,
       phone,
       address,
       facebookLink,
+      messangerLink,
+      wpLink,
       linkedinLink,
+      youtubeLink,
     };
 
     if (id) {
@@ -96,11 +102,34 @@ export default function ContactUs() {
           </div>
 
           <div>
+            <p className="mb-1">Messanger Link</p>
+            <input
+              type="text"
+              name="messangerLink"
+              defaultValue={contactUs?.messangerLink}
+            />
+          </div>
+
+          <div>
+            <p className="mb-1">Whatsapp Link</p>
+            <input type="text" name="wpLink" defaultValue={contactUs?.wpLink} />
+          </div>
+
+          <div>
             <p className="mb-1">LinkedIn Link</p>
             <input
               type="text"
               name="linkedinLink"
               defaultValue={contactUs?.linkedinLink}
+            />
+          </div>
+
+          <div>
+            <p className="mb-1">Youtube Link</p>
+            <input
+              type="text"
+              name="youtubeLink"
+              defaultValue={contactUs?.youtubeLink}
             />
           </div>
         </div>

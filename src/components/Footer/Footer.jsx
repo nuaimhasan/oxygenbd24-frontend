@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { BiLogoFacebook, BiLogoLinkedin } from "react-icons/bi";
 import { BsTelephone } from "react-icons/bs";
 import { MdOutlineMail, MdOutlineLocationOn } from "react-icons/md";
+import { FaYoutube } from "react-icons/fa";
+
 import { useGetLogosQuery } from "../../Redux/logo/logoApi";
 import { useGetContactsQuery } from "../../Redux/contact/contactApi";
 
@@ -11,6 +13,8 @@ export default function Footer() {
 
   const { data: contactData } = useGetContactsQuery();
   const contact = contactData?.data[0];
+
+  let currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-[#4f9ff428] pt-10 pb-5">
@@ -79,13 +83,14 @@ export default function Footer() {
         <div className="border-t pt-5">
           <div className="flex justify-between items-center">
             <p className="text-sm font-light">
-              Copyright © 2024 oxygenbd24. All rights reserved. Powered by{" "}
+              Copyright © {currentYear} oxygenbd24. All rights reserved.
+              developed by{" "}
               <Link
                 to="https://emanagerit.com"
                 target="_blank"
                 className="underline"
               >
-                eManager It Ltd
+                eManager
               </Link>
             </p>
 
@@ -103,6 +108,13 @@ export default function Footer() {
                 className="w-7 h-7 rounded-full bg-primary flex justify-center items-center text-base-100 hover:-mt-1 duration-200"
               >
                 <BiLogoLinkedin className="text-xl" />
+              </Link>
+              <Link
+                to={contact?.youtubeLink}
+                target="_blank"
+                className="w-7 h-7 rounded-full bg-primary flex justify-center items-center text-base-100 hover:-mt-1 duration-200"
+              >
+                <FaYoutube className="text-base" />
               </Link>
             </div>
           </div>
